@@ -6,7 +6,7 @@ theme = "book"
 enableGitInfo = true
 
 [params]
-BookSearch = false
+BookSearch = true
 
 [Taxonomies]
   tag = "tags"

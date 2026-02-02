@@ -8,9 +8,9 @@ weight: 10
 
 ## Slides
 
-{{<slides "http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/08_Exceptions.html">}}
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/08_Exceptions.html">}}
 
-[Version imprimable (faire CTRL+P)](http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/08_Exceptions.html?print-pdf)
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/08_Exceptions.html?print-pdf)
 
 ## Exercices
 ### Série 8.1

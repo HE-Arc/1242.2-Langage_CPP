@@ -8,9 +8,9 @@ weight: 10
 
 ## Slides
 
-{{<slides "http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/02_Des_classes_et_des_objets.html">}}
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html">}}
 
-[Version imprimable (faire CTRL+P)](http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/02_Des_classes_et_des_objets.html?print-pdf)
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html?print-pdf)
 
 ## Exercices
 ### Série 2.1
