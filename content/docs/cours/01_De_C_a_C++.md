@@ -8,9 +8,9 @@ weight: 10
 
 ## Slides
 
-{{<slides "http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/01_De_C_a_C++.html">}}
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html">}}
 
-[Version imprimable (faire CTRL+P)](http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/01_De_C_a_C++.html?print-pdf)
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html?print-pdf)
 
 ## Exercices
 {{<pdf "/pdfs/Serie1.pdf">}}

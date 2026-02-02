@@ -45,4 +45,7 @@ Un oral (live coding) de 20 à 30 minutes + un projet individuel de développeme
 
 ## Slides
 
-{{<slides "http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/00_Organisation.html">}}
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html">}}
+
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html?print-pdf)
+

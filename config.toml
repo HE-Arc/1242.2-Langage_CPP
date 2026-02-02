@@ -7,8 +7,6 @@ enableGitInfo = true
 
 [params]
 BookSearch = true
-BookRepo = "https://github.com/benoitlecallennec-hes/template_website_course"
-debugSlides = true
 
 [Taxonomies]
   tag = "tags"
