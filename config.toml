@@ -1,7 +1,7 @@
-baseURL = "https://benoitlecallennec-hes.github.io/template_website_course/"
+baseURL = "https://he-arc.github.io/1242.1-Langage_CPP/"
 relativeURLs = false
 languageCode = "fr"
-title = "HE-Arc | 9999.9 Support de cours"
+title = "HE-Arc 1242.2 Langage CPP"
 theme = "book"
 enableGitInfo = true
 
@@ -21,5 +21,3 @@ lineNos = false
 lineNumbersInTable = true
 noClasses = true
 style = "vs"
-
-  

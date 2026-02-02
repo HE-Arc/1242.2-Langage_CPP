@@ -2,6 +2,7 @@
 title: "Page Template"
 type: docs
 weight: 10
+draft: true
 ---
 # Titre de la page
 {{<teaservideo "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}

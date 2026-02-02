@@ -5,6 +5,7 @@ date: 2023-11-07
 tags : [
     "General", "Exemples"
     ]
+draft: true
 ---
 
 **Cet article liste quelques exemples de site de cours utilisant les fonctionnalités de ce template.**

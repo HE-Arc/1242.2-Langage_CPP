@@ -1,59 +1,48 @@
 ---
-title: 9999.9 Support de cours
+title: 1242.2 Langage CPP
 type: docs
 ---
 
-# 9999.9 Page d'accueil pour le cours
+# 1242.2 Langage CPP
+
+Ce cours est une introduction au langage C++ et à la programmation orientée objet (POO).
+Il est destiné aux étudiants de la filière Ingénierie des Systèmes de Communication (ISC) de la HE-Arc Ingénierie.
 
 ## Horaires et salles
-**Groupe ISC3il-a :** les jeudis de 8h15 à 10h45 en salle NE120.
 
-**Groupe ISC3il-b :** les jeudis de 14h05 à 16h40 en salle NE120.
+### Groupes ISC1c et ISC1d
 
-## Calendrier
-Calendrier sujet à modifications.
+**COURS :** les mardis de 14h05 à 15h50 en salle NE118.
 
-| Semaine | À VOIR / À LIRE / À FAIRE |
-|---------|------------------|
-| #1  | CHAPITRE 0 : INTRODUCTION |
-| #1  | CHAPITRE 1 : CONCEPTS FONDAMENTAUX |
-| #2  | CHAPITRE 2 : --- |
-| #3  | CHAPITRE 3 : --- |
-| #4  | CHAPITRE 4 : --- |
-| #5  | CHAPITRE 5 : --- |
-| #6  | CHAPITRE 6 : --- |
-| #7  | CHAPITRE 7 : --- |
-| #8  | PROJET |
-| #9  | PROJET |
-| #10 | --- |
+**EXERCICES :** les vendredis de 12h30 à 15h50 en salle NE120.
 
-## Contrôle Principal
+## Environnement de développement
+Pour le développement, vous pouvez utiliser l'environnement de développement que vous préférez. 
+Cependant, pour des raisons de compatibilité et de support, nous vous recommandons d'utiliser Visual Studio 2022 Community Edition durant ce cours.
 
-**Jeudi 11 mai 2023 :** CP.
+### Visual Studio 2022 Community Edition
+Vous pouvez télécharger Visual Studio 2022 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
 
-## Projet
+{{< figure src="/images/DownloadVS2022.png#center" width="100%">}}
 
-**Vendredi 12 mai 2023, 23h59 :** rendu final du projet.
+Durant l'installation, il faut choisir "Développement Desktop en C++" :
 
-Ce projet se déroule par groupe de 3.
-Des changements sont toutefois possibles si besoin.
-Le but est de démontrer que vous connaissez les bases en intégrant plusieurs notions de manière pertinente dans un projet global.
+{{< figure src="/images/InstallVS2022.png#center" width="100%">}}
 
-Votre projet doit intégrer une majorité des points importants introduits en cours :
-- Concept #1
-- Concept #2
-- Concept #3
-- Concept #4
-- Concept #5
-- Concept #6
-- Concept #7
 
-  Il est aussi possible d'utiliser d'autres concepts non-abordés en cours.
-Il en sera tenu compte lors de l'évaluation finale du projet.
+## Évaluation
+Un oral (live coding) de 20 à 30 minutes + un projet individuel de développement (jeu).
 
-### À RENDRE
-- **Repo git propre :** il faut pouvoir faire git clone et lancer l'application.
-- **Rapport :** il faut expliquer quoi regarder succinctement.
-Quelques pages suffisent.
-- **Vidéo de démo (avec voix-off et crédits) :** il faut démontrer les principales fonctionnalités de votre projet (2 minutes maximum).
-- **Un exécutable :** on double-clique, ça s'exécute.
+## Ressources
+- C++ Primer, 5th Edition, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Addison-Wesley, 2012.
+- Programming Principles and Practice Using C++, 3rd Edition, Bjarne Stroustrup, 2024.
+- A tour of C++, 4th Edition, Bjarne Stroustrup, Addison-Wesley, 2020.
+- [cppreference.com](http://en.cppreference.com/w/)
+- [Conventions de Codage](/pdfs/Conventions_Codage_CPP_1718-rev5.pdf)
+- [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
+- [C++ FAQ](https://isocpp.org/faq)
+- [C++ Standard](/pdfs/n4849.pdf)
+
+## Slides
+
+{{<slides "http://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-1/1242.2-langage-cpp/1242-2-langage-cpp-slides/00_Organisation.html">}}
