@@ -10,11 +10,32 @@ Il est destiné aux étudiants de la filière Ingénierie des Systèmes de Commu
 
 ## Horaires et salles
 
+### Groupes ISC1a et ISC1b
+Professeur : ???
+
+Assistant : ???
+
+**COURS :** ???
+
+**EXERCICES :** ???
+
 ### Groupes ISC1c et ISC1d
+Professeur : Benoît Le Callennec
 
-**COURS :** les mardis de 14h05 à 15h50 en salle NE118.
+Assistant : Jules Perrelet
 
-**EXERCICES :** les vendredis de 12h30 à 15h50 en salle NE120.
+**COURS :** les mardis de 08h15 à 10h45 en salle NE112.
+
+**EXERCICES :** les mercredis de 12h30 à 14h50 en salle NE126.
+
+### Groupes ISC1j
+Professeur : ???
+
+Assistant : ???
+
+**COURS :** ???
+
+**EXERCICES :** ???
 
 ## Environnement de développement
 Pour le développement, vous pouvez utiliser l'environnement de développement que vous préférez. 
@@ -48,4 +69,3 @@ Un oral (live coding) de 20 à 30 minutes + un projet individuel de développeme
 {{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html">}}
 
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html?print-pdf)
-

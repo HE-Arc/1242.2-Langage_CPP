@@ -14,10 +14,10 @@ weight: 10
 
 ## Exercices
 ### Série 5.1
-{{<pdf "/pdfs/Serie5_1.pdf">}}
+{{<pdf src="/pdfs/Serie5_1.pdf">}}
 
 ### Série 5.2
-{{<pdf "/pdfs/Serie5_2.pdf">}}
+{{<pdf src="/pdfs/Serie5_2.pdf">}}
 
 ## Solutions
 [Serie5_1_SOLUTIONS](/zips/Serie5_1_SOLUTIONS.zip)

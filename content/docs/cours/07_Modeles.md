@@ -14,10 +14,10 @@ weight: 10
 
 ## Exercices
 ### Série 7.1
-{{<pdf "/pdfs/Serie7_1.pdf">}}
+{{<pdf src="/pdfs/Serie7_1.pdf">}}
 
 ### Série 7.2
-{{<pdf "/pdfs/Serie7_2.pdf">}}
+{{<pdf src="/pdfs/Serie7_2.pdf">}}
 
 ## Solutions
 [Serie7_1_SOLUTIONS](/zips/Serie7_1_SOLUTIONS.zip)

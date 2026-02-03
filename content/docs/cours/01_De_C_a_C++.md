@@ -13,7 +13,7 @@ weight: 10
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html?print-pdf)
 
 ## Exercices
-{{<pdf "/pdfs/Serie1.pdf">}}
+{{<pdf src="/pdfs/Serie1.pdf">}}
 
 ## Solutions
 [Serie1_SOLUTIONS](/zips/Serie1_SOLUTIONS.zip)

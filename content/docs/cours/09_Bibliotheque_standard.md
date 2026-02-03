@@ -14,16 +14,16 @@ weight: 10
 
 ## Exercices
 ### Série 9.1
-{{<pdf "/pdfs/Serie9_1.pdf">}}
+{{<pdf src="/pdfs/Serie9_1.pdf">}}
 
 ### Série 9.2
-{{<pdf "/pdfs/Serie9_2.pdf">}}
+{{<pdf src="/pdfs/Serie9_2.pdf">}}
 
 ### Série 9.3
-{{<pdf "/pdfs/Serie9_3.pdf">}}
+{{<pdf src="/pdfs/Serie9_3.pdf">}}
 
 ### Série 9.4
-{{<pdf "/pdfs/Serie9_4.pdf">}}
+{{<pdf src="/pdfs/Serie9_4.pdf">}}
 
 ### Série 9.5
-{{<pdf "/pdfs/Serie9_5.pdf">}}
+{{<pdf src="/pdfs/Serie9_5.pdf">}}
