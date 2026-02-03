@@ -2,6 +2,7 @@
 title: "Page Template"
 type: docs
 weight: 10
+draft: true
 ---
 # Titre de la page
 {{<teaservideo "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
@@ -270,6 +271,8 @@ On peut aussi mettre des équations sur des lignes séparées :
  {{<katex>}} x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} {{</katex>}}
 
 ## Code
+
+### Directement dans le texte
 On peut mettre du code directement dans le texte : **`int i = 0;`**.
 
 On peut aussi mettre du code avec des lignes en surbrillance :
@@ -293,6 +296,40 @@ public class HelloWorld : MonoBehaviour
     }
 }
 {{< / highlight >}}
+
+### Avec un fichier de snippet
+On peut inclure des snippets de code depuis des fichiers sources.
+
+**Code**
+<!-- We must use inline code to prevent the preprocessor from interpreting the line -->
+`<!-- SNIPPET:INCLUDE source_file=hello.c id=hello_world -->`
+  
+Ensuite, il faut exécuter le préprocesseur Hugo pour inclure le code :
+```powerhell
+python .\tools\hugo_preprocessor.py
+```
+
+**Affichage**
+<!-- SNIPPET:BEGIN source_file=hello.c id=hello_world -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```c
+int main(void)
+{
+	printf("Hello World\n");
+
+	return 0;
+}
+```
+<!-- SNIPPET:END -->
+<br><br>
+
+On peut aussi nettoyer le code automatiquement inclus et revenir à la balise de snippet d'origine grâce à la commande suivante :
+```powerhell
+python .\tools\hugo_preprocessor.py clean
+```
 
 ## Listes
 
