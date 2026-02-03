@@ -15,11 +15,12 @@ weight: 10
 
 ## Exercices
 ### Série 3.1
-{{<pdf "/pdfs/Serie3_1.pdf">}}
+{{<pdf src="/pdfs/Serie3_1.pdf">}}
 
 
 ### Série 3.2
-{{<pdf "/pdfs/Serie3_2.pdf">}}
+{{<pdf src="/pdfs/Serie3_2.pdf">}}
+
 
 ## Solutions
 [Serie3_1_SOLUTIONS](/zips/Serie3_1_SOLUTIONS.zip)

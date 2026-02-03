@@ -14,10 +14,10 @@ weight: 10
 
 ## Exercices
 ### Série 8.1
-{{<pdf "/pdfs/Serie8_1.pdf">}}
+{{<pdf src="/pdfs/Serie8_1.pdf">}}
 
 ### Série 8.2
-{{<pdf "/pdfs/Serie8_2.pdf">}}
+{{<pdf src="/pdfs/Serie8_2.pdf">}}
 
 ## Solutions
 [Serie8_1_SOLUTIONS](/zips/Serie8_1_SOLUTIONS.zip)

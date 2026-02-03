@@ -14,13 +14,13 @@ weight: 10
 
 ## Exercices
 ### Série 4.1
-{{<pdf "/pdfs/Serie4_1.pdf">}}
+{{<pdf src="/pdfs/Serie4_1.pdf">}}
 
 ### Série 4.2
-{{<pdf "/pdfs/Serie4_2.pdf">}}
+{{<pdf src="/pdfs/Serie4_2.pdf">}}
 
 ### Série 4.3
-{{<pdf "/pdfs/Serie4_3.pdf">}}
+{{<pdf src="/pdfs/Serie4_3.pdf">}}
 
 ## Solutions
 [Serie4_1_SOLUTIONS](/zips/Serie4_1_SOLUTIONS.zip)
