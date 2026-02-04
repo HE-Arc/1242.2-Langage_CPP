@@ -315,6 +315,11 @@ class Hero {
 skin rose
 skinparam classAttributeIconSize 0
 class Hero {
+   - sstrength : int
+   - agility : int
+   - intelligence : int
+   - hp : double
+   - name : std::string
 
 - strength : int
 - agility : int

@@ -2,11 +2,8 @@
 title: "Calendrier"
 type: docs
 weight: 0
+draft: true
 ---
-
-# Calendrier
-
-Le calendrier est donné à titre indicatif et sujet à modifications.
 
 ## Semaine 1
 ### Cours
@@ -112,25 +109,3 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 - Fil Rouge
 {{</a_faire>}}
 
-
-## Résumé du planning
-| Semaine | Cours |
-|---------|-------|
-| #1  | 0. Introduction |
-| #1  | 1. De C à C++ |
-| #2  | 2. Classes et objets |
-| #3  | 3. Surcharge des opérateurs |
-| #4  | 4. Héritage et polymorphisme | 
-| #5  | 4. Répétition |
-| #6  | 5. Opérateurs de transtypage et RTTI | 
-| #7  | 7. Modèles (templates) |
-| #8  | 8. Gestion des exceptions |
-| #9  | 9. Bibliothèque standard |
-| #10 | Vacances de printemps |
-| #11 | TBD |
-| #12 | TBD |
-| #13 | TBD |
-| #14 | TBD |
-| #15 | Semaine de travail autonome |
-| #16 | TBD |
-| #17 | TBD |
