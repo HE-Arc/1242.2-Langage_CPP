@@ -183,7 +183,7 @@ class Hero {
 skin rose
 skinparam classAttributeIconSize 0
 class Hero {
-   - strength : int
+   - sstrength : int
    - agility : int
    - intelligence : int
    - hp : double
