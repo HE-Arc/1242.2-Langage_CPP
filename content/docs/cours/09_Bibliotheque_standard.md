@@ -8,8 +8,6 @@ weight: 10
 
 ## Slides
 
-{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/09_Bibliotheque_standard.html">}}
-
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/09_Bibliotheque_standard.html?print-pdf)
 
 ## Exercices
