@@ -2,7 +2,7 @@
   {{- $slides := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
   {{- $seen := .Page.Scratch.Get "reveal_seen" | default (dict) -}}
 
-  {{- $body := .Page.RenderString (dict "display" "block") .Inner -}}
+{{- $body := .Page.RenderString (dict "display" "block" "renderShortcodes" true) .Inner -}}
 
   {{- $class := .Get "class" | default "" -}}
   {{- $attr := "" -}}
