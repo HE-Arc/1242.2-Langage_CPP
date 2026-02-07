@@ -1,7 +1,7 @@
 {{- $lang := .Type | default "" -}}
 {{- $code := .Inner -}}
 
-{{- if .Page.Scratch.Get "RENDERING_SLIDES" -}}
+{{- if hugo.Store.Get "RENDERING_SLIDES" -}}
   {{- $class := "" -}}
   {{- with $lang -}}
     {{- $class = printf ` class="language-%s"` . -}}

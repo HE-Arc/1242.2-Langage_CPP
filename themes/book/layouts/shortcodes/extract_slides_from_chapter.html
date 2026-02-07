@@ -49,18 +49,19 @@
   -}}
 {{- end -}}
 
-{{- $src.Scratch.Set "RENDERING_SLIDES" true -}}
-{{- $src.Scratch.Set "reveal_slides" (slice) -}}
-{{- $src.Scratch.Set "reveal_seen" (dict) -}}
+{{- hugo.Store.Set "RENDERING_SLIDES" true -}}
+{{- hugo.Store.Set "reveal_slides" (slice) -}}
+{{- hugo.Store.Set "reveal_seen" (dict) -}}
 
 {{- $noop := $src.Content -}}
 
-{{- $collected := $src.Scratch.Get "reveal_slides" | default (slice) -}}
+{{- $collected := hugo.Store.Get "reveal_slides" | default (slice) -}}
 {{- if eq (len $collected) 0 -}}
   {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q)" $src.File.Path .Page.File.Path -}}
 {{- end -}}
 
 {{- .Page.Scratch.Set "reveal_slides" $collected -}}
 
-{{- $src.Scratch.Delete "RENDERING_SLIDES" -}}
-{{- $src.Scratch.Delete "reveal_seen" -}}
+{{- hugo.Store.Delete "RENDERING_SLIDES" -}}
+{{- hugo.Store.Delete "reveal_slides" -}}
+{{- hugo.Store.Delete "reveal_seen" -}}
