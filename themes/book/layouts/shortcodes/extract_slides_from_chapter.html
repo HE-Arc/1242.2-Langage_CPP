@@ -51,15 +51,16 @@
 
 {{- $src.Scratch.Set "RENDERING_SLIDES" true -}}
 {{- $src.Scratch.Set "reveal_slides" (slice) -}}
+{{- $src.Scratch.Set "reveal_seen" (dict) -}}
 
-{{- $noop := $src.RenderString (dict "display" "block" "renderShortcodes" true) $src.RawContent -}}
+{{- $noop := $src.Content -}}
 
 {{- $collected := $src.Scratch.Get "reveal_slides" | default (slice) -}}
 {{- if eq (len $collected) 0 -}}
-  {{- errorf "extract_slides_from_chapter: 0 slides collected from source=%q (derived=%q). This usually means RenderString did not execute shortcodes in CI." $src.File.Path $srcPath -}}
+  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q)" $src.File.Path .Page.File.Path -}}
 {{- end -}}
 
-{{- .Page.Scratch.Set "reveal_slides" ($src.Scratch.Get "reveal_slides" | default (slice)) -}}
+{{- .Page.Scratch.Set "reveal_slides" $collected -}}
 
 {{- $src.Scratch.Delete "RENDERING_SLIDES" -}}
-
+{{- $src.Scratch.Delete "reveal_seen" -}}
