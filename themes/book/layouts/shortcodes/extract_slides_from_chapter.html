@@ -27,32 +27,6 @@
 {{- end -}}
 
 {{- $src := false -}}
-{{- $hit := "" -}}
-
-{{- range $try -}}
-  {{- if not $src -}}
-    {{- $p := . -}}
-    {{- $tmp := site.GetPage $p -}}
-    {{- if $tmp -}}
-      {{- $src = $tmp -}}
-      {{- $hit = $p -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
-{{- if not $src -}}
-  {{- errorf
-      "extract_slides_from_chapter: source page not found.\nslides_file: %q\nbase: %q\ndir: %q\nsrcBase: %q\nderived_srcPath: %q\ntried:\n- %s"
-      .Page.File.Path
-      $base
-      $dir
-      $srcBase
-      $srcPath
-      (delimit $try "\n- ")
-  -}}
-{{- end -}}
-
-{{- $src := false -}}
 {{- range $try -}}
   {{- if not $src -}}
     {{- $p := . -}}
@@ -75,42 +49,11 @@
   -}}
 {{- end -}}
 
-{{- $deckID := replace .Page.File.Path "\\" "/" -}}
-{{- $chapterID := replace $src.File.Path "\\" "/" -}}
+{{- $src.Scratch.Set "RENDERING_SLIDES" true -}}
+{{- $src.Scratch.Set "reveal_slides" (slice) -}}
 
-{{- $flagKey := printf "RENDERING_SLIDES::%s" $deckID -}}
-{{- $bufKey  := printf "REVEAL_SLIDES::%s" $deckID -}}
-{{- $mapKey  := printf "CHAPTER2DECK::%s" $chapterID -}}
+{{- $noop := $src.RenderString (dict "display" "block") $src.RawContent -}}
 
-{{- hugo.Store.Set $mapKey $deckID -}}
-{{- hugo.Store.Set $flagKey true -}}
-{{- hugo.Store.Set $bufKey (slice) -}}
+{{- .Page.Scratch.Set "reveal_slides" ($src.Scratch.Get "reveal_slides" | default (slice)) -}}
 
-{{- $noop := $src.RenderString (dict "display" "block" "renderShortcodes" true) $src.RawContent -}}
-
-{{- $collected := hugo.Store.Get $bufKey | default (slice) -}}
-
-{{- hugo.Store.Delete $mapKey -}}
-{{- hugo.Store.Delete $flagKey -}}
-{{- hugo.Store.Delete $bufKey -}}
-
-{{- if eq (len $collected) 0 -}}
-  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q)" $src.File.Path .Page.File.Path -}}
-{{- end -}}
-
-{{- $existing := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
-{{- $all := $existing | append $collected -}}
-
-{{- $uniq := slice -}}
-{{- $seen := dict -}}
-{{- range $all -}}
-  {{- $s := . -}}
-  {{- $norm := replaceRE "\\s+" "" $s -}}
-  {{- $h := sha1 $norm -}}
-  {{- if not (index $seen $h) -}}
-    {{- $uniq = $uniq | append $s -}}
-    {{- $seen = merge $seen (dict $h true) -}}
-  {{- end -}}
-{{- end -}}
-
-{{- .Page.Scratch.Set "reveal_slides" $uniq -}}
+{{- $src.Scratch.Delete "RENDERING_SLIDES" -}}

@@ -500,7 +500,6 @@ void Start()
 {{< / highlight >}}
 
 {{< slide class="code-medium" >}}
-
 ## Code
 
 ### Dans le texte

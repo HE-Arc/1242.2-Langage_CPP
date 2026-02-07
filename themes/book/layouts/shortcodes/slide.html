@@ -1,8 +1,23 @@
-{{- $chapterID := replace .Page.File.Path "\\" "/" -}}
-{{- $mapKey := printf "CHAPTER2DECK::%s" $chapterID -}}
-{{- $deckID := hugo.Store.Get $mapKey -}}
-{{- if not $deckID -}}
-  {{- return -}}
+{{- if .Page.Scratch.Get "RENDERING_SLIDES" -}}
+  {{- $slides := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
+  {{- $seen := .Page.Scratch.Get "reveal_seen" | default (dict) -}}
+
+  {{- $body := .Page.RenderString (dict "display" "block") .Inner -}}
+
+  {{- $class := .Get "class" | default "" -}}
+  {{- $attr := "" -}}
+  {{- if $class -}}
+    {{- $attr = printf ` class="%s"` $class -}}
+  {{- end -}}
+
+  {{- $html := printf "<section%s>%s</section>" $attr $body -}}
+
+  {{- $sig := sha1 $html -}}
+  {{- if not (index $seen $sig) -}}
+    {{- $slides = $slides | append $html -}}
+    {{- .Page.Scratch.Set "reveal_slides" $slides -}}
+    {{- .Page.Scratch.Set "reveal_seen" (merge $seen (dict $sig true)) -}}
+  {{- end -}}
 {{- end -}}
 
 {{- $flagKey := printf "RENDERING_SLIDES::%s" $deckID -}}
