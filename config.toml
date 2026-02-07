@@ -6,7 +6,7 @@ theme = "book"
 enableGitInfo = true
 
 [params]
-BookSearch = false
+BookSearch = true
 BookRepo = "https://github.com/benoitlecallennec-hes/template_website_course"
 
 [Taxonomies]
