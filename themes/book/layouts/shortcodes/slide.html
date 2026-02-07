@@ -1,42 +1,27 @@
-{{- if .Site.Params.debugSlides -}}
-  {{- warnf "slide shortcode: invoked in page=%q layout=%q storeFlag=%v class=%q"
-      .Page.File.Path
-      .Page.Layout
-      (hugo.Store.Get "RENDERING_SLIDES")
-      (.Get "class")
-  -}}
-{{- end -}}
-
 {{- if hugo.Store.Get "RENDERING_SLIDES" -}}
+  {{- $deckID := hugo.Store.Get "REVEAL_DECK_ID" | default "NO_DECK" -}}
   {{- $slides := hugo.Store.Get "reveal_slides" | default (slice) -}}
-  {{- $seen := hugo.Store.Get "reveal_seen" | default (dict) -}}
-
-  {{- $body := .Page.RenderString (dict "display" "block" "renderShortcodes" true) .Inner -}}
 
   {{- $class := .Get "class" | default "" -}}
-  {{- $attr := "" -}}
-  {{- if $class -}}
-    {{- $attr = printf ` class="%s"` $class -}}
-  {{- end -}}
+  {{- $inner := strings.TrimSpace .Inner -}}
 
-  {{- $html := printf "<section%s>%s</section>" $attr $body -}}
+  {{- $sig := sha1 (printf "%s|%s" $class $inner) -}}
+  {{- $seenKey := printf "REVEAL_SEEN::%s::%s" $deckID $sig -}}
 
-  {{- $sig := sha1 $html -}}
-  {{- $isNew := not (index $seen $sig) -}}
+  {{- if not (hugo.Store.Get $seenKey) -}}
+    {{- hugo.Store.Set $seenKey true -}}
 
-  {{- if .Site.Params.debugSlides -}}
-    {{- warnf "slide shortcode: storeFlag=true page=%q append=%v htmlLen=%d slidesBefore=%d"
-        .Page.File.Path
-        $isNew
-        (len $html)
-        (len $slides)
-    -}}
-  {{- end -}}
+    {{- $body := .Page.RenderString (dict "display" "block" "renderShortcodes" true) .Inner -}}
 
-  {{- if $isNew -}}
+    {{- $attr := "" -}}
+    {{- if $class -}}
+      {{- $attr = printf ` class="%s"` $class -}}
+    {{- end -}}
+
+    {{- $html := printf "<section%s>%s</section>" $attr $body -}}
+
     {{- $slides = $slides | append $html -}}
     {{- hugo.Store.Set "reveal_slides" $slides -}}
-    {{- hugo.Store.Set "reveal_seen" (merge $seen (dict $sig true)) -}}
   {{- end -}}
 {{- end -}}
 

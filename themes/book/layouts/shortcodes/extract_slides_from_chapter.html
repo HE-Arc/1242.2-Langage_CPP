@@ -5,6 +5,14 @@
   {{- errorf "extract_slides_from_chapter: current page must end with '-SLIDES'. base=%q file=%q dir=%q" $base .Page.File.Path $dir -}}
 {{- end -}}
 
+{{- $deckID := .Page.File.Path -}}
+{{- $doneKey := printf "REVEAL_EXTRACT_DONE::%s" $deckID -}}
+{{- if hugo.Store.Get $doneKey -}}
+  {{- /* prevent duplicate extraction */ -}}
+  {{- return -}}
+{{- end -}}
+{{- hugo.Store.Set $doneKey true -}}
+
 {{- $srcBase := strings.TrimSuffix "-SLIDES" $base -}}
 
 {{- $srcPath := "" -}}
@@ -49,47 +57,37 @@
   -}}
 {{- end -}}
 
-{{- if .Site.Params.debugSlides -}}
-  {{- warnf "extract_slides_from_chapter: slides=%q src=%q (layout slides=%q src.layout=%q) srcPath=%q base=%q dir=%q"
-      .Page.File.Path
-      $src.File.Path
-      .Page.Layout
-      $src.Layout
-      $srcPath
-      $base
-      $dir
-  -}}
-{{- end -}}
-
 {{- hugo.Store.Set "RENDERING_SLIDES" true -}}
+{{- hugo.Store.Set "REVEAL_DECK_ID" $deckID -}}
 {{- hugo.Store.Set "reveal_slides" (slice) -}}
-{{- hugo.Store.Set "reveal_seen" (dict) -}}
-
-{{- if .Site.Params.debugSlides -}}
-  {{- warnf "extract_slides_from_chapter: set store RENDERING_SLIDES=%v" (hugo.Store.Get "RENDERING_SLIDES") -}}
-{{- end -}}
 
 {{- $noop := $src.RenderString (dict "display" "block" "renderShortcodes" true) $src.RawContent -}}
 
-{{- $collected := hugo.Store.Get "reveal_slides" | default (slice) -}}
-
-{{- if .Site.Params.debugSlides -}}
-  {{- warnf "extract_slides_from_chapter: after RenderString collected=%d storeFlag=%v"
-      (len $collected)
-      (hugo.Store.Get "RENDERING_SLIDES")
-  -}}
-{{- end -}}
-
-{{- if eq (len $collected) 0 -}}
-  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q). slide shortcodes were not executed under RenderString." $src.File.Path .Page.File.Path -}}
-{{- end -}}
-
-{{- .Page.Scratch.Set "reveal_slides" $collected -}}
+{{- $new := hugo.Store.Get "reveal_slides" | default (slice) -}}
 
 {{- hugo.Store.Delete "RENDERING_SLIDES" -}}
+{{- hugo.Store.Delete "REVEAL_DECK_ID" -}}
 {{- hugo.Store.Delete "reveal_slides" -}}
-{{- hugo.Store.Delete "reveal_seen" -}}
 
-{{- if .Site.Params.debugSlides -}}
-  {{- warnf "extract_slides_from_chapter: cleared store flags for slides=%q" .Page.File.Path -}}
+{{- if eq (len $new) 0 -}}
+  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q)" $src.File.Path .Page.File.Path -}}
 {{- end -}}
+
+{{- /* Append to existing slides on the deck page (keeps title slide, etc.) */ -}}
+{{- $existing := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
+{{- $all := $existing | append $new -}}
+
+{{- /* Stable dedup: ignore whitespace differences */ -}}
+{{- $uniq := slice -}}
+{{- $seen := dict -}}
+{{- range $all -}}
+  {{- $s := . -}}
+  {{- $norm := replaceRE "\\s+" "" $s -}}
+  {{- $h := sha1 $norm -}}
+  {{- if not (index $seen $h) -}}
+    {{- $uniq = $uniq | append $s -}}
+    {{- $seen = merge $seen (dict $h true) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- .Page.Scratch.Set "reveal_slides" $uniq -}}
