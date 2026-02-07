@@ -2,6 +2,7 @@
 title: "0. Organisation du cours"
 type: docs
 weight: 10
+draft: false
 ---
 
 # Organisation du cours
