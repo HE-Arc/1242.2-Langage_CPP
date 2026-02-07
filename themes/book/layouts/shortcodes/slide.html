@@ -1,22 +1,21 @@
-{{- if .Page.Scratch.Get "RENDERING_SLIDES" -}}
-  {{- $slides := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
-  {{- $seen := .Page.Scratch.Get "reveal_seen" | default (dict) -}}
+{{- if hugo.Store.Get "RENDERING_SLIDES" -}}
+  {{- $slides := hugo.Store.Get "reveal_slides" | default (slice) -}}
+  {{- $seen := hugo.Store.Get "reveal_seen" | default (dict) -}}
 
-{{- $body := .Page.RenderString (dict "display" "block" "renderShortcodes" true) .Inner -}}
+  {{- $body := .Page.RenderString (dict "display" "block" "renderShortcodes" true) .Inner -}}
 
   {{- $class := .Get "class" | default "" -}}
   {{- $attr := "" -}}
   {{- if $class -}}
     {{- $attr = printf ` class="%s"` $class -}}
   {{- end -}}
-
   {{- $html := printf "<section%s>%s</section>" $attr $body -}}
 
   {{- $sig := sha1 $html -}}
   {{- if not (index $seen $sig) -}}
     {{- $slides = $slides | append $html -}}
-    {{- .Page.Scratch.Set "reveal_slides" $slides -}}
-    {{- .Page.Scratch.Set "reveal_seen" (merge $seen (dict $sig true)) -}}
+    {{- hugo.Store.Set "reveal_slides" $slides -}}
+    {{- hugo.Store.Set "reveal_seen" (merge $seen (dict $sig true)) -}}
   {{- end -}}
 {{- end -}}
 
