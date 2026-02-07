@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="4.1_DerivedClasses_3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="1.6623316"
+     inkscape:cx="307.09877"
+     inkscape:cy="215.66094"
+     inkscape:window-width="1920"
+     inkscape:window-height="1177"
+     inkscape:window-x="3832"
+     inkscape:window-y="544"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-style="italic"
+       font-weight="400"
+       font-size="7.75967px"
+       id="text3"
+       x="45.93166"
+       y="25.160418"
+       style="stroke-width:0.242489" />
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-style="italic"
+       font-weight="400"
+       font-size="7.75967px"
+       id="text4"
+       x="26.178455"
+       y="34.375023"
+       style="stroke-width:0.242489" />
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-style="italic"
+       font-weight="400"
+       font-size="7.75967px"
+       id="text5"
+       x="50.621407"
+       y="34.375023"
+       style="stroke-width:0.242489" />
+    <g
+       id="g23"
+       transform="matrix(0.9164958,0,0,0.9164958,8.8242861,0.31000177)">
+      <g
+         id="g21"
+         transform="translate(-38.040526,-59.424253)">
+        <g
+           id="g24"
+           transform="translate(52.205788,0.63665595)">
+          <rect
+             x="54.843182"
+             y="64.070602"
+             width="71.172913"
+             height="12.964583"
+             stroke="#385d8a"
+             stroke-width="0.705556"
+             stroke-linejoin="round"
+             stroke-miterlimit="10"
+             fill="#ffffff"
+             id="rect1"
+             style="stroke:#000000;stroke-opacity:1" />
+          <text
+             font-family="Calibri, Calibri_MSFontService, sans-serif"
+             font-weight="400"
+             font-size="8.46667px"
+             id="text1"
+             x="80.776558"
+             y="72.985817"
+             style="stroke-width:0.264583">Hero</text>
+          <rect
+             x="54.843182"
+             y="76.50602"
+             width="71.172913"
+             height="24.606249"
+             stroke="#385d8a"
+             stroke-width="0.705556"
+             stroke-linejoin="round"
+             stroke-miterlimit="10"
+             fill="#ffffff"
+             id="rect2"
+             style="stroke:#000000;stroke-opacity:1" />
+          <text
+             font-family="Calibri, Calibri_MSFontService, sans-serif"
+             font-style="italic"
+             font-weight="400"
+             font-size="8.46667px"
+             id="text2"
+             x="57.380772"
+             y="86.427895"
+             style="stroke-width:0.264583"><tspan
+               sodipodi:role="line"
+               id="tspan5"
+               x="57.380772"
+               y="86.427895"
+               style="font-weight:bold;fill:#ff0000">attack</tspan><tspan
+               sodipodi:role="line"
+               id="tspan6"
+               x="57.380772"
+               y="97.01123"
+               style="font-weight:bold;fill:#ff0000">defense</tspan></text>
+          <rect
+             x="54.837898"
+             y="100.8424"
+             width="71.183479"
+             height="17.710897"
+             stroke="#385d8a"
+             stroke-width="0.69499"
+             stroke-linejoin="round"
+             stroke-miterlimit="10"
+             fill="#ffffff"
+             id="rect5"
+             style="stroke:#010101;stroke-opacity:1" />
+          <text
+             font-family="Calibri, Calibri_MSFontService, sans-serif"
+             font-weight="400"
+             font-size="8.46667px"
+             id="text6"
+             x="57.235256"
+             y="112.62164"
+             style="stroke-width:0.264583"><tspan
+               sodipodi:role="line"
+               id="tspan14"
+               x="57.235256"
+               y="112.62164"
+               style="font-weight:bold;fill:#ff0000">interact()</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g22"
+       transform="matrix(0.9164958,0,0,0.9164958,-25.451566,-125.05167)">
+      <rect
+         x="31.838198"
+         y="200.11319"
+         width="71.172913"
+         height="12.964583"
+         stroke="#385d8a"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect1-87"
+         style="stroke:#000000;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text1-4"
+         x="54.110794"
+         y="209.50589"
+         style="stroke-width:0.264583">Warrior</text>
+      <rect
+         x="31.838198"
+         y="212.54861"
+         width="71.172913"
+         height="24.606249"
+         stroke="#385d8a"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect2-27"
+         style="stroke:#000000;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text2-7"
+         x="34.375786"
+         y="222.47049"
+         style="stroke-width:0.264583"><tspan
+           sodipodi:role="line"
+           id="tspan5-9"
+           x="34.375786"
+           y="222.47049"
+           style="font-weight:bold;fill:#ff0000">attack</tspan><tspan
+           sodipodi:role="line"
+           id="tspan6-3"
+           x="34.375786"
+           y="233.05383"
+           style="font-weight:bold;fill:#ff0000">defense</tspan></text>
+      <rect
+         x="31.929308"
+         y="236.98138"
+         width="70.990692"
+         height="28.977919"
+         stroke="#385d8a"
+         stroke-width="0.887775"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect5-19"
+         style="stroke:#010101;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text6-8"
+         x="34.23027"
+         y="248.66422"
+         style="stroke-width:0.264583"><tspan
+           sodipodi:role="line"
+           id="tspan7-6"
+           x="34.23027"
+           y="248.66422"><tspan
+             style="font-weight:bold;fill:#ff0000"
+             id="tspan3-5">interact()</tspan></tspan><tspan
+           sodipodi:role="line"
+           id="tspan14-0"
+           x="34.23027"
+           y="259.24756">fight()</tspan></text>
+    </g>
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-style="italic"
+       font-weight="400"
+       font-size="7.75967px"
+       id="text3-1"
+       x="33.479595"
+       y="89.661491"
+       style="stroke-width:0.242489" />
+    <text
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-style="italic"
+       font-weight="400"
+       font-size="7.75967px"
+       id="text5-8"
+       x="38.169342"
+       y="98.876099"
+       style="stroke-width:0.242489" />
+    <g
+       id="g25"
+       transform="translate(0,-9.5250005)">
+      <g
+         id="g14"
+         transform="matrix(0.9164958,0,0,0.9164958,69.162297,-0.88314823)">
+        <rect
+           x="3.2160516"
+           y="75.024277"
+           width="71.172913"
+           height="12.964583"
+           stroke="#385d8a"
+           stroke-width="0.705556"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect1-2"
+           style="stroke:#000000;stroke-opacity:1" />
+        <text
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="8.46667px"
+           id="text1-3"
+           x="25.488653"
+           y="84.416985"
+           style="stroke-width:0.264583">Wizard</text>
+        <rect
+           x="3.2865548"
+           y="87.530197"
+           width="71.031906"
+           height="35.494743"
+           stroke="#385d8a"
+           stroke-width="0.846565"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect2-2"
+           style="stroke:#000000;stroke-opacity:1" />
+        <text
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-style="italic"
+           font-weight="400"
+           font-size="8.46667px"
+           id="text2-2"
+           x="5.7536416"
+           y="97.381569"
+           style="stroke-width:0.264583"><tspan
+             sodipodi:role="line"
+             id="tspan10"
+             x="5.7536416"
+             y="97.381569"
+             style="font-weight:bold;fill:#ff0000">attack</tspan><tspan
+             sodipodi:role="line"
+             id="tspan11"
+             x="5.7536416"
+             y="107.9649"
+             style="font-weight:bold;fill:#ff0000">defense</tspan><tspan
+             sodipodi:role="line"
+             x="5.7536416"
+             y="118.54824"
+             id="tspan12"
+             style="font-weight:bold;fill:#008000">mana</tspan></text>
+        <rect
+           x="3.2160516"
+           y="123.05595"
+           width="71.172913"
+           height="18.25625"
+           stroke="#385d8a"
+           stroke-width="0.705556"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect5-5"
+           style="stroke:#010101;stroke-opacity:1" />
+        <text
+           font-family="Calibri, Calibri_MSFontService, sans-serif"
+           font-weight="400"
+           font-size="8.46667px"
+           id="text6-7"
+           x="5.6081262"
+           y="134.60483"
+           style="stroke-width:0.264583"><tspan
+             sodipodi:role="line"
+             id="tspan4"
+             x="5.6081262"
+             y="134.60483"
+             style="font-weight:bold;fill:#ff0000">interact()</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g16"
+       transform="matrix(0.9164958,0,0,0.9164958,-2.733136,53.749663)">
+      <rect
+         x="81.599556"
+         y="74.665413"
+         width="71.172913"
+         height="12.964583"
+         stroke="#385d8a"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect1-2-2"
+         style="stroke:#000000;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text1-3-7"
+         x="95.318657"
+         y="83.833031"
+         style="stroke-width:0.264583">Necromancer</text>
+      <rect
+         x="81.670067"
+         y="87.171333"
+         width="71.031906"
+         height="35.494743"
+         stroke="#385d8a"
+         stroke-width="0.846565"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect2-2-9"
+         style="stroke:#000000;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-style="italic"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text2-2-5"
+         x="84.137138"
+         y="97.022705"
+         style="stroke-width:0.264583"><tspan
+           sodipodi:role="line"
+           id="tspan10-4"
+           x="84.137138"
+           y="97.022705"
+           style="font-weight:bold;fill:#ff0000">attack</tspan><tspan
+           sodipodi:role="line"
+           id="tspan11-3"
+           x="84.137138"
+           y="107.60604"
+           style="font-weight:bold;fill:#ff0000">defense</tspan><tspan
+           sodipodi:role="line"
+           x="84.137138"
+           y="118.18938"
+           id="tspan12-1"
+           style="font-weight:bold;fill:#008000">mana</tspan></text>
+      <rect
+         x="81.661995"
+         y="122.75951"
+         width="71.04805"
+         height="25.334324"
+         stroke="#385d8a"
+         stroke-width="0.830422"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect5-5-2"
+         style="stroke:#010101;stroke-opacity:1" />
+      <text
+         font-family="Calibri, Calibri_MSFontService, sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text6-7-3"
+         x="83.991631"
+         y="134.24597"
+         style="stroke-width:0.264583"><tspan
+           sodipodi:role="line"
+           id="tspan4-3"
+           x="83.991631"
+           y="134.24597"
+           style="font-weight:bold;fill:#ff0000">interact()</tspan><tspan
+           sodipodi:role="line"
+           x="83.991631"
+           y="144.82932"
+           id="tspan13">riseUndead()</tspan></text>
+    </g>
+    <g
+       id="g20"
+       transform="matrix(0.9164958,0,0,0.9164958,17.671793,54.578253)">
+      <g
+         id="g19">
+        <g
+           id="g18">
+          <g
+             id="g15"
+             transform="translate(51.996222,-0.67527561)">
+            <g
+               id="g2"
+               transform="translate(27.170801,-59.278529)">
+              <rect
+                 x="54.843182"
+                 y="64.070602"
+                 width="71.172913"
+                 height="12.964583"
+                 stroke="#385d8a"
+                 stroke-width="0.705556"
+                 stroke-linejoin="round"
+                 stroke-miterlimit="10"
+                 fill="#ffffff"
+                 id="rect1-8"
+                 style="stroke:#000000;stroke-opacity:1" />
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text1-2"
+                 x="80.717255"
+                 y="73.23822"
+                 style="stroke-width:0.264583">Thief</text>
+              <rect
+                 x="54.843182"
+                 y="76.50602"
+                 width="71.172913"
+                 height="24.606249"
+                 stroke="#385d8a"
+                 stroke-width="0.705556"
+                 stroke-linejoin="round"
+                 stroke-miterlimit="10"
+                 fill="#ffffff"
+                 id="rect2-4"
+                 style="stroke:#000000;stroke-opacity:1" />
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-style="italic"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text2-5"
+                 x="57.380772"
+                 y="86.427895"
+                 style="stroke-width:0.264583"><tspan
+                   sodipodi:role="line"
+                   id="tspan8"
+                   x="57.380772"
+                   y="86.427895"
+                   style="font-weight:bold;fill:#ff0000">attack</tspan><tspan
+                   sodipodi:role="line"
+                   id="tspan9"
+                   x="57.380772"
+                   y="97.01123"
+                   style="font-weight:bold;fill:#ff0000">defense</tspan></text>
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-style="italic"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text3-5"
+                 x="78.933739"
+                 y="86.427895"
+                 style="stroke-width:0.264583" />
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-style="italic"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text4-1"
+                 x="57.380772"
+                 y="96.482063"
+                 style="stroke-width:0.264583" />
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-style="italic"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text5-7"
+                 x="84.050781"
+                 y="96.482063"
+                 style="stroke-width:0.264583" />
+              <rect
+                 x="54.938587"
+                 y="100.94308"
+                 width="70.982101"
+                 height="29.545126"
+                 stroke="#385d8a"
+                 stroke-width="0.896367"
+                 stroke-linejoin="round"
+                 stroke-miterlimit="10"
+                 fill="#ffffff"
+                 id="rect5-1"
+                 style="stroke:#010101;stroke-opacity:1" />
+              <text
+                 font-family="Calibri, Calibri_MSFontService, sans-serif"
+                 font-weight="400"
+                 font-size="8.46667px"
+                 id="text6-1"
+                 x="57.235256"
+                 y="112.62164"
+                 style="stroke-width:0.264583"><tspan
+                   sodipodi:role="line"
+                   id="tspan1"
+                   x="57.235256"
+                   y="112.62164"
+                   style="font-weight:bold;fill:#ff0000">interact()</tspan><tspan
+                   sodipodi:role="line"
+                   id="tspan2"
+                   x="57.235256"
+                   y="123.20498">steal()</tspan></text>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

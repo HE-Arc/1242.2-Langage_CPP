@@ -8,6 +8,10 @@ weight: 10
 
 ## Slides
 
+{{<slide>}}
+fdasfdsafsd
+{{</slide>}}
+
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html?print-pdf)
 
 ## Exercices

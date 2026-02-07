@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   sodipodi:docname="4.1_GeneralisationSpecialisation.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.83116582"
+     inkscape:cx="1.804694"
+     inkscape:cy="542.00978"
+     inkscape:window-width="1920"
+     inkscape:window-height="1177"
+     inkscape:window-x="3832"
+     inkscape:window-y="544"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <filter
+       id="fx0"
+       x="-10%"
+       y="-10%"
+       width="120%"
+       height="120%"
+       filterUnits="userSpaceOnUse"
+       primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer
+         color-interpolation-filters="sRGB"
+         id="feComponentTransfer1">
+        <feFuncR
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncR1" />
+        <feFuncG
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncG1" />
+        <feFuncB
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncB1" />
+        <feFuncA
+           type="linear"
+           slope="0.431373"
+           intercept="0"
+           id="feFuncA1" />
+      </feComponentTransfer>
+      <feGaussianBlur
+         stdDeviation="0.669874 0.669874"
+         id="feGaussianBlur1" />
+    </filter>
+    <clipPath
+       id="clip1">
+      <rect
+         x="18"
+         y="22"
+         width="29"
+         height="192"
+         id="rect1" />
+    </clipPath>
+    <filter
+       id="fx0-6"
+       x="-10%"
+       y="-10%"
+       width="120%"
+       height="120%"
+       filterUnits="userSpaceOnUse"
+       primitiveUnits="userSpaceOnUse">
+      <feComponentTransfer
+         color-interpolation-filters="sRGB"
+         id="feComponentTransfer1-0">
+        <feFuncR
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncR1-2" />
+        <feFuncG
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncG1-4" />
+        <feFuncB
+           type="discrete"
+           tableValues="0 0"
+           id="feFuncB1-8" />
+        <feFuncA
+           type="linear"
+           slope="0.431373"
+           intercept="0"
+           id="feFuncA1-6" />
+      </feComponentTransfer>
+      <feGaussianBlur
+         stdDeviation="0.669874 0.669874"
+         id="feGaussianBlur1-5" />
+    </filter>
+    <clipPath
+       id="clip1-0">
+      <rect
+         x="22"
+         y="21"
+         width="34"
+         height="181"
+         id="rect1-9" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g4"
+       transform="translate(-5.8208336)">
+      <rect
+         x="6.7965059"
+         y="79.163979"
+         width="87.57708"
+         height="26.19375"
+         stroke="#385d8a"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect2"
+         style="fill:none;stroke:#000000;stroke-opacity:1" />
+      <rect
+         x="27.433979"
+         y="8.5202265"
+         width="52.122917"
+         height="16.139584"
+         stroke="#000000"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect3" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text3"
+         x="40.650448"
+         y="19.500435"
+         style="stroke-width:0.264583">Animal</text>
+      <rect
+         x="27.433979"
+         y="32.861893"
+         width="52.122917"
+         height="16.139584"
+         stroke="#000000"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect4" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text4"
+         x="32.646801"
+         y="43.842102"
+         style="stroke-width:0.264583">Quadrupède</text>
+      <path
+         d="m 53.539535,32.812946 1.6e-5,-5.110534 h -0.61736 l -1.8e-5,5.110532 z m 1.455225,-4.757738 -1.763878,-3.527796 -1.763902,3.527769 z"
+         fill="#ff0000"
+         id="path4"
+         style="stroke-width:0.264583" />
+      <rect
+         x="27.433979"
+         y="57.20356"
+         width="52.122917"
+         height="15.875"
+         stroke="#000000"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect5" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text5"
+         x="44.641155"
+         y="68.183769"
+         style="stroke-width:0.264583">Félin</text>
+      <path
+         d="m 53.539535,57.065977 1.6e-5,-5.021846 h -0.61736 l -1.8e-5,5.021844 z m 1.455225,-4.66905 -1.763878,-3.527795 -1.763902,3.527795 z"
+         fill="#ff0000"
+         id="path5"
+         style="stroke-width:0.264583" />
+      <rect
+         x="17.909006"
+         y="84.98481"
+         width="32.279167"
+         height="15.875"
+         stroke="#000000"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect6" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text6"
+         x="25.818699"
+         y="95.965019"
+         style="stroke-width:0.264583">Chat</text>
+      <path
+         d="m 34.137883,84.920814 9.191972,-9.480108 -0.443204,-0.429763 -9.191992,9.480119 z m 9.991146,-8.213865 1.189381,-3.760576 -3.722079,1.304846 z"
+         fill="#ff0000"
+         id="path6"
+         style="stroke-width:0.264583" />
+      <rect
+         x="53.363144"
+         y="84.98481"
+         width="30.427082"
+         height="15.875"
+         stroke="#000000"
+         stroke-width="0.705556"
+         stroke-linejoin="round"
+         stroke-miterlimit="10"
+         fill="#ffffff"
+         id="rect7" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text7"
+         x="58.8895"
+         y="95.965019"
+         style="stroke-width:0.264583">Puma</text>
+      <path
+         d="m 68.270829,84.890882 -10.039879,-9.534525 0.425185,-0.447675 10.039879,9.534525 z m -10.786004,-8.236215 -1.343554,-3.7084 3.772693,1.150144 z"
+         fill="#ff0000"
+         id="path7"
+         style="stroke-width:0.264583" />
+    </g>
+    <g
+       id="g2"
+       transform="translate(45.21085,-134.33441)">
+      <path
+         d="m 38.544274,227.7647 v -67.89573 h -4.855489 l 9.710976,-12.68759 9.710975,12.68759 h -4.85548 v 67.89573 z"
+         stroke="#385d8a"
+         stroke-width="0.799997"
+         stroke-miterlimit="8"
+         fill="#4f81bd"
+         fill-rule="evenodd"
+         id="path8"
+         style="fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-opacity:1" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text3-13"
+         x="-224.43344"
+         y="46.248207"
+         style="font-weight:400;font-size:8.46667px;font-family:'Times New Roman', 'Times New Roman_MSFontService', sans-serif;stroke-width:0.264583"
+         transform="rotate(-90)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+           id="tspan2">GÉNÉRALISATION</tspan></text>
+    </g>
+    <text
+       fill="#ffffff"
+       font-family="Calibri, Calibri_MSFontService, sans-serif"
+       font-weight="400"
+       font-size="8.46667px"
+       transform="rotate(-90)"
+       id="text10"
+       x="-74.798347"
+       y="92.61911"
+       style="font-weight:400;font-size:8.46667px;font-family:Calibri, Calibri_MSFontService, sans-serif;fill:#ffffff;stroke-width:0.264583"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46667px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000"
+         id="tspan1" /></text>
+    <g
+       id="g5"
+       transform="translate(-4.2333335)">
+      <g
+         transform="matrix(0.26458333,0,0,0.26458333,95.671678,-56.563318)"
+         id="g11-0">
+        <rect
+           x="74.500099"
+           y="222.5"
+           width="331"
+           height="99"
+           stroke="#385d8a"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect2-0"
+           style="stroke:#000000;stroke-opacity:1" />
+        <rect
+           x="130.5"
+           y="245.5"
+           width="198"
+           height="61"
+           stroke="#000000"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect3-6" />
+        <text
+           font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+           font-weight="400"
+           font-size="32px"
+           transform="translate(181.044,287)"
+           id="text3-1">Animal</text>
+        <rect
+           x="130.5"
+           y="337.5"
+           width="198"
+           height="61"
+           stroke="#000000"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect4-3" />
+        <text
+           font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+           font-weight="400"
+           font-size="32px"
+           transform="translate(150.794,379)"
+           id="text4-8">Quadrupède</text>
+        <path
+           d="M 1.16667,-3.91133e-6 1.16673,19.3154 H -1.1666 L -1.16667,3.91133e-6 Z M 6.66673,17.982 1.04987e-4,31.3154 -6.66661,17.9821 Z"
+           fill="#ff0000"
+           transform="matrix(1,0,0,-1,229,337.315)"
+           id="path4-9" />
+        <rect
+           x="130.5"
+           y="429.5"
+           width="198"
+           height="60"
+           stroke="#000000"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect5-3" />
+        <text
+           font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+           font-weight="400"
+           font-size="32px"
+           transform="translate(196.127,471)"
+           id="text5-4">Félin</text>
+        <path
+           d="M 1.16667,-3.95365e-6 1.16673,18.9802 H -1.1666 L -1.16667,3.95365e-6 Z M 6.66673,17.6468 1.04987e-4,30.9802 -6.66661,17.6468 Z"
+           fill="#ff0000"
+           transform="matrix(1,0,0,-1,229,428.98)"
+           id="path5-4" />
+        <rect
+           x="94.500099"
+           y="534.5"
+           width="122"
+           height="60"
+           stroke="#000000"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect6-6" />
+        <text
+           font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+           font-weight="400"
+           font-size="32px"
+           transform="translate(124.987,576)"
+           id="text6-0">Chat</text>
+        <path
+           d="M 0.837588,-0.812131 35.5789,35.0182 33.9038,36.6425 -0.837588,0.812131 Z M 38.5994,30.2324 43.0947,44.4456 29.027,39.5139 Z"
+           fill="#ff0000"
+           transform="matrix(1,0,0,-1,155,533.446)"
+           id="path6-6" />
+        <rect
+           x="229.5"
+           y="534.5"
+           width="115"
+           height="60"
+           stroke="#000000"
+           stroke-width="2.66667"
+           stroke-linejoin="round"
+           stroke-miterlimit="10"
+           fill="#ffffff"
+           id="rect7-6" />
+        <text
+           font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+           font-weight="400"
+           font-size="32px"
+           transform="translate(249.979,576)"
+           id="text7-1">Puma</text>
+        <path
+           d="m 285.844,534.145 -37.946,-36.036 1.607,-1.692 37.946,36.036 z M 245.078,503.016 240,489 l 14.259,4.347 z"
+           fill="#ff0000"
+           id="path7-8" />
+      </g>
+    </g>
+    <g
+       id="g3"
+       transform="rotate(180,160.16864,128.90533)">
+      <path
+         d="m 116.63631,240.63151 v -67.89573 h -4.85549 l 9.71098,-12.68759 9.71097,12.68759 h -4.85548 v 67.89573 z"
+         stroke="#385d8a"
+         stroke-width="0.799997"
+         stroke-miterlimit="8"
+         fill="#4f81bd"
+         fill-rule="evenodd"
+         id="path8-0"
+         style="fill:#ffffff;fill-opacity:1;stroke:#010101;stroke-opacity:1" />
+      <text
+         font-family="'Times New Roman', 'Times New Roman_MSFontService', sans-serif"
+         font-weight="400"
+         font-size="8.46667px"
+         id="text3-13-7"
+         x="-237.30025"
+         y="124.34025"
+         style="font-weight:400;font-size:8.46667px;font-family:'Times New Roman', 'Times New Roman_MSFontService', sans-serif;stroke-width:0.264583"
+         transform="rotate(-90)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+           id="tspan2-6">SPÉCIALISATION</tspan></text>
+    </g>
+  </g>
+</svg>
