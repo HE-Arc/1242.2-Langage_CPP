@@ -1,4 +1,6 @@
-<blockquote class="book-hint neutral">
-  <p><b>🛠️ À FAIRE</b></p>
-  {{ .Inner | markdownify }}
-</blockquote>
+<div class="hint hint-info" role="note" aria-label="À faire">
+  <div class="hint-title"><b>🛠️ À FAIRE</b></div>
+  <div class="hint-body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

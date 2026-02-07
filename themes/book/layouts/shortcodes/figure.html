@@ -1,11 +1,21 @@
-<figure>
-  {{ $src := .Get "src" }}
-  {{ if or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
-    <img src="{{ $src }}" alt="{{ .Get "alt" }}">
-  {{ else }}
-    <img src="{{ .Site.BaseURL }}{{ .Get "src" }}" alt="{{ .Get "alt" }}">
-  {{ end }}
-  {{ with .Get "caption" }}
+<figure class="course-figure {{ .Get "class" }}">
+  {{- $src := .Get "src" -}}
+  {{- $alt := .Get "alt" | default "" -}}
+  {{- $width := .Get "width" -}}
+
+  {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+    <img
+      src="{{ $src }}"
+      alt="{{ $alt }}"
+      {{ with $width }}style="width:{{ . }};"{{ end }}>
+  {{- else -}}
+    <img
+      src="{{ $src | relURL }}"
+      alt="{{ $alt }}"
+      {{ with $width }}style="width:{{ . }};"{{ end }}>
+  {{- end -}}
+
+  {{- with .Get "caption" -}}
     <figcaption>{{ . }}</figcaption>
-  {{ end }}
+  {{- end -}}
 </figure>

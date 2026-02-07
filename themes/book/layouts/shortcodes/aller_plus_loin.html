@@ -1,4 +1,6 @@
-<blockquote class="book-hint info">
-  <p><b>🔍 POUR ALLER PLUS LOIN</b></p>
-  {{ .Inner | markdownify }}
-</blockquote>
+<div class="hint hint-info" role="note" aria-label="Pour aller plus loin">
+  <div class="hint-title"><b>🔍 POUR ALLER PLUS LOIN</b></div>
+  <div class="hint-body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

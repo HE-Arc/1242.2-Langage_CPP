@@ -1,0 +1,10 @@
+{{- if eq .Page.Layout "slides" -}}
+  {{- $slides := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
+
+  {{- $body := .Page.RenderString (dict "display" "block" "markup" "goldmark") .Inner -}}
+
+  {{- $class := .Get "class" -}}
+  {{- $html := printf "<section class=\"%s\">%s</section>" $class $body -}}
+  {{- $slides = $slides | append $html -}}
+  {{- .Page.Scratch.Set "reveal_slides" $slides -}}
+{{- end -}}

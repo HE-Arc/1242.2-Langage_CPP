@@ -1,0 +1,13 @@
+{{- $lang := .Type | default "" -}}
+{{- $code := .Inner -}}
+
+{{- if eq .Page.Layout "slides" -}}
+  {{- $class := "" -}}
+  {{- with $lang -}}
+    {{- $class = printf ` class="language-%s"` . -}}
+  {{- end -}}
+  {{- printf "<pre><code%s>%s</code></pre>" $class ($code | htmlEscape) | safeHTML -}}
+{{- else -}}
+  {{- highlight $code $lang "" -}}
+{{- end -}}
+

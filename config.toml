@@ -6,7 +6,8 @@ theme = "book"
 enableGitInfo = true
 
 [params]
-BookSearch = true
+BookSearch = false
+BookRepo = "https://github.com/benoitlecallennec-hes/template_website_course"
 
 [Taxonomies]
   tag = "tags"
@@ -21,3 +22,7 @@ lineNos = false
 lineNumbersInTable = true
 noClasses = true
 style = "vs"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true

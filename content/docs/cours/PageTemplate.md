@@ -8,11 +8,27 @@ draft: true
 {{<teaservideo "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
 Ceci est une "teaser video" : une vidéo qui se lance automatiquement quand on arrive sur la page, muette, et sans contrôles visibles.
 
+{{< slide >}}
+# Titre de la présentation test
+{{< /slide >}}
+
 ## Titre de niveau 2
 
 ### Titre de niveau 3
 
 #### Titre de niveau 4
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.
+
+{{< slide >}}
+## Titre de niveau 2
+
+### Titre de niveau 3
+
+#### Titre de niveau 4
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.
+{{< /slide >}}
 
 ## Formattage du texte
 *Ceci est un texte en italique.*
@@ -23,14 +39,38 @@ Ceci est une "teaser video" : une vidéo qui se lance automatiquement quand on a
 
 > Ceci est une citation.
 > 
-> Elle peut être sur plusieurs lignes.
+> Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes.
+>
+
+{{< slide >}}
+## Formattage du texte
+*Ceci est un texte en italique.*
+
+**Ceci est un texte en gras.**
+
+***Ceci est un texte en gras italique.***
+
+> Ceci est une citation.
+> 
+> Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes. Elle peut être sur plusieurs lignes.
+>
+{{< /slide >}}
 
 ## Emojis
-📌 Une note qui demande à être d'approfondie
+📌 Une note qui demande à être approfondie
 
 📚 Une référence à étudier pour aller plus loin
 
 ⇒ Implication de la ligne précédente
+
+{{< slide >}}
+## Emojis
+📌 Une note qui demande à être approfondie
+
+📚 Une référence à étudier pour aller plus loin
+
+⇒ Implication de la ligne précédente
+{{< /slide >}}
 
 ## Hints
 ### Bonne pratique
@@ -121,6 +161,42 @@ Il ne faut surtout pas faire ceci !!!
 - TP 2 : parties 1, 2 et 3
 {{</a_faire>}}
 
+{{< slide >}}
+## Hints
+{{<bonne_pratique>}}
+Il faut faire ceci, c'est une bonne pratique.
+{{</bonne_pratique>}}
+
+{{<a_noter>}}
+Il faut noter ceci !!!
+{{</a_noter>}}
+
+{{<aller_plus_loin>}}
+Si vous souhaitez approfondir cette notion...
+{{</aller_plus_loin>}}
+
+{{<notion_avancee>}}
+Il s'agit d'une notion avancée.
+{{</notion_avancee>}}
+{{< /slide >}}
+
+{{< slide >}}
+## Hints
+{{<attention>}}
+Il faut faire attention à ce point en particulier.
+{{</attention>}}
+
+{{<a_eviter>}}
+Il ne faut surtout pas faire ceci !!!
+{{</a_eviter>}}
+
+{{<a_faire>}}
+- Serie 1
+- TP 1 : parties 1, 2 et 3
+- TP 2 : parties 1, 2 et 3
+{{</a_faire>}}
+{{< /slide >}}
+
 ## Images
 ### Avec une image dans le répertoire local ***static/images***
 **Code**
@@ -129,10 +205,20 @@ Il ne faut surtout pas faire ceci !!!
 ```
 
 **Affichage**
-{{< figure src="/images/AE_Fork.png#center" width="100%">}}
+{{< figure src="images/AE_Fork.png#center" width="100%">}}
 
 ### Avec une image sur le web
 {{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="100%">}}
+
+{{< slide >}}
+## Images
+### Avec une image
+
+{{< figure src="images/AE_Fork.png#center" width="40%">}}
+
+{{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="30%">}}
+
+{{< /slide >}}
 
 ## Boutons
 {{< button href="https://www.he-arc.ch" >}}HE-Arc{{< /button >}}
@@ -195,6 +281,27 @@ class Hero {
 }
 @enduml
 {{< /plantuml >}}
+
+{{<slide >}}
+## PlantUML Diagrams
+{{< plantuml id="eg1">}}
+@startuml
+skin rose
+skinparam classAttributeIconSize 0
+class Hero {
+   - strength : int
+   - agility : int
+   - intelligence : int
+   - hp : double
+   - name : std::string
+
+   + show() : void
+   + interact(const Hero &) : void
+   + getAgility(): int
+}
+@enduml
+{{< /plantuml >}}
+{{< /slide >}}
 
 ## LaTeX
 
@@ -268,12 +375,25 @@ On peut mettre des formules LaTeX dans le texte : {{<katex>}} x = \frac{-b \pm \
 
 On peut aussi mettre des équations sur des lignes séparées :
 
- {{<katex>}} x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} {{</katex>}}
+{{<katex>}} x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} {{</katex>}}
 
 ## Code
 
 ### Directement dans le texte
 On peut mettre du code directement dans le texte : **`int i = 0;`**.
+
+```cpp
+int i = 100;
+char c = static_cast<char>(i); // int -> char  
+
+float f = 100.0f;
+i = static_cast<int>(f); // float -> int
+ 
+class Base{};
+class Deri : public Base{};
+Deri  *d = new Deri;
+Base *b = static_cast<Base*>(d); // Deri* -> Base*
+```
 
 On peut aussi mettre du code avec des lignes en surbrillance :
 {{< highlight csharp "linenos=table,hl_lines=8 14">}}
@@ -296,6 +416,22 @@ public class HelloWorld : MonoBehaviour
     }
 }
 {{< / highlight >}}
+
+{{< slide class="code-large" >}}
+## Code
+### Dans le texte
+Sur une même ligne `int i = 0;`, ou sur plusieurs :
+```c++
+int i = 100;
+char c = static_cast<char>(i); // int -> char  
+float f = 100.0f;
+i = static_cast<int>(f); // float -> int
+class Base{};
+class Deri : public Base{};
+Deri  *d = new Deri;
+Base *b = static_cast<Base*>(d); // Deri* -> Base*
+```
+{{< /slide >}}
 
 ### Avec un fichier de snippet
 On peut inclure des snippets de code depuis des fichiers sources.
@@ -362,9 +498,6 @@ Il faut prendre l'id uniquement. En particulier, il ne faut pas mettre les guill
 ### Vidéo MP4 hébergée ailleurs
 {{<video "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
 
-## Slides
-On peut intégrer des slides reveal.js :
-{{<slides "https://enseignement.pages.ing.he-arc.ch/isc/cours/niveau-3/3292.2-infographie-unity/slides/Chap6_Post-processing.html">}}
 
 ## PDFs
 ### Avec un PDF dans le répertoire local ***static/pdfs***
@@ -382,6 +515,9 @@ On peut intégrer des slides reveal.js :
 ```
 **Affichage**
 {{<pdf src="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n3088.pdf">}}
+
+## Reveal.js Slides
+Les slides Reveal.js sont générées automatiquement à partir des blocs ***{{</* slide */>}}*** et ***{{</* /slide */>}}*** directement inclus dans la page.
 
 ## Colonnes
 {{< columns >}} <!-- begin columns block -->

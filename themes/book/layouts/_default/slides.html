@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>{{ .Title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+<link rel="stylesheet" href="{{ "reveal/dist/reveal.css" | relURL }}">
+<link rel="stylesheet" href="{{ "reveal/dist/theme/white.css" | relURL }}">
+<link rel="stylesheet" href="{{ "reveal/dist/theme/hearc.css" | relURL }}">
+<link rel="stylesheet" href="{{ "reveal/plugin/highlight/vs.css" | relURL }}" id="highlight-theme">
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="https://www.he-arc.ch/wp-content/uploads/2021/12/cropped-hearc-icon-192x192.png" type="image/vnd.microsoft.icon" />
+
+</head>
+<body>
+  <img id="logo-hearc" src="{{ "images/logo_he-arc.png" | relURL }}" alt="Logo HE-ARC">
+  <img id="logo-hesso" src="{{ "images/logo_hes-so.png" | relURL }}" alt="Logo HES-SO">
+  
+<p id="course-infos">
+  {{ .Site.Title }} | &nbsp;
+  {{- with .GitInfo -}}
+    {{- $date := .AuthorDate.Local.Format "2006-01-02, 15:04" -}}
+    {{- $hash7 := slicestr .Hash 0 7 -}}
+    {{ $date }} | Rev. {{ $hash7 }}
+  {{- else -}}
+    — NO_GITINFO
+  {{- end -}}
+</p>
+
+<div class="reveal">
+  <div class="slides">
+    {{- .Scratch.Set "reveal_slides" (slice) -}}
+    {{- $noop := .Content -}}
+    {{- $slides := .Scratch.Get "reveal_slides" | default (slice) -}}
+    {{- range $slides -}}
+    {{ . | safeHTML }}
+    {{- end -}}
+</div>
+</div>
+
+<script src="{{ "reveal/dist/reveal.js" | relURL }}"></script>
+<script src="{{ "reveal/plugin/highlight/highlight.js" | relURL }}"></script>
+<script>
+  Reveal.initialize({ hash: true, plugins: [ RevealHighlight ] });
+</script>
+
+</body>
+</html>

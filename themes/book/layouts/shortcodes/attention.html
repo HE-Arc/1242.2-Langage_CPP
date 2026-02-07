@@ -1,6 +1,6 @@
-<blockquote class="book-hint warning">
-  <p><b>⚠️ ATTENTION</b></p>
-  <p>
-  {{ .Inner | markdownify }}
-  </p>
-</blockquote>
+<div class="hint hint-warning" role="note" aria-label="Attention">
+  <div class="hint-title"><b>⚠️ ATTENTION</b></div>
+  <div class="hint-body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>

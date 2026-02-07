@@ -65,3 +65,43 @@ a.active {
   {
     content: attr(value) ' / ' attr(max);
   }
+
+.hint {
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-left: 6px solid transparent;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.hint-info {
+  border-left-color: rgb(0, 0, 255);
+  background-color: rgba(0, 0, 255, 0.10);
+}
+
+.hint-success {
+  border-left-color: rgb(0, 255, 0);
+  background-color: rgba(0, 255, 0, 0.10);
+}
+
+.hint-warning {
+  border-left-color: rgb(250, 135, 27);
+  background-color: rgba(250, 135, 27, 0.10);
+}
+
+.hint-danger {
+  border-left-color: rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 0.10);
+}
+
+.hint-neutral {
+  border-left-color: rgb(128, 128, 128);
+  background-color: rgba(128, 128, 128, 0.10);
+}
+
+.hint-title {
+  margin: 0 0 0.5rem 0;
+}
+
+.hint-body > :first-child { margin-top: 0; }
+.hint-body > :last-child  { margin-bottom: 0; }

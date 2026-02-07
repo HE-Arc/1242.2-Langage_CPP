@@ -1,4 +1,6 @@
-<blockquote class="book-hint success">
-  <p><b>✅ BONNE PRATIQUE</b></p>
-  {{ .Inner | markdownify }}
-</blockquote>
+<div class="hint hint-success" role="note" aria-label="Bonne pratique">
+  <div class="hint-title"><b>✅ BONNE PRATIQUE</b></div>
+  <div class="hint-body">
+    {{ .Inner | markdownify }}
+  </div>
+</div>
