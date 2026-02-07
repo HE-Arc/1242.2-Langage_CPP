@@ -32,6 +32,7 @@
 <div class="reveal">
   <div class="slides">
 <<<<<<< HEAD
+<<<<<<< HEAD
     {{- $noop := .Content -}}
 =======
 {{- $noop := .Content -}}
@@ -43,16 +44,22 @@
   {{- . | safeHTML -}}
 {{- end -}}
 >>>>>>> 22942c6 (DONE Reorder rendering for slides)
+=======
+    {{- $noop := .Content -}}
+>>>>>>> e56c134 (FIXED Duplication and moved title into its own shortcode)
     {{- $slides := .Scratch.Get "reveal_slides" | default (slice) -}}
     {{- if eq (len $slides) 0 -}}
-    {{- errorf "slides.html: 0 slides collected for %s (layout=%q). Content length=%d" .File.Path .Layout (len .RawContent) -}}
-    {{- end -}}
-    {{- range $slides -}}
-    {{ . | safeHTML }}
+      {{- errorf "slides.html: 0 slides collected for %s (layout=%q). Content length=%d" .File.Path .Layout (len .RawContent) -}}
     {{- end -}}
     {{- range $slides -}}
       {{- . | safeHTML -}}
     {{- end -}}
+<<<<<<< HEAD
+    {{- range $slides -}}
+      {{- . | safeHTML -}}
+    {{- end -}}
+=======
+>>>>>>> e56c134 (FIXED Duplication and moved title into its own shortcode)
   </div>
 </div>
 
