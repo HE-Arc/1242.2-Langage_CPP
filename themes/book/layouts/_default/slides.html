@@ -31,7 +31,14 @@
 
 <div class="reveal">
   <div class="slides">
-    {{- $noop := .Content -}}
+{{- $noop := .Content -}}
+{{- $slides := .Scratch.Get "reveal_slides" | default (slice) -}}
+{{- if eq (len $slides) 0 -}}
+  {{- errorf "slides.html: 0 slides collected for %s (layout=%q). Content length=%d" .File.Path .Layout (len .RawContent) -}}
+{{- end -}}
+{{- range $slides -}}
+  {{- . | safeHTML -}}
+{{- end -}}
     {{- $slides := .Scratch.Get "reveal_slides" | default (slice) -}}
     {{- if eq (len $slides) 0 -}}
     {{- errorf "slides.html: 0 slides collected for %s (layout=%q). Content length=%d" .File.Path .Layout (len .RawContent) -}}
