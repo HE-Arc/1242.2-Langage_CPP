@@ -17,7 +17,6 @@
     {{- warnf "render-codeblock: USING PLAIN pre>code for page=%q" .Page.File.Path -}}
   {{- end -}}
 
-{{- if hugo.Store.Get "RENDERING_SLIDES" -}}
   {{- $class := "" -}}
   {{- with $lang -}}
     {{- $class = printf ` class="language-%s"` . -}}

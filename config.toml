@@ -23,3 +23,11 @@ lineNos = false
 lineNumbersInTable = true
 noClasses = true
 style = "vs"
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+<<<<<<< HEAD
+=======
+
+>>>>>>> e113876 (DONE Added full diagnostic for debug purposes)
