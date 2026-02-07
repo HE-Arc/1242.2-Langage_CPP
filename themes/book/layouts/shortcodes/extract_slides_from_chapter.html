@@ -69,19 +69,19 @@
   {{- warnf "extract_slides_from_chapter: set store RENDERING_SLIDES=%v" (hugo.Store.Get "RENDERING_SLIDES") -}}
 {{- end -}}
 
-{{- $noop := $src.Content -}}
+{{- $noop := $src.RenderString (dict "display" "block" "renderShortcodes" true) $src.RawContent -}}
 
 {{- $collected := hugo.Store.Get "reveal_slides" | default (slice) -}}
 
 {{- if .Site.Params.debugSlides -}}
-  {{- warnf "extract_slides_from_chapter: after src.Content collected=%d storeFlag=%v"
+  {{- warnf "extract_slides_from_chapter: after RenderString collected=%d storeFlag=%v"
       (len $collected)
       (hugo.Store.Get "RENDERING_SLIDES")
   -}}
 {{- end -}}
 
 {{- if eq (len $collected) 0 -}}
-  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q). If slide shortcodes exist, they were not executed or storeFlag was false." $src.File.Path .Page.File.Path -}}
+  {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q). slide shortcodes were not executed under RenderString." $src.File.Path .Page.File.Path -}}
 {{- end -}}
 
 {{- .Page.Scratch.Set "reveal_slides" $collected -}}
