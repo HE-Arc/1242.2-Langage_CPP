@@ -7,7 +7,7 @@ draft: false
 
 # Chapitre 1 : de C à C++
 
-## Exercices
+## Série 1
 
 ### Exercice 1 : affichage
 Compléter le code suivant :
