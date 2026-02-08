@@ -1,31 +1,22 @@
 {{- $lang := .Type | default "" -}}
 {{- $code := .Inner -}}
-{{- $flag := hugo.Store.Get "RENDERING_SLIDES" -}}
 
-{{- if .Page.Site.Params.debugSlides -}}
-  {{- warnf "render-codeblock: page=%q layout=%q lang=%q storeFlag=%v codeLen=%d"
-      .Page.File.Path
-      .Page.Layout
-      $lang
-      $flag
-      (len $code)
-  -}}
+{{- $chapterID := replace .Page.File.Path "\\" "/" -}}
+{{- $mapKey := printf "CHAPTER2DECK::%s" $chapterID -}}
+{{- $deckID := hugo.Store.Get $mapKey -}}
+
+{{- $flag := false -}}
+{{- if $deckID -}}
+  {{- $flagKey := printf "RENDERING_SLIDES::%s" $deckID -}}
+  {{- $flag = hugo.Store.Get $flagKey -}}
 {{- end -}}
 
 {{- if $flag -}}
-  {{- if .Page.Site.Params.debugSlides -}}
-    {{- warnf "render-codeblock: USING PLAIN pre>code for page=%q" .Page.File.Path -}}
-  {{- end -}}
-
   {{- $class := "" -}}
   {{- with $lang -}}
     {{- $class = printf ` class="language-%s"` . -}}
   {{- end -}}
   {{- printf "<pre><code%s>%s</code></pre>" $class ($code | htmlEscape) | safeHTML -}}
 {{- else -}}
-  {{- if .Page.Site.Params.debugSlides -}}
-    {{- warnf "render-codeblock: USING CHROMA highlight() for page=%q" .Page.File.Path -}}
-  {{- end -}}
-
   {{- highlight $code $lang "" -}}
 {{- end -}}

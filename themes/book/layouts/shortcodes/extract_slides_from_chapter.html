@@ -5,14 +5,6 @@
   {{- errorf "extract_slides_from_chapter: current page must end with '-SLIDES'. base=%q file=%q dir=%q" $base .Page.File.Path $dir -}}
 {{- end -}}
 
-{{- $deckID := .Page.File.Path -}}
-{{- $doneKey := printf "REVEAL_EXTRACT_DONE::%s" $deckID -}}
-{{- if hugo.Store.Get $doneKey -}}
-  {{- /* prevent duplicate extraction */ -}}
-  {{- return -}}
-{{- end -}}
-{{- hugo.Store.Set $doneKey true -}}
-
 {{- $srcBase := strings.TrimSuffix "-SLIDES" $base -}}
 
 {{- $srcPath := "" -}}
@@ -57,27 +49,32 @@
   -}}
 {{- end -}}
 
-{{- hugo.Store.Set "RENDERING_SLIDES" true -}}
-{{- hugo.Store.Set "REVEAL_DECK_ID" $deckID -}}
-{{- hugo.Store.Set "reveal_slides" (slice) -}}
+{{- $deckID := replace .Page.File.Path "\\" "/" -}}
+{{- $chapterID := replace $src.File.Path "\\" "/" -}}
+
+{{- $flagKey := printf "RENDERING_SLIDES::%s" $deckID -}}
+{{- $bufKey  := printf "REVEAL_SLIDES::%s" $deckID -}}
+{{- $mapKey  := printf "CHAPTER2DECK::%s" $chapterID -}}
+
+{{- hugo.Store.Set $mapKey $deckID -}}
+{{- hugo.Store.Set $flagKey true -}}
+{{- hugo.Store.Set $bufKey (slice) -}}
 
 {{- $noop := $src.RenderString (dict "display" "block" "renderShortcodes" true) $src.RawContent -}}
 
-{{- $new := hugo.Store.Get "reveal_slides" | default (slice) -}}
+{{- $collected := hugo.Store.Get $bufKey | default (slice) -}}
 
-{{- hugo.Store.Delete "RENDERING_SLIDES" -}}
-{{- hugo.Store.Delete "REVEAL_DECK_ID" -}}
-{{- hugo.Store.Delete "reveal_slides" -}}
+{{- hugo.Store.Delete $mapKey -}}
+{{- hugo.Store.Delete $flagKey -}}
+{{- hugo.Store.Delete $bufKey -}}
 
-{{- if eq (len $new) 0 -}}
+{{- if eq (len $collected) 0 -}}
   {{- errorf "extract_slides_from_chapter: 0 slides collected from %q (slides=%q)" $src.File.Path .Page.File.Path -}}
 {{- end -}}
 
-{{- /* Append to existing slides on the deck page (keeps title slide, etc.) */ -}}
 {{- $existing := .Page.Scratch.Get "reveal_slides" | default (slice) -}}
-{{- $all := $existing | append $new -}}
+{{- $all := $existing | append $collected -}}
 
-{{- /* Stable dedup: ignore whitespace differences */ -}}
 {{- $uniq := slice -}}
 {{- $seen := dict -}}
 {{- range $all -}}
