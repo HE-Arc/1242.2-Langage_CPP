@@ -2,7 +2,7 @@
 title: "Page Template"
 type: docs
 weight: 10
-draft: false
+draft: true
 ---
 
 # Titre de la page

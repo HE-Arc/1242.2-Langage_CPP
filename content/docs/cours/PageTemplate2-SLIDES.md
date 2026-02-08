@@ -1,7 +1,7 @@
 ---
 title: "Page Template 2 — Slides"
 layout: "slides"
-draft: false
+draft: true
 ---
 
 {{< slide_deck >}}
