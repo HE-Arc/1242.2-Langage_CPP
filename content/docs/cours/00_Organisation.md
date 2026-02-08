@@ -61,12 +61,6 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 
 <!--          SLIDES          -->
 {{<slide>}}
-# Organisation du cours
-
-## 1242.2 Langage C++
-{{</slide>}}
-
-{{<slide>}}
 ## Contenu
 0. Introduction
 1. De C à C++

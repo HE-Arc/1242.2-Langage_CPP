@@ -2,6 +2,7 @@
 title: "1. De C à C++"
 type: docs
 weight: 10
+draft: false
 ---
 
 # Chapitre 1 : de C à C++

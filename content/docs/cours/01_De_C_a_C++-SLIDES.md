@@ -5,4 +5,7 @@ layout: "slides"
 draft: false
 ---
 
+{{< slide_deck >}}
+# Chapitre 1 : de C à C++
+{{< /slide_deck >}}
 {{< extract_slides_from_chapter >}}
