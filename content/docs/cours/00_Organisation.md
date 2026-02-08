@@ -59,6 +59,8 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 
 {{<pdf src="/pdfs/n4950.pdf">}}
 
+## Slides
 {{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html">}}
 
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html?print-pdf)
+
