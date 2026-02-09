@@ -225,6 +225,105 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### 1242.2_01.06_References
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.06_References -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+
+int &getRefOnCount()
+{
+  static int count = 0;
+  return count;
+}
+
+const int N = 2;
+std::string tabNoms[N] = {"Bob", "John"};
+int tabAges[N] = {20, 30};
+
+int &age(std::string nom)
+{
+  for (int i = 0; i < N; i++)
+  {
+    if (nom == tabNoms[i])
+      return tabAges[i];
+  }
+
+  // If we are here, the name was not found
+  // See chapter on exceptions for more details
+  throw std::out_of_range("nom not found");
+}
+
+int main()
+{
+  double d1 = 1.0;
+  double &rd1 = d1;
+  std::cout << "double" << std::endl;
+  // sizeof(ref) is the size of the variable it references
+  std::cout << " - Adresse de d1  = " << &d1 << " "
+            << sizeof(d1) << std::endl;
+  std::cout << " - Adresse de rd1 = " << &rd1 << " "
+            << sizeof(rd1) << std::endl
+            << std::endl;
+
+  int i1 = 10;
+  int &ri1 = i1;
+  std::cout << "int" << std::endl;
+  // sizeof(ref) is the size of the variable it references
+  std::cout << " - Adresse de i1  = " << &i1 << " "
+            << sizeof(i1) << std::endl;
+  std::cout << " - Adresse de ri1 = " << &ri1 << " "
+            << sizeof(ri1) << std::endl
+            << std::endl;
+
+  struct STRUCT
+  {
+    double x, y, z;
+  };
+
+  // Note: no need for struct keyword in C++
+  STRUCT varStruct{1.0, 2.0, 3.0};
+  STRUCT &refStruct = varStruct;
+  std::cout << "STRUCT" << std::endl;
+  // sizeof(ref) is the size of the variable it references
+  std::cout << " - Adresse de varStruct = " << &varStruct << " "
+            << sizeof(varStruct) << std::endl;
+  std::cout << " - Adresse de refStruct = " << &refStruct << " "
+            << sizeof(refStruct) << std::endl;
+
+  // getRefOnCount() returns a reference on the static variable count
+  // So we modify count directly
+  std::cout << "Count: " << getRefOnCount()++ << std::endl;
+  std::cout << "Count: " << ++getRefOnCount() << std::endl;
+
+  for (int i = 0; i < N; i++)
+  {
+    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+  }
+
+  age("Bob") = 50;
+
+  for (int i = 0; i < N; i++)
+  {
+    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+  }
+
+  age("John")++;
+
+  for (int i = 0; i < N; i++)
+  {
+    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+  }
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 1.1
 
 ### Exercice 1 : affichage
