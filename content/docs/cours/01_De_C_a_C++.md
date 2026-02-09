@@ -49,6 +49,70 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### 1242.2_01.03_Namespaces
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.03_Namespaces -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+
+namespace language::english
+{
+  std::string colors[] = {"White", "Red", "Black"};
+  void colorName(int index)
+  {
+    std::cout << "The color is: " << colors[index] << std::endl;
+  }
+}
+
+namespace language
+{
+  namespace french
+  {
+    std::string colors[] = {"Blanc", "Rouge", "Noir"};
+    void colorName(int index)
+    {
+      std::cout << "La couleur est : " << colors[index] << std::endl;
+    }
+  }
+}
+
+// Promote language namespace in the global namespace
+using namespace language;
+
+int main()
+{
+  // GCC: error: 'colorName' was not declared in this scope
+  // colorName(1);
+
+  // OK: we specify the namespace for the colorName function
+  english::colorName(1);
+
+  // following brackets { }  are to show scope limitation
+  {
+    using namespace french;
+    colorName(1); // -> "Rouge"
+  } // end of scope for the using namespace french directive
+
+  // Promote english namespace in the global namespace
+  using namespace english;
+  colorName(1);         // -> "Red"
+  french::colorName(1); // -> "Rouge"
+
+  // Promote french namespace in the global namespace
+  using namespace french;
+
+  // GGC: error: call of overloaded 'colorName(int)' is ambiguous
+  // colorName(1);
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 1.1
 
 ### Exercice 1 : affichage
