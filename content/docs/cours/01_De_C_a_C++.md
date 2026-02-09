@@ -113,6 +113,118 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### 1242.2_01.04_CinCout
+
+{{<attention>}}
+Les modificateurs de formatage sont persistants.
+{{</attention>}}
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.04_CinCout -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+#include <iomanip>
+#include <limits>
+
+int main()
+{
+  // Store the current formatting flags, precision and fill character of std::cout
+  auto flags = std::cout.flags();
+  auto precision = std::cout.precision();
+  auto fill = std::cout.fill();
+
+  std::cout << std::setfill('.')
+            << std::setw(25) << std::right << "Colonne 1"
+            << "Colonne 3"
+            << "\n"
+            << std::setw(10) << std::left << "Colonne 2\n";
+
+  std::cout << std::setprecision(5) << std::fixed << std::setw(25)
+            << std::left << 158.82589 << std::endl
+            << std::setw(10) << std::left << 456.10288432 // --> 456.10288
+            << std::endl;
+
+  std::cout << std::hex << std::uppercase
+            << std::setw(25) << std::left << 255
+            << std::setw(10) << std::left << 128 // Note: the format is still hex
+            << std::endl;
+
+  std::cout << std::setw(25) << std::left << std::boolalpha << true //--> "true"
+            << std::setw(10) << std::left << false                  //--> "false"
+            << std::endl;
+
+  std::cout << true << std::endl;                     //--> "true"
+  std::cout << std::noboolalpha << true << std::endl; //--> "1"
+
+  // Reset std::cout to default formatting
+  std::cout.flags(flags);
+  std::cout.precision(precision);
+  std::cout.fill(fill);
+  
+  int n;
+  std::cin >> n;
+  std::cout << "val " << n;
+
+  int j = 10;
+  std::cout << std::hex << std::nouppercase << j << std::endl;
+  std::cout << std::hex << std::uppercase << j << std::endl;
+  std::cout << std::dec << std::showpos << j << std::endl;
+
+  int N = 0;
+  std::cout << "Entrez un chiffre entre 1 et 6 : ";
+  while (!(std::cin >> N) || N < 1 || N > 6)
+  {
+    if (std::cin.fail())
+    {
+      std::cout << "Saisie incorrecte, recommencez : ";
+      std::cin.clear();
+      std::cin.ignore(256, '\n');
+    }
+    else
+    {
+      std::cout << "Le chiffre n'est pas entre 1 et 6: ";
+    }
+  }
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.05_Print
+{{<a_noter>}}
+**C++23**
+
+La fonction **`std::print()`** affiche du texte formaté de manière plus simple que les fonctions d'affichage précédentes.
+En particulier, les modificateurs de formatage sont locaux à l'appel de la fonction **`std::print()`** et ne sont pas persistants.
+{{</a_noter>}}
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.05_Print -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <print>
+#include <string>
+
+int main()
+{  
+  std::string firstname = "Donald";
+  std::string lastname = "Knuth";
+  int answerToEverything = 42;
+
+  std::println("Hello, {} {}!", firstname, lastname);
+  std::print("The answer is = {}\n", answerToEverything);
+  
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 1.1
 
 ### Exercice 1 : affichage
