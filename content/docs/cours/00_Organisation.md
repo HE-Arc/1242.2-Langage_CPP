@@ -14,12 +14,11 @@ Cependant, pour des raisons de compatibilité et de support, nous vous recommand
 ### Visual Studio 2022 Community Edition
 Vous pouvez télécharger Visual Studio 2022 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
 
-{{< figure src="/images/DownloadVS2022.png#center" width="100%">}}
+{{< figure src="images/DownloadVS2022.png#center" width="100%">}}
 
 Durant l'installation, il faut choisir "Développement Desktop en C++" :
 
-{{< figure src="/images/InstallVS2022.png#center" width="100%">}}
-
+{{< figure src="images/InstallVS2022.png#center" width="100%">}}
 
 ## Évaluation
 Un oral (live coding) de 20 à 30 minutes + un projet individuel de développement (jeu).
@@ -63,4 +62,3 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 {{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html">}}
 
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/00_Organisation.html?print-pdf)
-
