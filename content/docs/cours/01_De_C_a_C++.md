@@ -7,6 +7,48 @@ draft: false
 
 # Chapitre 1 : de C à C++
 
+## Exemples
+
+### 1242.2_01.01_HelloWorld
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.01_HelloWorld -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+int main()
+{  
+  std::cout << "Hello world++!" << std::endl;
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.02_VariablesDeclarations
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.02_VariablesDeclarations -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+
+int main()
+{
+    for (int i = 0; i < 3; ++i)
+    {
+        int x = i * 2;
+        std::cout << x << std::endl;
+    }
+
+    return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 1.1
 
 ### Exercice 1 : affichage

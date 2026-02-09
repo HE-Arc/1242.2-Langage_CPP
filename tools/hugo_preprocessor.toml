@@ -1,7 +1,7 @@
 [snippets]
 # Directories to scan recursively for snippets
 paths = [
-  "../1242.1-Langage_C-Profs/Exemples",
+  "../1242.2-Langage_CPP-PROFS",
   "static/snippets",
 ]
 

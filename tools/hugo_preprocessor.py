@@ -135,7 +135,6 @@ def replace_includes_in_markdown(md_path, snippets):
     original = md_path.read_text(encoding="utf-8", errors="replace")
     lines = original.replace("\r\n", "\n").replace("\r", "\n").split("\n")
 
-    # Step 1: normalize
     lines = normalize_generated_blocks_to_includes(lines)
 
     out = []
@@ -158,7 +157,7 @@ def replace_includes_in_markdown(md_path, snippets):
             "  GENERATED FILE — DO NOT EDIT.",
             "  This block is automatically regenerated.",
             "-->",
-            "```c",
+            "```cpp",
             content,
             "```",
             "<!-- SNIPPET:END -->",
@@ -169,7 +168,6 @@ def replace_includes_in_markdown(md_path, snippets):
 
     new_text = "\n".join(out)
 
-    # Force LF output, only write if changed
     normalized_original = original.replace("\r\n", "\n").replace("\r", "\n")
     if new_text != normalized_original:
         md_path.write_text(new_text, encoding="utf-8", newline="\n")
@@ -266,16 +264,16 @@ def main():
         config_path = repo_root / "tools" / "hugo_preprocessor.toml"
         snippet_paths = load_snippet_paths(config_path, repo_root)
         snippet_paths = [p.resolve() for p in snippet_paths if p.exists()]
-        c_snippets = scan_files_for_snippets(snippet_paths)
+        cpp_snippets = scan_files_for_snippets(snippet_paths)
 
-        errors = check_includes_against_snippets(includes, c_snippets)
+        errors = check_includes_against_snippets(includes, cpp_snippets)
         if errors > 0:
             print(f"\n{errors} error(s) generated.")
             raise SystemExit(1)
 
-        return includes, c_snippets
+        return includes, cpp_snippets
 
-    def do_replace(includes, c_snippets):
+    def do_replace(includes, cpp_snippets):
         modified = 0
         seen = set()
         for inc in includes:
@@ -283,7 +281,7 @@ def main():
             if md in seen:
                 continue
             seen.add(md)
-            if replace_includes_in_markdown(md, c_snippets):
+            if replace_includes_in_markdown(md, cpp_snippets):
                 modified += 1
 
         print(f"\nMarkdown files updated: {modified}")
@@ -292,8 +290,8 @@ def main():
     if args.command is None:
         # Default: clean -> scan -> replace
         do_clean()
-        includes, c_snippets = do_scan_and_load()
-        do_replace(includes, c_snippets)
+        includes, cpp_snippets = do_scan_and_load()
+        do_replace(includes, cpp_snippets)
         return
 
     if args.command == "clean":
@@ -301,14 +299,14 @@ def main():
         return
 
     if args.command == "scan":
-        includes, c_snippets = do_scan_and_load()
+        includes, cpp_snippets = do_scan_and_load()
         print(f"\nIncludes found: {len(includes)}")
-        print(f"Snippet files indexed: {len(c_snippets)}")
+        print(f"Snippet files indexed: {len(cpp_snippets)}")
         return
 
     if args.command == "replace":
-        includes, c_snippets = do_scan_and_load()
-        do_replace(includes, c_snippets)
+        includes, cpp_snippets = do_scan_and_load()
+        do_replace(includes, cpp_snippets)
         return
 
 
