@@ -7,8 +7,8 @@ enableGitInfo = true
 
 [params]
 BookSearch = true
-BookRepo = "https://github.com/benoitlecallennec-hes/template_website_course"
-debugSlides = true
+BookRepo = "https://github.com/HE-Arc/1242.2-Langage_CPP"
+debugSlides = false
 
 [Taxonomies]
   tag = "tags"
