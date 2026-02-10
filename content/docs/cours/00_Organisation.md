@@ -9,12 +9,14 @@ draft: false
 
 ## Environnement de développement
 Pour le développement, vous pouvez utiliser l'environnement de développement que vous préférez. 
-Cependant, pour des raisons de compatibilité et de support, nous vous recommandons d'utiliser Visual Studio 2022 Community Edition durant ce cours.
+Cependant, pour des raisons de compatibilité et de support, nous vous recommandons d'utiliser Visual Studio 2026 Community Edition durant ce cours.
 
-### Visual Studio 2022 Community Edition
-Vous pouvez télécharger Visual Studio 2022 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
+Vous pouvez aussi utiliser Visual Studio Code si vous le souhaitez, mais il faudra installer et configurer les extensions nécessaires pour le développement en C++.
 
-{{< figure src="images/DownloadVS2022.png#center" width="100%">}}
+### Visual Studio 2026 Community Edition
+Vous pouvez télécharger Visual Studio 2026 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
+
+{{< figure src="images/DownloadVS2026.png#center" width="100%">}}
 
 Durant l'installation, il faut choisir "Développement Desktop en C++" :
 
