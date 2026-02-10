@@ -324,6 +324,69 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### 1242.2_01.07_MemoryAllocation
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.07_MemoryAllocation -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+
+int main()
+{
+  // [[maybe_unused]] to avoid the compiler warning about an unused variable
+  // GCC: warning: variable 'x' set but not used [-Wunused-but-set-variable]
+  [[maybe_unused]] int *x = nullptr;
+
+  // See chapter on exceptions for more details
+  try
+  {
+    for (int n = 1;; n++)
+    {
+      std::cout << n << std::endl;
+      // throws std::bad_alloc if no more memory is available
+      x = new int[1024 * 1024];
+      // Comment to provoke a memory leak
+      delete[] x;
+    }
+  }
+  // See chapter on exceptions for more details
+  catch (const std::bad_alloc &e)
+  {
+    std::cout << "Memory allocation failed." << std::endl;
+  }
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.08_Strings
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.08_Strings -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+#include <string>
+ 
+int main()
+{
+  std::string x = "toto";
+  std::string y = x;
+  std::string z = x + "_" + y;
+  std::cout << x << " " << y << " " << z << std::endl;
+  std::cout << "cap: " << z.capacity() << std::endl; 
+  std::cout << "size: " << z.size()     << std::endl;
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 1.1
 
 ### Exercice 1 : affichage

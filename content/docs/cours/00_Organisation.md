@@ -38,8 +38,8 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 | #6      | 5. Transtypage et RTTI       | Séries 5.1 et 5.2 | V4                         |
 | #7      | 7. Modèles (templates)       | Séries 7.1 et 7.2 | V5                         |
 | #8      | Vacances de printemps        |                   |                            |
-| #9      | 9. Gestion des exceptions    | Séries 8.1 et 8.2 | Version libre              |
-| #10     | 10. Bibliothèque standard    | Séries 9.1 à 9.5  | Version libre              |
+| #9      | 8. Gestion des exceptions    | Séries 8.1 et 8.2 | Version libre              |
+| #10     | 9. Bibliothèque standard    | Séries 9.1 à 9.5  | Version libre              |
 | #11     | TBD                          |                   |                            |
 | #12     | TBD                          |                   |                            |
 | #13     | Semaine de travail autonome  |                   |                            |
