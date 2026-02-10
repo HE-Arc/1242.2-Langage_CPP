@@ -1,27 +1,25 @@
 ---
-title: "Prise en main de Visual Studio 2022"
+title: "Prise en main de Visual Studio 2026"
 author: "Benoit Le Callennec"
-date: 2025-02-21
-tags : ["Visual Studio 2022", "Général"]
+date: 2026-02-10
+tags : ["Visual Studio 2026", "Général"]
 draft: false
 ---
 
 ## Installation
-Vous pouvez télécharger Visual Studio 2022 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
+Vous pouvez télécharger Visual Studio 2026 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)
 
-{{< figure src="/images/DownloadVS2022.png#center" width="100%">}}
+{{< figure src="images/DownloadVS2026.png#center" width="100%">}}
 
 Durant l'installation, il faut choisir "Développement Desktop en C++" :
 
-{{< figure src="/images/InstallVS2022.png#center" width="100%">}}
+{{< figure src="images/InstallVS2026.png#center" width="100%">}}
 
 ## Créer un nouveau projet
-{{< figure src="/images/CreateVS2022Project.png#center" width="100%">}}
+{{< figure src="images/CreateVS2026Project.png#center" width="100%">}}
 
 ## Ajouter un fichier source **`main.cpp`**
 Dans le fenêtre **`explorateur de solutions`**, clic droit sur **`Fichiers sources`**, puis **`Ajouter`** -> **`Nouvel élément`** -> **`main.cpp`**
-
-{{< figure src="/images/NewFileVS2022.png#center" width="100%">}}
 
 ## Développement
 Durant le développement, vous pouvez utiliser les raccourcis clavier suivants :
@@ -46,4 +44,4 @@ Pour lancer le programme en vue de le débugger, vous pouvez utiliser les raccou
 
 Lorsque le programme atteint un breakpoint, il s'arrête.
 Les variables visibles à cet instant du programme sont affichées dans la fenêtre dédiée :
-{{< figure src="/images/DebugVS2022.png#center" width="100%">}}
+{{< figure src="images/DebugVS2026.png#center" width="100%">}}
