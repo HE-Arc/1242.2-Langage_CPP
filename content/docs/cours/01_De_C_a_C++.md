@@ -447,13 +447,14 @@ La première utilise des nombres entiers (**`int`**) et la seconde des nombres d
     Que se passe-t-il si on supprime la méthode qui reçoit deux entiers en arguments ?
 
 ### Exercice 3 : passage de paramètres
-Écrire deux fonctions **`divide(dividend, divisor, remainder)`** qui à partir de deux entiers, passés en paramètre, doivent retourner le **quotient** et le **reste** de la division entière. 
+Écrire des fonctions **`<return> divide(dividend, divisor, <other_params>)`** qui, à partir de deux entiers passés en paramètre, retournent le **quotient** et le **reste** de la division entière.
 
 **Exemple**
 
 13 divisé par 2 donne un quotient de 6 et un reste de 1.
 
-Tester les différentes possibilités de passage de paramètres en C++. Lesquelles vous semblent les plus appropriées à ce problème ?
+Tester les différentes possibilités de passage de paramètres en C++.
+Lesquelles vous semblent les plus appropriées à ce problème, et pourquoi ?
 
 ### Exercice 4 : string
 Écrire un programme qui :
