@@ -53,8 +53,13 @@ Créer une classe **`Time`** permettant de manipuler des mesures de temps (heure
 
 {{< plantuml id="chap2_exo1_2">}}
 @startuml
+
 skin rose
+skinparam defaultFontSize 20
+skinparam classFontStyle bold
 skinparam classAttributeIconSize 0
+hide circle
+
 class Time
   {
     - h : int

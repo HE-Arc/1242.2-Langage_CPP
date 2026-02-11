@@ -486,6 +486,88 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### Les types de containers dans la bibliothèque standard
+
+{{< plantuml id="chap1_Containers">}}
+@startuml
+
+skin rose
+skinparam defaultFontSize 20
+skinparam classFontStyle bold
+skinparam classAttributeIconSize 0
+hide circle
+
+package "Conteneurs" as containers #F0F0F0 {
+
+    package "Conteneurs séquentiels" as seq #D6EAF8 {
+        class "std::array" as array #AED6F1 {
+            Taille fixe
+        }
+        class "std::vector" as vector #AED6F1 {
+            Taille dynamique
+        }
+        class "std::deque" as deque #AED6F1 {
+            Double-ended
+        }
+        class "std::list" as list #AED6F1 {
+            Liste doublement chaînée
+        }
+        class "std::forward_list" as flist #AED6F1 {
+            Liste simplement chaînée
+        }
+    }
+
+    package "Conteneurs associatifs ordonnés" as assoc #D5F5E3 {
+        class "std::set" as set #ABEBC6 {
+            Éléments uniques
+        }
+        class "std::multiset" as mset #ABEBC6 {
+            Doublons autorisés
+        }
+        class "std::map" as map #ABEBC6 {
+            Clés uniques
+        }
+        class "std::multimap" as mmap #ABEBC6 {
+            Clés dupliquées
+        }
+    }
+
+    package "Conteneurs associatifs non ordonnés (C++11)" as uassoc #FAD7A0 {
+        class "std::unordered_set" as uset #F9E79F {
+            Éléments uniques
+        }
+        class "std::unordered_multiset" as umset #F9E79F {
+            Doublons autorisés
+        }
+        class "std::unordered_map" as umap #F9E79F {
+            Clés uniques
+        }
+        class "std::unordered_multimap" as ummap #F9E79F {
+            Clés dupliquées
+        }
+    }
+
+    package "Adaptateurs de conteneurs" as adapt #E8DAEF {
+        class "std::stack" as stack #D7BDE2 {
+            LIFO
+        }
+        class "std::queue" as queue #D7BDE2 {
+            FIFO
+        }
+        class "std::priority_queue" as pqueue #D7BDE2 {
+            Plus grande priorité en tête
+        }
+    }
+}
+
+' Relations : adaptateurs vers conteneurs sous-jacents
+stack ..> deque
+queue ..> deque
+pqueue ..> vector
+
+@enduml
+{{< /plantuml >}}
+
 ## Série 1.1
 
 ### Exercice 1 : affichage
