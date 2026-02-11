@@ -390,12 +390,21 @@ int main()
  
 int main()
 {
-  std::string x = "toto";
+  std::string x = "Hello";
+  // Or
+  // auto x = std::string("Hello");
+
   std::string y = x;
   std::string z = x + "_" + y;
   std::cout << x << " " << y << " " << z << std::endl;
   std::cout << "cap: " << z.capacity() << std::endl; 
   std::cout << "size: " << z.size()     << std::endl;
+
+  // C++14: string literals
+  // Need to add "using namespace std::string_literals;"
+  using namespace std::string_literals;
+  auto s = "Hello"s;
+
   return 0;
 }
 ```
