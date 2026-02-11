@@ -7,6 +7,11 @@ draft: false
 
 # Chapitre 1 : de C à C++
 
+## Slides
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html">}}
+
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html?print-pdf)
+
 ## Exemples
 
 ### 1242.2_01.01_HelloWorld
@@ -208,11 +213,20 @@ En particulier, les modificateurs de formatage sont locaux à l'appel de la fonc
   This block is automatically regenerated.
 -->
 ```cpp
+#include <iostream>
 #include <print>
 #include <string>
 
 int main()
 {  
+  // C++20: std::format and {:.2} instead of std::setprecision
+  double dbl = 3.1415926535897932384626433832795;
+  std::cout << std::format("{:.2f}", dbl) << std::endl;
+  std::cout << std::format("{:.8f}", dbl) << std::endl;
+  std::cout << std::format("{:.4e}", dbl) << std::endl;
+  std::cout << std::format("{:.2f}", dbl) << std::endl;
+  
+  // C++23: print and println instead of std::cout and std::endl
   std::string firstname = "Donald";
   std::string lastname = "Knuth";
   int answerToEverything = 42;
@@ -490,7 +504,3 @@ int main()
 ## Solutions
 <!-- [Serie1_SOLUTIONS](/zips/Serie1_SOLUTIONS.zip) -->
 
-## Slides
-{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html">}}
-
-[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/01_De_C_a_C++.html?print-pdf)
