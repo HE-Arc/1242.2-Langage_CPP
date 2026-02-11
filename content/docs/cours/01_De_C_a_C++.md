@@ -220,11 +220,11 @@ En particulier, les modificateurs de formatage sont locaux à l'appel de la fonc
 int main()
 {  
   // C++20: std::format and {:.2} instead of std::setprecision
-  double dbl = 3.1415926535897932384626433832795;
-  std::cout << std::format("{:.2f}", dbl) << std::endl;
-  std::cout << std::format("{:.8f}", dbl) << std::endl;
-  std::cout << std::format("{:.4e}", dbl) << std::endl;
-  std::cout << std::format("{:.2f}", dbl) << std::endl;
+  double pi = 3.1415926535897932384626433832795;
+  std::cout << std::format("{:.2f}", pi) << std::endl;
+  std::cout << std::format("{:.8f}", pi) << std::endl;
+  std::cout << std::format("{:.4e}", pi) << std::endl;
+  std::cout << std::format("{:.2f}", pi) << std::endl;
   
   // C++23: print and println instead of std::cout and std::endl
   std::string firstname = "Donald";
@@ -397,6 +397,82 @@ int main()
   std::cout << "cap: " << z.capacity() << std::endl; 
   std::cout << "size: " << z.size()     << std::endl;
   return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.09_Vectors
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.09_Vectors -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+typedef std::vector<double> Line;
+typedef std::vector<Line> Matrix;
+
+int main()
+{
+  Matrix m(5);
+ 
+  for (int i = 0; i < 5; ++i)
+  {
+    m[i].resize(5); // rows size is 5
+    for (int j = 0; j < 5; ++j)
+    {
+      if (i == j)
+      {
+        m[i][j] = 1;
+      }
+      else
+      {
+        m[i][j] = 0;
+      }
+    }
+  }
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.10_Double2String
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.10_Double2String -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <iostream>
+#include <string>
+
+#include <sstream>
+#include <iomanip>
+
+#include <print>
+
+int main()
+{
+  auto pi = 3.1415926535897932384626433832795;
+  // C++11: std::to_string, with no control over the format
+  auto s1 = std::to_string(pi);
+  std::print("C++11: std::to_string: {}\n", s1);
+
+  // C++11: std::ostringstream, with control over the format
+  std::ostringstream oss;
+  oss << std::fixed << std::setprecision(2) << pi;
+  auto s2 = oss.str();
+  std::print("C++11: std::ostringstream: {}\n", s2);
+
+  // C++20: std::format
+  auto s3 = std::format("{:.2f}", pi);
+  std::print("C++20: std::format: {}\n", s3);
 }
 ```
 <!-- SNIPPET:END -->
