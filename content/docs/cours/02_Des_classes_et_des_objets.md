@@ -225,6 +225,7 @@ double distance(const Point &p1, const Point &p2)
 
 #include <iostream>
 #include <print>
+#include <vector>
 
 void f1(Point p)
 {
@@ -395,6 +396,26 @@ void example11_constGet()
   p1.getX();
 }
 
+void example12_pointArray()
+{
+  // Use default CTor
+  Point p3[10];
+  // Use Point(int, int), then use default CTor
+  Point p4[4] = {Point(5, 3)};
+  
+  auto *p5 = new Point(6, 3);
+  delete p5;
+  
+  auto *p6 = new Point[10];
+  for (int i = 0; i < 10; i++)
+  {
+    p6[i] = Point(2,3);
+  }
+  delete[] p6;
+  
+  std::vector<Point> v(10, Point(2,3));
+}
+
 int main()
 {
   example01_basic();
@@ -407,7 +428,8 @@ int main()
   example09_friend();
   example10_returnRef();
   example11_constGet();
-
+  example12_pointArray();
+  
   return 0;
 }
 ```
