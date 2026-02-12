@@ -6,6 +6,413 @@ weight: 10
 
 # Chapitre 2 : des classes et des objets
 
+## Slides
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html">}}
+
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html?print-pdf)
+
+## Exemples
+
+### 1242.2_01.02_PointClass : `Point.h`
+
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_02.01_PointClass.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+
+#pragma once
+
+// @warning: this class is verbose for educational purposes only.
+class Point
+{
+  public:
+  
+  // ========== 1. BASIC METHODS ==========
+  // Init is inline: definition in header
+  void init(int px, int py)
+  {
+      m_x = px;
+      m_y = py;
+  }
+  
+  // Implicitly inline methods
+  void setX(int x) {m_x = x;}
+  void setY(int y) {m_y = y;}
+  void setXY(int x, int y){m_x = x; m_y = y;}
+
+  // Inline with definition in header (see end of this file) 
+  int getX();
+  int getX() const;
+  int getY();
+  int getY() const;
+
+  void translate(int dx, int dy); 
+
+  // ========== CONSTRUCTORS ==========
+  // Default constructor
+  Point();
+
+  // Constructor
+  Point(int x, int y);
+
+  // Copy constructor
+  Point(const Point &p);
+
+  // Conversion constructor from int to Point
+  explicit Point(int v);
+
+  // ========== DESTRUCTOR ==========
+  virtual ~Point(); // virtual: see chapter on polymorphism
+
+  // ========== CONST METHODS ==========
+  void print() const;
+
+  // ========== 'this' POINTER USAGE ==========
+  // Demonstrates: using 'this' pointer (address comparison)
+  bool compare(const Point &other) const;
+
+  // Demonstrates: '*this' (dereferencing)
+  Point getCopy() const;
+
+  // ========== STATIC MEMBERS ==========
+  // Do not belong to a specific instance
+  static int getCounts();
+
+  // ========== FRIEND FUNCTION ==========
+  friend double distance(const Point &p1, const Point &p2);
+
+  // ========== RETURNING A REFERENCE ==========
+  int X() const {return m_x;}
+  // Cannot be const
+  int &X() {return m_x;}
+  int Y() const {return m_y;}
+  // Cannot be const
+  int &Y() {return m_y;}
+
+private:
+  // Attributes
+  int m_x{0};
+  int m_y{0};
+
+  // Shared attribute for all instances
+  static int counts;
+};
+
+inline int Point::getX() {return m_x;}
+inline int Point::getX() const {return m_x;}
+inline int Point::getY() {return m_y;}
+inline int Point::getY() const {return m_y;}
+
+// Non-member function
+double distance(const Point &p1, const Point &p2);
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.02_PointClass : `Point.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_02.01_PointClass.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+
+#include "Point.h"
+#include <iostream>
+#include <print>
+#include <cmath>
+
+// ========== STATIC MEMBERS INITIALIZATION ==========
+int Point::counts = 0;
+
+// ========== 1. BASIC METHODS ==========
+void Point::translate(int dx, int dy)
+{
+  m_x += dx;
+  m_y += dy;
+}
+
+// ========== 2. CONSTRUCTORS ==========
+Point::Point()
+{
+  m_x = 0;
+  m_y = 0;
+  counts++;
+  std::println("  ->default ctor (counts={})", counts);
+}
+
+// member initializer list
+Point::Point(int x, int y) : m_x(x), m_y(y)
+{
+  counts++;
+  std::println("  ->standard ctor (with initializer list, counts={})", counts);
+}
+
+Point::Point(int v) : m_x(v), m_y(v)
+{
+  counts++;
+  std::println("  ->conversion ctor (counts={})", counts);
+}
+
+// Demonstrates: using 'this' pointer
+Point::Point(const Point &p)
+{
+  this->m_x = p.m_x;
+  this->m_y = p.m_y;
+  counts++;
+  std::println("  ->copy ctor (counts={})", counts);
+}
+
+// ========== 3. DESTRUCTOR ==========
+Point::~Point()
+{
+  counts--;
+  std::println("  ~Point() dtor called (counts={})", counts);
+}
+
+// ========== 4. CONST METHODS ==========
+void Point::print() const
+{
+  // C++23
+  std::println("({}, {})", m_x, m_y);
+  // Prior to C++23:
+  // std::cout << "(" << m_x << "," << m_y << ")" << std::endl;
+}
+
+// ========== 5. 'this' POINTER USAGE ==========
+
+// Demonstrates: this == &otherPoint (address comparison)
+bool Point::compare(const Point &otherPoint) const
+{
+  auto same = (this->m_x == otherPoint.m_x) && (this->m_y == otherPoint.m_y);
+  return same;
+}
+
+Point Point::getCopy() const
+{
+  return *this;
+}
+
+// ========== 6. STATIC METHODS ==========
+int Point::getCounts()
+{
+  return counts;
+}
+
+// ========== 7. FRIEND FUNCTION ==========
+double distance(const Point &p1, const Point &p2)
+{
+  // Friend of Point: can access private members
+  int dx = p1.m_x - p2.m_x;
+  int dy = p1.m_y - p2.m_y;
+  return std::sqrt(dx * dx + dy * dy);
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.02_PointClass : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_02.01_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+
+#include "Point.h"
+
+#include <iostream>
+#include <print>
+
+void f1(Point p)
+{
+  p.print();
+}
+
+void f2(const Point &p)
+{
+  p.print();
+}
+
+void f3(Point *p)
+{
+  p->print();
+}
+
+Point f4()
+{
+  Point p(5, 6);
+  p.print();
+  return p;
+}
+
+void example01_basic()
+{
+  Point p1;
+  p1.print();
+
+  p1.init(-1, 2);
+  p1.print();
+
+  p1.translate(10, 10);
+  p1.print();
+}
+
+void example02_conversion()
+{
+  // Explicitly calls CTor
+  Point p1 = Point(4);
+  p1.print();
+  // GCC: error: conversion from 'int' to non-scalar type 'Point' requested
+  // Point p2 = 4;
+}
+
+void example03_constructors()
+{
+  Point p1 = Point();
+  p1.print();
+  p1.setXY(100, 200);
+  p1.print();
+
+  Point p2(1, 2);
+  p2.print();
+  Point p3 = Point(1, 2);
+  p3.print();
+
+  Point p4(p1);
+  p4.print();
+
+  Point p5 = p1;
+  p5.print();
+
+  Point p6(10);
+  p6.print();
+
+  // GCC: error: conversion from 'int' to non-scalar type 'Point' requested
+  // Point p7 = 11;
+
+  Point p8;
+  // GCC: error: no match for 'operator=' (operand types are 'Point' and 'int')
+  // p8 = 4;
+
+  Point *pP1 = new Point();
+  pP1->setXY(150, 250);
+  pP1->print();
+  delete pP1;
+  pP1 = nullptr;
+}
+
+void example04_copyConstructor()
+{
+  Point p1(3, 4);
+
+  Point p4(p1);
+  p4.print();
+
+  Point p5 = Point(p1);
+  p5.print();
+
+  f1(p4);
+  f2(p4);
+  f3(&p4);
+  Point p6 = f4();
+}
+
+void example06_destructor()
+{
+  {
+    Point p1(1, 1);
+    Point pn[4];
+  }
+
+  Point *ptrP = new Point(2, 3);
+  ptrP->setXY(150, 250);
+  ptrP->print();
+  delete ptrP;
+
+  Point *ptrTabPoint = new Point[5];
+  delete[] ptrTabPoint;
+}
+
+void example07_this()
+{
+  Point pt(5, 7);
+  Point p2(pt);
+  Point &refPt = pt;
+  Point *ptrPt = &pt;
+  Point clone = pt.getCopy();
+
+  pt.print();
+  p2.print();
+  refPt.print();
+  ptrPt->print();
+  clone.print();
+
+  std::println("pt.compare(p2): {}", pt.compare(p2));
+  std::println("pt.compare(refPt): {}", pt.compare(refPt));
+  std::println("pt.compare(*ptrPt): {}", pt.compare(*ptrPt));
+  std::println("pt.compare(clone): {}", pt.compare(clone));
+}
+
+void example08_static()
+{
+  std::println("Point::getCounts() = {}", Point::getCounts());
+
+  Point p1(2, 3);
+  std::println("p1.getCounts() = {}", p1.getCounts());
+  Point p2(4, 5);
+  std::println("p2.getCounts() = {}", p2.getCounts());
+
+  std::println("Point::getCounts() = {}", Point::getCounts());
+}
+
+void example09_friend()
+{
+  Point p1(7, 9);
+  p1.print();
+
+  Point p2(3, 4);
+  double d = distance(p1, p2);
+  std::println("distance(p1, p2) = {}", d);
+}
+
+void example10_returnRef()
+{
+  Point p1(1, 1);
+  p1.X()++;
+  p1.Y() += 10;
+  p1.print();
+}
+
+void example11_constGet()
+{
+  // p1 cannot be changed afterwards
+  const Point p1(1, 1);
+  // GCC: error: passing 'const Point' as 'this' argument discards qualifiers [-fpermissive]
+  // p1.setX(10);
+  p1.getX();
+}
+
+int main()
+{
+  example01_basic();
+  example02_conversion();
+  example03_constructors();
+  example04_copyConstructor();
+  example06_destructor();
+  example07_this();
+  example08_static();
+  example09_friend();
+  example10_returnRef();
+  example11_constGet();
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 2.1
 
 ### Exercice 1 : CLASSE Compte bancaire
@@ -312,8 +719,6 @@ R.show();       // OK
 copyR.show();   // ?!? grmph    --> :) après complétion de l'exercice
 ```
 
-
-
 ## Solutions
 <!-- [Serie2_1_1_SOLUTIONS](/zips/Serie2_1_1_SOLUTIONS.zip)
 
@@ -326,8 +731,3 @@ copyR.show();   // ?!? grmph    --> :) après complétion de l'exercice
 [Serie2_2_2_SOLUTIONS](/zips/Serie2_2_2_SOLUTIONS.zip)
 
 [Serie2_2_3_SOLUTIONS](/zips/Serie2_2_3_SOLUTIONS.zip) -->
-
-## Slides
-{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html">}}
-
-[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/02_Des_classes_et_des_objets.html?print-pdf)
