@@ -22,6 +22,8 @@ draft: false
   This block is automatically regenerated.
 -->
 ```cpp
+#include <iostream>
+ 
 int main()
 {  
   std::cout << "Hello world++!" << std::endl;
@@ -110,7 +112,7 @@ int main()
   // Promote french namespace in the global namespace
   using namespace french;
 
-  // GGC: error: call of overloaded 'colorName(int)' is ambiguous
+  // GCC: error: call of overloaded 'colorName(int)' is ambiguous
   // colorName(1);
 
   return 0;
@@ -248,6 +250,7 @@ int main()
 -->
 ```cpp
 #include <iostream>
+#include <stdexcept>
 
 int &getRefOnCount()
 {
@@ -259,7 +262,7 @@ const int N = 2;
 std::string tabNoms[N] = {"Bob", "John"};
 int tabAges[N] = {20, 30};
 
-int &age(std::string nom)
+int &age(const std::string &nom)
 {
   for (int i = 0; i < N; i++)
   {
@@ -427,8 +430,21 @@ typedef std::vector<Line> Matrix;
 
 int main()
 {
-  Matrix m(5);
- 
+  // {10, 11}
+  std::vector<int> myVector1{10,11};
+
+  // {10.0, 11.0}
+  std::vector<double> myVector2;
+  myVector2.push_back(10.0);
+  myVector2.push_back(11.0);
+  
+  // {5, 5}
+  std::vector<int> myVector3(2,5);
+  // {10, 11}
+  myVector3[0]=10;
+  myVector3[1]=11;
+  
+  Matrix m(5); 
   for (int i = 0; i < 5; ++i)
   {
     m[i].resize(5); // rows size is 5

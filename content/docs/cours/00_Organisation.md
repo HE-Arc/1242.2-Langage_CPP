@@ -25,7 +25,7 @@ Vous pouvez télécharger Visual Studio 2026 Community Edition ici : [https://vi
 
 Durant l'installation, il faut choisir "Développement Desktop en C++" :
 
-{{< figure src="images/InstallVS2022.png#center" width="100%">}}
+{{< figure src="images/InstallVS2026.png#center" width="100%">}}
 
 ## Évaluation
 Un oral (live coding) de 20 à 30 minutes + un projet individuel de développement (jeu).
@@ -58,7 +58,7 @@ Le calendrier est donné à titre indicatif et sujet à modifications.
 ## Ressources
 - C++ Primer, 5th Edition, Stanley B. Lippman, Josée Lajoie, Barbara E. Moo, Addison-Wesley, 2012.
 - Programming Principles and Practice Using C++, 3rd Edition, Bjarne Stroustrup, 2024.
-- A tour of C++, 4th Edition, Bjarne Stroustrup, Addison-Wesley, 2020.
+- A tour of C++, 3rd Edition, Bjarne Stroustrup, Addison-Wesley, 2022.
 - [cppreference.com](http://en.cppreference.com/w/)
 - [C++ Core Guidelines](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines)
 - [C++ FAQ](https://isocpp.org/faq)
