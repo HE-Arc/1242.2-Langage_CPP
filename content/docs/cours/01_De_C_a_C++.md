@@ -216,8 +216,9 @@ En particulier, les modificateurs de formatage sont locaux à l'appel de la fonc
 -->
 ```cpp
 #include <iostream>
-#include <print>
 #include <string>
+#include <print>
+#include <format>
 
 int main()
 {  
