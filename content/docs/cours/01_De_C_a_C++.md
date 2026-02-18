@@ -616,8 +616,8 @@ hexadecimal: f decimal: 15 octal: 17
 15 15 15
 
 -5345.12
--5345.12345679
--5.3451e+003
+-5345.123456789
+-5.3451e+03
 -5345.12
 ```
 
@@ -655,7 +655,7 @@ Compléter le programme suivant :
 1) remplacer la boucle **`for`** suivante par une boucle **`range-based`**
 2) copier les valeurs du tableau **`primeNumbers`** dans le tableau **`copie`**
 
-Pourquoi ne peut-on pas faire cette copie SIMPLEMENT avec le nouveau **`for`** ?
+Pourquoi ne peut-on pas faire cette copie **SIMPLEMENT** avec le nouveau **`for`** ?
       
 ```cpp 
 #include <iostream>
