@@ -15,13 +15,13 @@ Lorsque ce n'est pas le cas, ce sera clairement indiqué.
 ## Horaires et salles
 
 ### Groupes ISC1a et ISC1b
-Professeur : ???
+Professeur : Margaux Divernois
 
-Assistant : ???
+Assistant : Guy-Raphaël Stauffer
 
-**COURS :** ???
+**COURS :** les mercredis de 16h40 à 18h10 en salle NE122.
 
-**EXERCICES :** ???
+**EXERCICES :** les jeudis de 8h15 à 11h35 en salle NE122.
 
 ### Groupes ISC1c et ISC1d
 Professeur : Benoît Le Callennec
