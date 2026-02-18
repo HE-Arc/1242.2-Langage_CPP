@@ -30,6 +30,7 @@ Durant le développement, vous pouvez utiliser les raccourcis clavier suivants :
 - décommenter le code sélectionné : **`Ctrl+K, Ctrl+U`**
 - compiler le fichier courant : **`Ctrl+F7`**
 - compiler **tout** le programme : **`Ctrl+Shift+B`** 
+- éditer plusieurs lignes de code à la fois : **`Shift` + `Alt` + flèches du bas (ou haut)** (pour choisir les lignes à éditer en parallèle)
 
 ## Exécuter le programme
 Pour exécuter le programme, vous pouvez utiliser les raccourcis clavier suivants :
