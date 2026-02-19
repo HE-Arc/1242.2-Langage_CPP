@@ -5,6 +5,10 @@ date: 2026-02-10
 tags : ["Visual Studio 2026", "Général"]
 draft: false
 ---
+Durant le cours de C++, nous utiliserons Visual Studio 2026 Community Edition comme environnement de développement.
+Ce document a pour but de vous aider à prendre en main cet environnement de développement, et à vous donner les premières étapes pour créer un projet, écrire du code, compiler, exécuter et débugger votre programme.
+Dans certains cas, il faut aussi configurer Visual Studio pour s'assurer que la bonne version du C++ est utilisée (C++23).
+
 
 ## Installation
 Vous pouvez télécharger Visual Studio 2026 Community Edition ici : [https://visualstudio.microsoft.com/downloads/](https://visualstudio.microsoft.com/downloads/)

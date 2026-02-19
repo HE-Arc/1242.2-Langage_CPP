@@ -630,6 +630,8 @@ La première utilise des nombres entiers (**`int`**) et la seconde des nombres d
 
     Que se passe-t-il si on supprime la méthode qui reçoit deux entiers en arguments ?
 
+Pour aller plus loin : [Résolution de surcharge et conversions implicites]({{< relref "posts/surcharge_et_conversions_implicites.md" >}})
+
 ### Exercice 3 : passage de paramètres
 Écrire des fonctions **`<return> divide(dividend, divisor, <other_params>)`** qui, à partir de deux entiers passés en paramètre, retournent le **quotient** et le **reste** de la division entière.
 
@@ -659,12 +661,12 @@ Pourquoi ne peut-on pas faire cette copie **SIMPLEMENT** avec le nouveau **`for`
       
 ```cpp 
 #include <iostream>
-using namespace std;
+
 int main()
 {
-  int primeNumbers[] = { 1, 2, 3, 5, 7, 11, 13};
-  int copy[7]  = { 0, 0, 0, 0, 0, 0, 0 };
-  int sizeArray = sizeof(primeNumbers) / sizeof(int);
+  int primeNumbers[] = {2, 3, 5, 7, 11, 13, 17};
+  int copy[7]  = {0, 0, 0, 0, 0, 0, 0};
+  int sizeArray = sizeof(primeNumbers) / sizeof(primeNumbers[0]);
 
   //TODO
   for (int i=0; i < sizeArray; i++)
