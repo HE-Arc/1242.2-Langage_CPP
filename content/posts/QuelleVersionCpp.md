@@ -8,7 +8,7 @@ draft: false
 
 Durant le cours, nous utiliserons le C++23.
 Dans certains cas, si la version du compilateur utilisé est trop ancienne, alors certaines fonctionnalités de C++23 ne seront pas disponibles.
-À l'inverse, il est aussi possible que certaines "possibilités" aient été enlevées dans les version les plus récentes du C++.
+À l'inverse, il est aussi possible que certaines "possibilités" aient été enlevées dans les versions les plus récentes du C++.
 Par exemple, la possibilité de lire, depuis `std::cin` dans un `char*` a été supprimée depuis C++20, pour des raisons de sécurité (risque de dépassement de buffer).
 
 {{< figure src="images/CPP17VsCPP20.png#center" width="100%">}}
@@ -44,4 +44,3 @@ Avec Visual Studio, il faut donc s'assurer d'utiliser la version C++23, et pas u
 Pour cela, il faut faire un clic droit sur le projet dans l'explorateur de solutions, puis dans **`Properties`** -> **`General`**, choisir **`Preview - ISO C++23 Standard (/std:c++23preview)`** :
 
 {{< figure src="images/VSProperties.png#center" width="100%">}}
-
