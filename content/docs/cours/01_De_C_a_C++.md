@@ -23,10 +23,14 @@ draft: false
 -->
 ```cpp
 #include <iostream>
- 
+#include <print>
+
 int main()
-{  
+{
   std::cout << "Hello world++!" << std::endl;
+
+  // Since C++23
+  std::println("Hello world from C++23!");
 
   return 0;
 }
@@ -41,14 +45,14 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
+#include <print>
 
 int main()
 {
     for (int i = 0; i < 3; ++i)
     {
         int x = i * 2;
-        std::cout << x << std::endl;
+        std::println("{}", x);
     }
 
     return 0;
@@ -64,14 +68,15 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
+#include <print>
+#include <string>
 
 namespace language::english
 {
   std::string colors[] = {"White", "Red", "Black"};
   void colorName(int index)
   {
-    std::cout << "The color is: " << colors[index] << std::endl;
+    std::println("The color is: {}", colors[index]);
   }
 }
 
@@ -82,7 +87,7 @@ namespace language
     std::string colors[] = {"Blanc", "Rouge", "Noir"};
     void colorName(int index)
     {
-      std::cout << "La couleur est : " << colors[index] << std::endl;
+      std::println("La couleur est : {}", colors[index]);
     }
   }
 }
@@ -215,20 +220,18 @@ En particulier, les modificateurs de formatage sont locaux à l'appel de la fonc
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
-#include <string>
 #include <print>
-#include <format>
+#include <string>
 
 int main()
-{  
-  // C++20: std::format and {:.2} instead of std::setprecision
+{
+  // C++20/23: std::format syntax with {:.Nf} instead of std::setprecision
   double pi = 3.1415926535897932384626433832795;
-  std::cout << std::format("{:.2f}", pi) << std::endl;
-  std::cout << std::format("{:.8f}", pi) << std::endl;
-  std::cout << std::format("{:.4e}", pi) << std::endl;
-  std::cout << std::format("{:.2f}", pi) << std::endl;
-  
+  std::println("{:.2f}", pi);
+  std::println("{:.8f}", pi);
+  std::println("{:.4e}", pi);
+  std::println("{:.2f}", pi);
+
   // C++23: print and println instead of std::cout and std::endl
   std::string firstname = "Donald";
   std::string lastname = "Knuth";
@@ -236,7 +239,7 @@ int main()
 
   std::println("Hello, {} {}!", firstname, lastname);
   std::print("The answer is = {}\n", answerToEverything);
-  
+
   return 0;
 }
 ```
@@ -250,7 +253,8 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
+#include <print>
+#include <string>
 #include <stdexcept>
 
 int &getRefOnCount()
@@ -280,23 +284,19 @@ int main()
 {
   double d1 = 1.0;
   double &rd1 = d1;
-  std::cout << "double" << std::endl;
+  std::println("double");
   // sizeof(ref) is the size of the variable it references
-  std::cout << " - Adresse de d1  = " << &d1 << " "
-            << sizeof(d1) << std::endl;
-  std::cout << " - Adresse de rd1 = " << &rd1 << " "
-            << sizeof(rd1) << std::endl
-            << std::endl;
+  std::println(" - Adresse de d1  = {} {}", static_cast<const void*>(&d1), sizeof(d1));
+  std::println(" - Adresse de rd1 = {} {}", static_cast<const void*>(&rd1), sizeof(rd1));
+  std::println("");
 
   int i1 = 10;
   int &ri1 = i1;
-  std::cout << "int" << std::endl;
+  std::println("int");
   // sizeof(ref) is the size of the variable it references
-  std::cout << " - Adresse de i1  = " << &i1 << " "
-            << sizeof(i1) << std::endl;
-  std::cout << " - Adresse de ri1 = " << &ri1 << " "
-            << sizeof(ri1) << std::endl
-            << std::endl;
+  std::println(" - Adresse de i1  = {} {}", static_cast<const void*>(&i1), sizeof(i1));
+  std::println(" - Adresse de ri1 = {} {}", static_cast<const void*>(&ri1), sizeof(ri1));
+  std::println("");
 
   struct STRUCT
   {
@@ -306,35 +306,33 @@ int main()
   // Note: no need for struct keyword in C++
   STRUCT varStruct{1.0, 2.0, 3.0};
   STRUCT &refStruct = varStruct;
-  std::cout << "STRUCT" << std::endl;
+  std::println("STRUCT");
   // sizeof(ref) is the size of the variable it references
-  std::cout << " - Adresse de varStruct = " << &varStruct << " "
-            << sizeof(varStruct) << std::endl;
-  std::cout << " - Adresse de refStruct = " << &refStruct << " "
-            << sizeof(refStruct) << std::endl;
+  std::println(" - Adresse de varStruct = {} {}", static_cast<const void*>(&varStruct), sizeof(varStruct));
+  std::println(" - Adresse de refStruct = {} {}", static_cast<const void*>(&refStruct), sizeof(refStruct));
 
   // getRefOnCount() returns a reference on the static variable count
   // So we modify count directly
-  std::cout << "Count: " << getRefOnCount()++ << std::endl;
-  std::cout << "Count: " << ++getRefOnCount() << std::endl;
+  std::println("Count: {}", getRefOnCount()++);
+  std::println("Count: {}", ++getRefOnCount());
 
   for (int i = 0; i < N; i++)
   {
-    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+    std::println("{} {}", tabNoms[i], tabAges[i]);
   }
 
   age("Bob") = 50;
 
   for (int i = 0; i < N; i++)
   {
-    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+    std::println("{} {}", tabNoms[i], tabAges[i]);
   }
 
   age("John")++;
 
   for (int i = 0; i < N; i++)
   {
-    std::cout << tabNoms[i] << " " << tabAges[i] << std::endl;
+    std::println("{} {}", tabNoms[i], tabAges[i]);
   }
 
   return 0;
@@ -350,7 +348,7 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
+#include <print>
 
 int main()
 {
@@ -363,7 +361,7 @@ int main()
   {
     for (int n = 1;; n++)
     {
-      std::cout << n << std::endl;
+      std::println("{}", n);
       // throws std::bad_alloc if no more memory is available
       x = new int[1024 * 1024];
       // Comment to provoke a memory leak
@@ -373,7 +371,7 @@ int main()
   // See chapter on exceptions for more details
   catch (const std::bad_alloc &e)
   {
-    std::cout << "Memory allocation failed." << std::endl;
+    std::println("Memory allocation failed.");
   }
 
   return 0;
@@ -389,9 +387,9 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
+#include <print>
 #include <string>
- 
+
 int main()
 {
   std::string x = "Hello";
@@ -400,9 +398,9 @@ int main()
 
   std::string y = x;
   std::string z = x + "_" + y;
-  std::cout << x << " " << y << " " << z << std::endl;
-  std::cout << "cap: " << z.capacity() << std::endl; 
-  std::cout << "size: " << z.size()     << std::endl;
+  std::println("{} {} {}", x, y, z);
+  std::println("cap: {}", z.capacity());
+  std::println("size: {}", z.size());
 
   // C++14: string literals
   // Need to add "using namespace std::string_literals;"

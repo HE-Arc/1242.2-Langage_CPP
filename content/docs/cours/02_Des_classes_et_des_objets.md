@@ -13,7 +13,7 @@ weight: 10
 
 ## Exemples
 
-### 1242.2_01.02_PointClass : `Point.h`
+### 1242.2_02.01_PointClass : `Point.h`
 
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_02.01_PointClass.h -->
 <!--
@@ -30,12 +30,14 @@ class Point
   public:
   
   // ========== 1. BASIC METHODS ==========
-  // Init is inline: definition in header
-  void init(int px, int py)
-  {
-      m_x = px;
-      m_y = py;
-  }
+
+  // Without C++ contructors, we would need to use an init method.
+  // This is not needed in C++
+  // void init(int px, int py)
+  // {
+  //     m_x = px;
+  //     m_y = py;
+  // }
   
   // Implicitly inline methods
   void setX(int x) {m_x = x;}
@@ -43,9 +45,7 @@ class Point
   void setXY(int x, int y){m_x = x; m_y = y;}
 
   // Inline with definition in header (see end of this file) 
-  int getX();
   int getX() const;
-  int getY();
   int getY() const;
 
   void translate(int dx, int dy); 
@@ -66,12 +66,16 @@ class Point
   // ========== DESTRUCTOR ==========
   virtual ~Point(); // virtual: see chapter on polymorphism
 
+  // ========== COPY ASSIGNMENT ==========
+  // Just make it default (compiler-generated)
+  Point& operator=(const Point &p) = default;
+
   // ========== CONST METHODS ==========
   void print() const;
 
   // ========== 'this' POINTER USAGE ==========
-  // Demonstrates: using 'this' pointer (address comparison)
-  bool compare(const Point &other) const;
+  // Demonstrates: using 'this' pointer
+  bool isSameObject(const Point &other) const;
 
   // Demonstrates: '*this' (dereferencing)
   Point getCopy() const;
@@ -84,6 +88,9 @@ class Point
   friend double distance(const Point &p1, const Point &p2);
 
   // ========== RETURNING A REFERENCE ==========
+  // Allows: p.X() = 5;  or  p.X()++;
+  // NOTE: This breaks encapsulation (equivalent to making m_x public).
+  //       In practice, prefer getX()/setX() for simple attributes.
   int X() const {return m_x;}
   // Cannot be const
   int &X() {return m_x;}
@@ -100,9 +107,7 @@ private:
   static int counts;
 };
 
-inline int Point::getX() {return m_x;}
 inline int Point::getX() const {return m_x;}
-inline int Point::getY() {return m_y;}
 inline int Point::getY() const {return m_y;}
 
 // Non-member function
@@ -110,7 +115,7 @@ double distance(const Point &p1, const Point &p2);
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_01.02_PointClass : `Point.cpp`
+### 1242.2_02.01_PointClass : `Point.cpp`
 
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_02.01_PointClass.cpp -->
 <!--
@@ -120,7 +125,6 @@ double distance(const Point &p1, const Point &p2);
 ```cpp
 
 #include "Point.h"
-#include <iostream>
 #include <print>
 #include <cmath>
 
@@ -135,10 +139,8 @@ void Point::translate(int dx, int dy)
 }
 
 // ========== 2. CONSTRUCTORS ==========
-Point::Point()
+Point::Point() // : m_x(0), m_y(0) -> not needed. See in-class initialization
 {
-  m_x = 0;
-  m_y = 0;
   counts++;
   std::println("  ->default ctor (counts={})", counts);
 }
@@ -156,11 +158,8 @@ Point::Point(int v) : m_x(v), m_y(v)
   std::println("  ->conversion ctor (counts={})", counts);
 }
 
-// Demonstrates: using 'this' pointer
-Point::Point(const Point &p)
+Point::Point(const Point &p) : m_x(p.m_x), m_y(p.m_y)
 {
-  this->m_x = p.m_x;
-  this->m_y = p.m_y;
   counts++;
   std::println("  ->copy ctor (counts={})", counts);
 }
@@ -183,11 +182,9 @@ void Point::print() const
 
 // ========== 5. 'this' POINTER USAGE ==========
 
-// Demonstrates: this == &otherPoint (address comparison)
-bool Point::compare(const Point &otherPoint) const
-{
-  auto same = (this->m_x == otherPoint.m_x) && (this->m_y == otherPoint.m_y);
-  return same;
+bool Point::isSameObject(const Point &otherPoint) const
+{  
+  return (this == &otherPoint);
 }
 
 Point Point::getCopy() const
@@ -212,7 +209,7 @@ double distance(const Point &p1, const Point &p2)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_01.02_PointClass : `main.cpp`
+### 1242.2_02.01_PointClass : `main.cpp`
 
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_02.01_Main -->
 <!--
@@ -223,7 +220,6 @@ double distance(const Point &p1, const Point &p2)
 
 #include "Point.h"
 
-#include <iostream>
 #include <print>
 #include <vector>
 
@@ -252,9 +248,6 @@ Point f4()
 void example01_basic()
 {
   Point p1;
-  p1.print();
-
-  p1.init(-1, 2);
   p1.print();
 
   p1.translate(10, 10);
@@ -294,8 +287,8 @@ void example03_constructors()
   // GCC: error: conversion from 'int' to non-scalar type 'Point' requested
   // Point p7 = 11;
 
-  Point p8;
   // GCC: error: no match for 'operator=' (operand types are 'Point' and 'int')
+  // Point p8;
   // p8 = 4;
 
   Point *pP1 = new Point();
@@ -321,7 +314,7 @@ void example04_copyConstructor()
   Point p6 = f4();
 }
 
-void example06_destructor()
+void example05_destructor()
 {
   {
     Point p1(1, 1);
@@ -337,7 +330,7 @@ void example06_destructor()
   delete[] ptrTabPoint;
 }
 
-void example07_this()
+void example06_this()
 {
   Point pt(5, 7);
   Point p2(pt);
@@ -351,25 +344,28 @@ void example07_this()
   ptrPt->print();
   clone.print();
 
-  std::println("pt.compare(p2): {}", pt.compare(p2));
-  std::println("pt.compare(refPt): {}", pt.compare(refPt));
-  std::println("pt.compare(*ptrPt): {}", pt.compare(*ptrPt));
-  std::println("pt.compare(clone): {}", pt.compare(clone));
+  std::println("pt.isSameObject(p2): {}", pt.isSameObject(p2));
+  std::println("pt.isSameObject(refPt): {}", pt.isSameObject(refPt));
+  std::println("pt.isSameObject(*ptrPt): {}", pt.isSameObject(*ptrPt));
+  std::println("pt.isSameObject(clone): {}", pt.isSameObject(clone));
 }
 
-void example08_static()
+void example07_static()
 {
   std::println("Point::getCounts() = {}", Point::getCounts());
 
   Point p1(2, 3);
-  std::println("p1.getCounts() = {}", p1.getCounts());
   Point p2(4, 5);
+  // Both return the same value: counts is shared by all instances
+  // Works, but calling a static method on an instance is misleading.
+  // Prefer: Point::getCounts()
+  std::println("p1.getCounts() = {}", p1.getCounts());
   std::println("p2.getCounts() = {}", p2.getCounts());
 
   std::println("Point::getCounts() = {}", Point::getCounts());
 }
 
-void example09_friend()
+void example08_friend()
 {
   Point p1(7, 9);
   p1.print();
@@ -379,41 +375,43 @@ void example09_friend()
   std::println("distance(p1, p2) = {}", d);
 }
 
-void example10_returnRef()
+void example09_returnRef()
 {
+  // X() returns a reference: allows direct modification
+  // Convenient, but use with care (see header comment)
   Point p1(1, 1);
   p1.X()++;
   p1.Y() += 10;
   p1.print();
 }
 
-void example11_constGet()
+void example10_constGet()
 {
   // p1 cannot be changed afterwards
   const Point p1(1, 1);
-  // GCC: error: passing 'const Point' as 'this' argument discards qualifiers [-fpermissive]
+  // GCC: error: passing 'const Point' as 'this' argument discards qualifiers
   // p1.setX(10);
   p1.getX();
 }
 
-void example12_pointArray()
+void example11_pointArray()
 {
   // Use default CTor
   Point p3[10];
   // Use Point(int, int), then use default CTor
   Point p4[4] = {Point(5, 3)};
-  
+
   auto *p5 = new Point(6, 3);
   delete p5;
-  
+
   auto *p6 = new Point[10];
   for (int i = 0; i < 10; i++)
   {
-    p6[i] = Point(2,3);
+    p6[i] = Point(2, 3);
   }
   delete[] p6;
-  
-  std::vector<Point> v(10, Point(2,3));
+
+  std::vector<Point> v(10, Point(2, 3));
 }
 
 int main()
@@ -422,14 +420,14 @@ int main()
   example02_conversion();
   example03_constructors();
   example04_copyConstructor();
-  example06_destructor();
-  example07_this();
-  example08_static();
-  example09_friend();
-  example10_returnRef();
-  example11_constGet();
-  example12_pointArray();
-  
+  example05_destructor();
+  example06_this();
+  example07_static();
+  example08_friend();
+  example09_returnRef();
+  example10_constGet();
+  example11_pointArray();
+
   return 0;
 }
 ```
@@ -437,7 +435,7 @@ int main()
 
 ## Série 2.1
 
-### Exercice 1 : CLASSE Compte bancaire
+### Exercice 1 : classe compte bancaire
 On veut développer un programme de gestion d’un compte bancaire.
 Pour cela, implémenter une classe **`BankAccount`**, avec laquelle on puisse :
 - initialiser le montant à zéro
@@ -452,7 +450,6 @@ Avec le programme `main` ci-dessous :
 int main()
 {
   BankAccount myBankAccount;
-  myBankAccount.init();
   myBankAccount.show();
   myBankAccount.withdraw(100);    // ERROR
   myBankAccount.show();
@@ -480,7 +477,7 @@ The amount on your bank account is : 80.00
 ### Exercice 2 : classe Time
 Créer une classe **`Time`** permettant de manipuler des mesures de temps (heure, minute) selon le diagramme UML suivant :
 
-{{< plantuml id="chap2_exo1_2">}}
+{{<plantuml id="chap2_exo1_2">}}
 @startuml
 
 skin rose
@@ -495,15 +492,15 @@ class Time
     - m : int
     + getHour() : int
     + getMinute() : int
-    + setHour() : void
+    + setHour(int) : void
     + setMinute(int) : void
     + show() : void
     + Time()
-    + Time (int h, int m)
-    + Time (double realTime)
+    + Time(int h, int m)
+    + Time(double realTime)
   }
 @enduml
-{{< /plantuml >}}
+{{</plantuml>}}
 
 Elle disposera donc :
 - des attributs privés : **`hour`**, **`minute`**
@@ -543,7 +540,7 @@ Modifier la logique de contrôle de la validité des arguments aussi bien à la 
 1) En s’inspirant des exemples du cours, concevoir puis implémenter une classe **`Point`** permettant de manipuler un point dans le plan.
 Cette classe est résumé dans le diagramme UML suivant :
 
-{{< plantuml id="chap2_exo3">}}
+{{<plantuml id="chap2_exo3">}}
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
@@ -552,14 +549,14 @@ class Point
 {
   - x : double
   - y : double
-  + label : char
+  - label : char
   + show() : void
   + translate (double dx, double dy) : void
-  + Point (char name, double x, double y)
+  + Point (char name, double x = 0, double y = 0)
 }
 
 @enduml
-{{< /plantuml >}}
+{{</plantuml>}}
 
 Un point sera caractérisé par un label et ses coordonnées dans le plan.
 La classe **`Point`** disposera des méthodes suivantes :
@@ -598,7 +595,7 @@ Reprendre la classe **`Point`** de la série 2.1 et la compléter avec les élé
 
 Son diagramme de classe UML sera donc :
 
-{{< plantuml id="chap2_exo2_2">}}
+{{<plantuml id="chap2_exo2_2">}}
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
@@ -607,7 +604,7 @@ skinparam classAttributeIconSize 0
     - x : double
     - y : double
     - {static} counter: int
-    + label : char
+    - label : char
     + show() : void
     + {static} getCounter() : int
     + translate (double dx, double dy) : void
@@ -615,7 +612,7 @@ skinparam classAttributeIconSize 0
     + ~Point()
   }
 @enduml
-{{< /plantuml >}}
+{{</plantuml>}}
 
 - Compléter le programme pour créer des objets **`Point`** et afficher la valeur du compteur.
 Vérifier en particulier qu'à la fin du programme il n'y ait plus d'objets **`Point`** en mémoire grâce au compteur (encapsuler **`main`** dans une paire de { } supplémentaire). 
@@ -623,6 +620,9 @@ Vérifier en particulier qu'à la fin du programme il n'y ait plus d'objets **`P
 Par exemple :
 
 ```cpp
+
+...
+
 int main()
 {
     Point *ptrPoint = nullptr;
@@ -644,9 +644,6 @@ int main()
     ptrPoint = nullptr;
 
         // 5. Afficher le nombre de points (doit afficher 0)
-
-    cout << "\n\nPlease hit ENTER to continue... ";
-    cin.get();
 
     return 0; 
 }
@@ -680,7 +677,7 @@ Le programme construira un objet rectangle avec chacun des constructeurs, les af
 
 **Question :** comment donner accès aux coordonnées des points aux fonctions de **`Rectangle`** ?
 
-**Question :** est-il possible de contruire un rectangle à partir d'un autre ? Essayer et afficher le nouveau rectangle pour voir si cela fonctionne bien.
+**Question :** est-il possible de construire un rectangle à partir d'un autre ? Essayer et afficher le nouveau rectangle pour voir si cela fonctionne bien.
 
 **Exemple d´extrait de programme :**
 
@@ -688,11 +685,11 @@ Le programme construira un objet rectangle avec chacun des constructeurs, les af
 Point pt1('A', 5., 5.), pt2('B', 10., 12.), ptX('X', 7., 8.);
 Rectangle R(pt1, pt2);
 R.show();
-cout << "Périmètre : " << R.getPerimeter() << endl; // 24
-cout << "is ptX contained in the area of rectangle R ? " <<  R.Contains(ptX) << endl;
+std::println("Périmètre : {}", R.getPerimeter()); // 24
+std::println("is ptX contained in the area of rectangle R ? {}",  R.contains(ptX));
 pt1.translate(3,5);
 R.show();
-cout << "Périmètre : " << R.getPerimeter() << endl; // ??
+std::println("Périmètre : {}", R.getPerimeter()); // ??
 // construire un rectangle R2 à partir de R et l'afficher
 ```
 
