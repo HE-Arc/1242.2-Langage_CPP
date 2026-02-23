@@ -42,17 +42,16 @@ Si vous voulez que votre code soit compatible avec la version du corrigée, vous
 L'utilisation de GitLab est obligatoire. Pour cela, il faut suivre les étapes détaillées ci-dessous.
 
 #### Première séance
-1. Créer un repo nommé **`CPP_FilRouge_ISCX_Nom`** (où X sera remplacé par a, b, c, d, e ou j selon votre groupe).
-2. Ajouter le professeur et l'assistant avec le rôle de **`Mantainer`**.
-3. Initialiser le git avec un readme
-4. Faire un **`git clone ...`**.
+1. Accéder à votre répertoire personnel, dans le groupe de votre classe, sur le GitLab du cours : [1242.2 LanguageCPP](https://gitlab-etu.ing.he-arc.ch/groups/isc/2025-26/niveau-1/1242.2-langagecpp). 
+2. Faire un **`git clone ...`**.
+3. Si absent, initialiser votre répertoire git avec un README.md
 
 #### Chaque semaine
 Il faut au minimum faire un push significatif de vos modifications par semaine.
 
 Il faut donc utiliser les commandes :
 - **`git add ...`**
-- **`git commit ...`**
+- **`git commit -m ...`**
 - **`git push ...`**
 
 {{< hint warning >}}
