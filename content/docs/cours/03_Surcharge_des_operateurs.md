@@ -6,6 +6,13 @@ weight: 10
 
 # Chapitre 3 : surcharge des opérateurs
 
+## Slides
+
+{{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html">}}
+
+
+[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html?print-pdf)
+
 ## Série 3.1
 
 ### Exercice 1 : classe **`Time`** surcharge 
@@ -316,8 +323,4 @@ int main()
 
 ## Solutions
 <!-- [Serie3_1_SOLUTIONS](/zips/Serie3_1_SOLUTIONS.zip) -->
-
-## Slides
-
-[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html?print-pdf)
 
