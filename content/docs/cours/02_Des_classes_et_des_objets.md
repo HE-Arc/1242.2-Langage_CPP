@@ -433,6 +433,60 @@ int main()
 ```
 <!-- SNIPPET:END -->
 
+### 1242.2_02.02_CTorsMisc : `A.h`
+<!-- SNIPPET:BEGIN source_file=A.h id=1242.2_02.02_A.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+
+#pragma once
+
+class A
+{
+  public:
+  A() = default;
+  // GCC warning: declaration of 'value' shadows a member of 'A'
+  A(int value) : value(value) {}
+  // Expressions in initializer list are ok
+  A(int value1, int value2) : value(value1 + value2) {}
+  // Members are initialized in the order of their declaration!!!
+  // -> value = 10, then angle = 20
+  A(int otherValue, [[maybe_unused]] double otherAngle) : angle(value+10),
+                                                          value(10) {}
+
+  private:
+  int value{0};
+  double angle{0.0};
+  
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_02.02_CTorsMisc : `main.cpp`
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_02.02_main.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+
+#include "A.h"
+
+int main()
+{
+  A a1; // default constructor
+  A a2(1); // constructor with one parameter
+  A a3(1, 2); // constructor with two parameters
+  A a4(1, 2.0);
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+
 ## Série 2.1
 
 ### Exercice 1 : classe compte bancaire
