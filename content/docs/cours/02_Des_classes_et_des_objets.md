@@ -443,6 +443,7 @@ int main()
 
 #pragma once
 
+// GCC: use compiler flag -Wshadow to get shadowing warnings
 class A
 {
   public:
@@ -450,11 +451,13 @@ class A
   // GCC warning: declaration of 'value' shadows a member of 'A'
   A(int value) : value(value) {}
   // Expressions in initializer list are ok
-  A(int value1, int value2) : value(value1 + value2) {}
+  A(int value1, int value2) : value(add(value1, value2)) {}
   // Members are initialized in the order of their declaration!!!
   // -> value = 10, then angle = 20
+  // GCC warning: 'A::angle' will be initialized after
   A(int otherValue, [[maybe_unused]] double otherAngle) : angle(value+10),
-                                                          value(10) {}
+                                                          value(otherValue) {}
+  int add(int a, int b) const { return a + b; }
 
   private:
   int value{0};
