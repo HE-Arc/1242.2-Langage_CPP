@@ -264,20 +264,20 @@ int &getRefOnCount()
 }
 
 const int N = 2;
-std::string tabNoms[N] = {"Bob", "John"};
-int tabAges[N] = {20, 30};
+std::string names[N] = {"Bob", "John"};
+int ages[N] = {20, 30};
 
-int &age(const std::string &nom)
+int &age(const std::string &name)
 {
   for (int i = 0; i < N; i++)
   {
-    if (nom == tabNoms[i])
-      return tabAges[i];
+    if (name == names[i])
+      return ages[i];
   }
 
   // If we are here, the name was not found
   // See chapter on exceptions for more details
-  throw std::out_of_range("nom not found");
+  throw std::out_of_range("name not found");
 }
 
 int main()
@@ -286,16 +286,16 @@ int main()
   double &rd1 = d1;
   std::println("double");
   // sizeof(ref) is the size of the variable it references
-  std::println(" - Adresse de d1  = {} {}", static_cast<const void*>(&d1), sizeof(d1));
-  std::println(" - Adresse de rd1 = {} {}", static_cast<const void*>(&rd1), sizeof(rd1));
+  std::println(" - Address for d1  = {} {}", static_cast<const void*>(&d1), sizeof(d1));
+  std::println(" - Address for rd1 = {} {}", static_cast<const void*>(&rd1), sizeof(rd1));
   std::println("");
 
   int i1 = 10;
   int &ri1 = i1;
   std::println("int");
   // sizeof(ref) is the size of the variable it references
-  std::println(" - Adresse de i1  = {} {}", static_cast<const void*>(&i1), sizeof(i1));
-  std::println(" - Adresse de ri1 = {} {}", static_cast<const void*>(&ri1), sizeof(ri1));
+  std::println(" - Address for i1  = {} {}", static_cast<const void*>(&i1), sizeof(i1));
+  std::println(" - Address for ri1 = {} {}", static_cast<const void*>(&ri1), sizeof(ri1));
   std::println("");
 
   struct STRUCT
@@ -308,8 +308,8 @@ int main()
   STRUCT &refStruct = varStruct;
   std::println("STRUCT");
   // sizeof(ref) is the size of the variable it references
-  std::println(" - Adresse de varStruct = {} {}", static_cast<const void*>(&varStruct), sizeof(varStruct));
-  std::println(" - Adresse de refStruct = {} {}", static_cast<const void*>(&refStruct), sizeof(refStruct));
+  std::println(" - Address for varStruct = {} {}", static_cast<const void*>(&varStruct), sizeof(varStruct));
+  std::println(" - Address for refStruct = {} {}", static_cast<const void*>(&refStruct), sizeof(refStruct));
 
   // getRefOnCount() returns a reference on the static variable count
   // So we modify count directly
@@ -318,21 +318,21 @@ int main()
 
   for (int i = 0; i < N; i++)
   {
-    std::println("{} {}", tabNoms[i], tabAges[i]);
+    std::println("{} {}", names[i], ages[i]);
   }
 
   age("Bob") = 50;
 
   for (int i = 0; i < N; i++)
   {
-    std::println("{} {}", tabNoms[i], tabAges[i]);
+    std::println("{} {}", names[i], ages[i]);
   }
 
   age("John")++;
 
   for (int i = 0; i < N; i++)
   {
-    std::println("{} {}", tabNoms[i], tabAges[i]);
+    std::println("{} {}", names[i], ages[i]);
   }
 
   return 0;
@@ -423,8 +423,8 @@ int main()
 #include <string>
 #include <vector>
 
-typedef std::vector<double> Line;
-typedef std::vector<Line> Matrix;
+using Line = std::vector<double>;
+using Matrix = std::vector<Line>;
 
 int main()
 {
@@ -506,13 +506,11 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <string>
 #include <vector>
-#include <sstream>
 #include <print>
 #include <algorithm>
 
-void sort(const std::vector<int>& v, bool ascending = true)
+void sort(const std::vector<int> &v, bool ascending = true)
 {
   auto sorted = v;
 
@@ -537,6 +535,34 @@ int main()
   auto v = std::vector<int>{5, 2, 9, 1, 5, 6};
   sort(v);
   sort(v, false);
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.12_FunctionsOverloading
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.12_FunctionsOverloading -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <print>
+
+int add(int a, int b)
+{
+  return a + b;
+}
+
+double add(double a, double b)
+{
+  return a + b;
+}
+
+int main()
+{
+  // Same name, different parameters
+  std::println("add(2, 3) = {}", add(2, 3));
+  std::println("add(2.5, 3.5) = {}", add(2.5, 3.5));  
 }
 ```
 <!-- SNIPPET:END -->
