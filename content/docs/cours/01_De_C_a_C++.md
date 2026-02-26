@@ -149,10 +149,10 @@ int main()
   auto fill = std::cout.fill();
 
   std::cout << std::setfill('.')
-            << std::setw(25) << std::right << "Colonne 1"
-            << "Colonne 3"
+            << std::setw(25) << std::right << "Column 1"
+            << "Column 3"
             << "\n"
-            << std::setw(10) << std::left << "Colonne 2\n";
+            << std::setw(10) << std::left << "Column 2\n";
 
   std::cout << std::setprecision(5) << std::fixed << std::setw(25)
             << std::left << 158.82589 << std::endl
@@ -186,18 +186,18 @@ int main()
   std::cout << std::dec << std::showpos << j << std::endl;
 
   int N = 0;
-  std::cout << "Entrez un chiffre entre 1 et 6 : ";
+  std::cout << "Enter a number between 1 and 6: ";
   while (!(std::cin >> N) || N < 1 || N > 6)
   {
     if (std::cin.fail())
     {
-      std::cout << "Saisie incorrecte, recommencez : ";
+      std::cout << "Wrong input, try again: ";
       std::cin.clear();
       std::cin.ignore(256, '\n');
     }
     else
     {
-      std::cout << "Le chiffre n'est pas entre 1 et 6: ";
+      std::cout << "The number is out of range: ";
     }
   }
 
@@ -420,7 +420,6 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
 #include <string>
 #include <vector>
 
@@ -473,7 +472,6 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
-#include <iostream>
 #include <string>
 
 #include <sstream>
@@ -497,6 +495,48 @@ int main()
   // C++20: std::format
   auto s3 = std::format("{:.2f}", pi);
   std::print("C++20: std::format: {}\n", s3);
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_01.11_DefaultParameters
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.11_DefaultParameters -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <string>
+#include <vector>
+#include <sstream>
+#include <print>
+#include <algorithm>
+
+void sort(const std::vector<int>& v, bool ascending = true)
+{
+  auto sorted = v;
+
+  if (ascending)
+  {
+    std::sort(sorted.begin(), sorted.end());
+  }
+  else
+  {
+    std::sort(sorted.rbegin(), sorted.rend());
+  }
+  std::print("Sorted vector: ");
+  for (const auto &elem : sorted)
+  {
+    std::print("{} ", elem);
+  }
+  std::print("\n");
+}
+
+int main()
+{
+  auto v = std::vector<int>{5, 2, 9, 1, 5, 6};
+  sort(v);
+  sort(v, false);
 }
 ```
 <!-- SNIPPET:END -->
