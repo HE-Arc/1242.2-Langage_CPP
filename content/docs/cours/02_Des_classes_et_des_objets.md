@@ -29,7 +29,7 @@ class Point
 {
   public:
   
-  // ========== 1. BASIC METHODS ==========
+  // ========== BASIC METHODS ==========
 
   // Without C++ contructors, we would need to use an init method.
   // This is not needed in C++
@@ -104,7 +104,7 @@ private:
   int m_y{0};
 
   // Shared attribute for all instances
-  static int counts;
+  static int m_counts;
 };
 
 inline int Point::getX() const {return m_x;}
@@ -129,7 +129,7 @@ double distance(const Point &p1, const Point &p2);
 #include <cmath>
 
 // ========== STATIC MEMBERS INITIALIZATION ==========
-int Point::counts = 0;
+int Point::m_counts = 0;
 
 // ========== 1. BASIC METHODS ==========
 void Point::translate(int dx, int dy)
@@ -141,34 +141,34 @@ void Point::translate(int dx, int dy)
 // ========== 2. CONSTRUCTORS ==========
 Point::Point() // : m_x(0), m_y(0) -> not needed. See in-class initialization
 {
-  counts++;
-  std::println("  ->default ctor (counts={})", counts);
+  m_counts++;
+  std::println("  ->default ctor (counts={})", m_counts);
 }
 
 // member initializer list
 Point::Point(int x, int y) : m_x(x), m_y(y)
 {
-  counts++;
-  std::println("  ->standard ctor (with initializer list, counts={})", counts);
+  m_counts++;
+  std::println("  ->standard ctor (with initializer list, counts={})", m_counts);
 }
 
 Point::Point(int v) : m_x(v), m_y(v)
 {
-  counts++;
-  std::println("  ->conversion ctor (counts={})", counts);
+  m_counts++;
+  std::println("  ->conversion ctor (counts={})", m_counts);
 }
 
 Point::Point(const Point &p) : m_x(p.m_x), m_y(p.m_y)
 {
-  counts++;
-  std::println("  ->copy ctor (counts={})", counts);
+  m_counts++;
+  std::println("  ->copy ctor (counts={})", m_counts);
 }
 
 // ========== 3. DESTRUCTOR ==========
 Point::~Point()
 {
-  counts--;
-  std::println("  ~Point() dtor called (counts={})", counts);
+  m_counts--;
+  std::println("  ~Point() dtor called (counts={})", m_counts);
 }
 
 // ========== 4. CONST METHODS ==========
@@ -195,7 +195,7 @@ Point Point::getCopy() const
 // ========== 6. STATIC METHODS ==========
 int Point::getCounts()
 {
-  return counts;
+  return m_counts;
 }
 
 // ========== 7. FRIEND FUNCTION ==========
@@ -321,13 +321,15 @@ void example05_destructor()
     Point pn[4];
   }
 
-  Point *ptrP = new Point(2, 3);
+  auto ptrP = new Point(2, 3);
   ptrP->setXY(150, 250);
   ptrP->print();
   delete ptrP;
+  ptrP = nullptr;
 
-  Point *ptrTabPoint = new Point[5];
+  auto ptrTabPoint = new Point[5];
   delete[] ptrTabPoint;
+  ptrTabPoint = nullptr;
 }
 
 void example06_this()
@@ -403,6 +405,7 @@ void example11_pointArray()
 
   auto *p5 = new Point(6, 3);
   delete p5;
+  p5 = nullptr;
 
   auto *p6 = new Point[10];
   for (int i = 0; i < 10; i++)
@@ -410,6 +413,7 @@ void example11_pointArray()
     p6[i] = Point(2, 3);
   }
   delete[] p6;
+  p6 = nullptr;
 
   std::vector<Point> v(10, Point(2, 3));
 }
@@ -446,23 +450,27 @@ int main()
 // GCC: use compiler flag -Wshadow to get shadowing warnings
 class A
 {
-  public:
+public:
   A() = default;
   // GCC warning: declaration of 'value' shadows a member of 'A'
-  A(int value) : value(value) {}
+  explicit A(int value) : value(value) {}
   // Expressions in initializer list are ok
   A(int value1, int value2) : value(add(value1, value2)) {}
   // Members are initialized in the order of their declaration!!!
   // -> value = 10, then angle = 20
   // GCC warning: 'A::angle' will be initialized after
-  A(int otherValue, [[maybe_unused]] double otherAngle) : angle(value+10),
+  A(int otherValue, [[maybe_unused]] double otherAngle) : angle(value + 10),
                                                           value(otherValue) {}
+  // No copy allowed
+  A(const A &other) = delete;
   int add(int a, int b) const { return a + b; }
 
-  private:
+  int getValue() const { return value; }
+  double getAngle() const { return angle; }
+
+private:
   int value{0};
   double angle{0.0};
-  
 };
 ```
 <!-- SNIPPET:END -->
@@ -477,12 +485,20 @@ class A
 
 #include "A.h"
 
+#include <print>
+
 int main()
 {
   A a1; // default constructor
+  std::println("a1: value={}, angle={}", a1.getValue(), a1.getAngle());
   A a2(1); // constructor with one parameter
+  std::println("a2: value={}, angle={}", a2.getValue(), a2.getAngle());
   A a3(1, 2); // constructor with two parameters
+  std::println("a3: value={}, angle={}", a3.getValue(), a3.getAngle());
   A a4(1, 2.0);
+  std::println("a4: value={}, angle={}", a4.getValue(), a4.getAngle());
+  // GCC: error: use of deleted function 'A::A(const A&)'
+  // auto a5 = a4;
 
   return 0;
 }
