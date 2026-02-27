@@ -718,7 +718,7 @@ La classe possèdera les méthodes :
 - **`contains(const Point& p)`** : renvoie **`true`** si le point **`p`** est à l’intérieur du rectangle
 - **`getPerimeter()`** : retourne le périmètre du rectangle
 - **`show()`** : affiche les informations du rectangle (coordonnées des coins et périmètre)
-- **`translate(int, int)`** : translate les deux points du rectangle
+- **`translate(double dx, double dy)`** : translate les deux points du rectangle
 
 ainsi que 2 constructeurs :
 - **`Rectangle(int xUL, int yUL, int xBR, int yBR)`**
@@ -758,7 +758,7 @@ En s’appuyant sur la classe **`Point`**, réaliser la classe **`RectangleAssoc
 
 Un **`RectangleAssoc`** sera associé à 2 points par les pointeurs : **`ptrULCorner`** et **`ptrBRCorner`**.
 
-La classe possèdera les méthodes : **`show()`** , **`getPerimeter()`**, et **`translate(int, int)`**
+La classe possèdera les méthodes : **`show()`** , **`getPerimeter()`**, et **`translate(double dx, double dy)`**
 
 La classe **`RectangleAssoc`** offrira un constructeur :
 - **`RectangleAssoc(Point* cornerUL, Point* cornerBR)`**
