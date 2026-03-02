@@ -371,7 +371,7 @@ int main()
   // See chapter on exceptions for more details
   catch (const std::bad_alloc &e)
   {
-    std::println("Memory allocation failed.");
+    std::println("Memory allocation failed: {}", e.what());
   }
 
   return 0;
