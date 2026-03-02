@@ -13,6 +13,621 @@ weight: 10
 
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html?print-pdf)
 
+## Exemples
+
+### 1242.2_03.01_AdditionOverload : `Complex.h`
+
+<!-- SNIPPET:BEGIN source_file=Complex.h id=1242.2_03.01_AdditionOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class Complex
+{
+public:
+  Complex() = default;
+  // No explicit as we want implicit conversion for operator+
+  Complex(int n) : m_r(n), m_i(0) {}
+  Complex(double r, double i) : m_r(r), m_i(i) {}
+
+  double getR() const {return m_r;}
+  double getI() const {return m_i;}
+  
+  // operator+ as an external overload: both operands are treated the same
+  // friend so that it can access private members of Complex
+  friend Complex operator+(const Complex &c1, const Complex &c2);
+
+  void show() const;
+
+private:
+
+  double m_r{0};
+  double m_i{0};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.01_AdditionOverload : `Complex.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Complex.cpp id=1242.2_03.01_AdditionOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+// External overload: both operands are treated symmetrically,
+// so implicit conversion applies to either side.
+Complex operator+(const Complex &c1, const Complex &c2)
+{
+  return Complex(c1.m_r + c2.m_r, c1.m_i + c2.m_i);
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.01_AdditionOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.01_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Complex.h"
+
+#include <print>
+
+int main()
+{
+  Complex c1(3., -5.), c2(7., 1.), cSum;
+  std::print("c1 = ");
+  c1.show();
+  std::print("c2 = ");
+  c2.show();
+
+  cSum = c1 + c2;
+  std::print("c1 + c2 = ");
+  cSum.show();
+
+  // int is implicitly converted to Complex
+  int value = 99;
+  cSum = c1 + value;
+  std::print("c1 + value = ");
+  cSum.show();
+
+  // Only possible with an EXTERNAL overload: conversion applies to the lhs too
+  cSum = value + c2;
+  std::print("value + c2 = ");
+  cSum.show();
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.02_AssignmentOverload : `NamedPoint.h`
+
+<!-- SNIPPET:BEGIN source_file=NamedPoint.h id=1242.2_03.02_AssignmentOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class NamedPoint
+{
+public:
+  NamedPoint(int x=0, int y=0, const char *name = "?");
+  NamedPoint(const NamedPoint &p);
+  virtual ~NamedPoint();
+
+  NamedPoint &operator=(const NamedPoint &p);
+
+  void show() const;
+  void setName(const char *newName);
+
+private:
+  int m_x{0};
+  int m_y{0};
+  char *m_name{nullptr};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.02_AssignmentOverload : `NamedPoint.cpp`
+
+<!-- SNIPPET:BEGIN source_file=NamedPoint.cpp id=1242.2_03.02_AssignmentOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "NamedPoint.h"
+
+#include <print>
+#include <cstring>
+
+NamedPoint::NamedPoint(int x, int y, const char *name)
+    : m_x(x), m_y(y)
+{
+  m_name = new char[strlen(name) + 1];
+  strcpy_s(m_name, strlen(name) + 1, name);
+}
+
+NamedPoint::NamedPoint(const NamedPoint &p)
+    : m_x(p.m_x), m_y(p.m_y)
+{
+  m_name = new char[strlen(p.m_name) + 1];
+  strcpy_s(m_name, strlen(p.m_name) + 1, p.m_name);
+}
+
+NamedPoint::~NamedPoint()
+{
+  delete[] m_name;
+  m_name = nullptr;
+}
+
+// Warning: the self-assignment guard prevents freeing memory we are about to read
+NamedPoint &NamedPoint::operator=(const NamedPoint &p)
+{
+  // Self-assignment guard
+  if (this == &p)
+  {
+    return *this;
+  }
+
+  m_x = p.m_x;
+  m_y = p.m_y;
+  delete[] m_name;
+  m_name = nullptr;
+  m_name = new char[strlen(p.m_name) + 1];
+  strcpy_s(m_name, strlen(p.m_name) + 1, p.m_name);
+
+  return *this;
+}
+
+void NamedPoint::show() const
+{
+  std::println("{}: ({}, {})", m_name, m_x, m_y);
+}
+
+void NamedPoint::setName(const char *newName)
+{
+  delete[] m_name;
+  m_name = nullptr;
+  m_name = new char[strlen(newName) + 1];
+  strcpy_s(m_name, strlen(newName) + 1, newName);
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.02_AssignmentOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.02_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "NamedPoint.h"
+
+int main()
+{
+    NamedPoint pt1(1, 4, "Pt1");
+
+    NamedPoint copyPt = pt1;   // copy constructor
+    NamedPoint copyPt2;
+    copyPt2 = pt1;             // assignment operator (custom overload required)
+
+    copyPt.setName("copyPt");
+    copyPt2.setName("copyPt2");
+
+    pt1.show();
+    copyPt.show();
+    copyPt2.show();
+
+    return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.03_StreamOperatorsOverload : `Point.h`
+
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.03_StreamOperatorsOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class Point
+{
+public:
+  Point();
+
+  // Allows implicit conversion from int
+  Point(int a);
+  Point(int x, int y);
+  Point(const Point &p);
+
+  Point &operator=(const Point &p);
+
+  friend Point operator+(const Point &p, const Point &q);
+  friend std::ostream &operator<<(std::ostream &s, const Point &p);
+  friend std::istream &operator>>(std::istream &in, Point &p);
+
+private:
+  int m_x{0};
+  int m_y{0};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.03_StreamOperatorsOverload : `Point.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.03_StreamOperatorsOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+// Full definitions
+#include <iostream>
+#include <print>
+
+Point::Point() : m_x(0), m_y(0) {}
+
+Point::Point(int a) : m_x(a), m_y(a) {}
+
+Point::Point(int x, int y) : m_x(x), m_y(y) {}
+
+Point::Point(const Point &p) : m_x(p.m_x), m_y(p.m_y) {}
+
+Point &Point::operator=(const Point &p)
+{
+  if (this != &p)
+  {
+    m_x = p.m_x;
+    m_y = p.m_y;
+  }
+
+  return *this;
+}
+
+Point operator+(const Point &p, const Point &q)
+{
+  return Point(p.m_x + q.m_x, p.m_y + q.m_y);
+}
+
+// Returns the stream to support chaining: cout << p1 << p2
+std::ostream &operator<<(std::ostream &s, const Point &p)
+{
+  return s << '(' << p.m_x << ',' << p.m_y << ')';
+}
+
+// Reads a Point in the format (x,y)
+// Returns the stream to support chaining: cin >> p1 >> p2
+std::istream &operator>>(std::istream &in, Point &p)
+{
+  char c;
+  in >> c;
+  if (c == '(')
+  {
+    in >> p.m_x >> c;
+    if (c == ',')
+    {
+      in >> p.m_y >> c;
+      if (c == ')')
+        return in;
+    }
+  }
+
+  std::println(stderr, "Read error: expected format (x,y)");
+  in.setstate(std::ios::failbit);
+  return in;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.03_StreamOperatorsOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.03_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+#include <iostream>
+#include <print>
+
+int main()
+{
+    std::println("1. INSERTION (<<) and EXTRACTION (>>) OPERATORS");
+    Point p1;
+    std::print("Enter a point in format (x,y): ");
+    std::cin >> p1;
+    std::cout << "\nPoint entered: " << p1 << '\n';  // uses operator<<
+
+    std::println("\nPoint p2 = Point(2)");
+    Point p2 = Point(2);
+    std::cout << "p2 = " << p2 << '\n';
+
+    std::println("\n2. ADDITION OPERATOR  +");
+    std::println("Point r = 5 + p1 + p2;");
+    Point r = 5 + p1 + p2;  // 5 is implicitly converted via Point(int)
+    std::cout << "r = " << r << '\n';
+
+    // operator<< returns a reference, enabling chaining
+    std::print("\nr, p1, p2 chained: ");
+    std::cout << r << p1 << p2 << '\n';
+
+    std::println("\n3. ASSIGNMENT OPERATOR  =");
+    std::println("r = p1 = p2;");
+    r = p1 = p2;  // r.operator=(p1.operator=(p2))
+    std::cout << r << p1 << p2 << '\n';
+
+    return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.04_IncrementOverload : `Counter.h`
+
+<!-- SNIPPET:BEGIN source_file=Counter.h id=1242.2_03.04_IncrementOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class Counter
+{
+public:
+    Counter() = default;
+    // Should be explicit but not here on purpose
+    Counter(int x);
+
+    Counter& operator++();
+    Counter operator++(int);
+
+    friend std::ostream& operator<<(std::ostream& o, const Counter& c);
+
+private:
+    int m_x{0};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.04_IncrementOverload : `Counter.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Counter.cpp id=1242.2_03.04_IncrementOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Counter.h"
+
+#include <iostream>
+
+Counter::Counter(int x) : m_x(x) {}
+
+// Returns a reference: no copy, and can be used as an lvalue (++x = 5 is valid)
+Counter& Counter::operator++()
+{
+    ++m_x;
+    return *this;
+}
+
+// The dummy int parameter distinguishes post from pre at the call site.
+// Returns a copy of the state before increment — cannot be used as an lvalue.
+Counter Counter::operator++(int)
+{
+    Counter temp(*this);
+    ++m_x;
+    return temp;
+}
+
+std::ostream& operator<<(std::ostream& o, const Counter& c)
+{
+    return o << c.m_x;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.04_IncrementOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.04_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Counter.h"
+
+#include <iostream>
+#include <print>
+
+int main()
+{
+  Counter x = 10;
+  std::cout << "x: " << x << '\n';
+  x++;
+  std::cout << "After x++: " << x << '\n';
+
+  std::cout << "\nx: " << x << '\n';
+  ++x;
+  std::cout << "After ++x: " << x << '\n';
+
+  std::cout << "\nx: " << x << '\n';
+  Counter a = ++x; // pre-increment: a gets the incremented value
+  std::cout << "After Counter a = ++x  =>  x: " << x << "   a: " << a << '\n';
+
+  std::cout << "\nx: " << x << '\n';
+  Counter b = x++; // post-increment: b gets the value before increment
+  std::cout << "After Counter b = x++  =>  x: " << x << "   b: " << b << '\n';
+
+  // Valid but bad practice: the increment is immediately overwritten by the assignment.
+  // Avoid this in real code — it is confusing and serves no practical purpose.
+  ++x = 5;
+  std::println("\n++x = 5  (unusual but valid for pre-increment)");
+  std::cout << "x = " << x << '\n';
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.05_ConversionOverload : `Point.h`
+
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.05_ConversionOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class Point
+{
+public:
+  Point(int a);
+
+  void show() const;
+
+  operator int() const;
+  operator double() const;
+
+private:
+  int m_x{0};
+  int m_y{0};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.05_ConversionOverload : `Point.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.05_ConversionOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+#include <cstdlib>
+#include <print>
+
+Point::Point(int a) : m_x(a), m_y(0) {}
+
+void Point::show() const
+{
+  std::println("({}, {})", m_x, m_y);
+}
+
+// Conversion from Point to int: Manhattan distance from origin
+Point::operator int() const { return std::abs(m_x) + std::abs(m_y); }
+
+// Conversion from Point to double: same with a fractional marker
+Point::operator double() const { return std::abs(m_x) + std::abs(m_y) + 0.01; }
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.05_ConversionOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.05_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+#include <print>
+
+int main()
+{
+  Point pt(3);
+  std::print("pt = ");
+  pt.show();
+
+  int n = static_cast<int>(pt);
+  std::println("(int)pt = {}", n);
+
+  double d = static_cast<double>(pt);
+  std::println("(double)pt = {}", d);
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.06_FunctorOverload : `Linear.h`
+
+<!-- SNIPPET:BEGIN source_file=Linear.h id=1242.2_03.06_FunctorOverload.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+class Linear
+{
+public:
+  Linear(double a, double b);
+
+  double operator()(double x) const;
+
+private:
+  double m_a{0};
+  double m_b{0};
+};
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.06_FunctorOverload : `Linear.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Linear.cpp id=1242.2_03.06_FunctorOverload.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Linear.h"
+
+Linear::Linear(double a, double b) : m_a(a), m_b(b) {}
+
+double Linear::operator()(double x) const
+{
+  return m_a * x + m_b;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.06_FunctorOverload : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.06_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Linear.h"
+
+#include <print>
+
+int main()
+{
+  Linear f(2, 1);  // f(x) = 2x + 1
+  Linear g(-1, 0); // g(x) = -x
+
+  std::println("f(x) = 2x + 1,  g(x) = -x");
+  std::println("f(4) = {}", f(4));
+  std::println("g(7) = {}", g(7));
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ## Série 3.1
 
 ### Exercice 1 : classe **`Time`** surcharge 
@@ -74,192 +689,109 @@ class Time {
 {{< /plantuml >}}
 
 **Exemple de `main()`**
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.01_OverloadingTime_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
 ```cpp
-#include <iostream>
 #include "Time.h"
 
-using namespace std;
+#include <iostream>
 
 int main()
 {
-     // INSTANTIATION DES OBJETS t1, t2, t3
-     //================================================================
-     cout << "TEST DES CONSTRUCTEURS :" << endl << endl;
+  // Constructors
+  std::cout << "Time t1 (default): ";
+  Time t1;
+  std::cout << t1 << '\n';
 
-     cout << "Time t1; ";
-     Time t1;   // Appel du constructeur par défaut
-     t1.show(); //-> t1: 12H00
-     cout << "Time t2(10,9); ";
-     Time t2(10, 9); // Appel du constructeur standard
-     t2.show();      //-> t2: 10H09
-     cout << "Time t3(17.75); ";
-     Time t3(17.75); // Appel du constructeur de conversion
-     t3.show();      //-> t3: 17:45
+  std::cout << "Time t2(10, 9):    ";
+  Time t2(10, 9);
+  std::cout << t2 << '\n';
 
-     // TEST DES MODIFICATEURS
-     //================================================================
-     cout << endl << "TEST DES MODIFICATEURS :\n\n";
-     cout << "t2.setHour(7); ";
-     t2.setHour(7);
-     t2.show(); //-> t2: 07:09
+  std::cout << "Time t3(17.75):    ";
+  Time t3(17.75);
+  std::cout << t3 << '\n';
 
-     cout << "t2.setMinute(-40); ";
-     t2.setMinute(-40); // -40 < 0 --> 0
-     t2.show();         //-> t2: 07:00
+  // Setters
+  std::cout << "\nt2.setHour(7):      ";
+  t2.setHour(7);
+  std::cout << t2 << '\n';
 
-     cout << "t2.setMinute(86); ";
-     t2.setMinute(86); // 86 %60 --> 26  et h+1
-     t2.show();        //-> t2: 08:26
+  std::cout << "t2.setMinute(-40):  ";
+  t2.setMinute(-40); // negative -> clamped to 0
+  std::cout << t2 << '\n';
 
-     cout <<"operateur <<" << endl;
-     cout <<"================================================================" <<endl;
-     cout << "cout << \"t1: \" << t1 << \" t2: \" << t2 << \" t3 \" << t3 << endl;" << endl;;
-     cout << "t1: " << t1 << " t2: " << t2 << " t3 " << t3 << endl << endl;
+  std::cout << "t2.setMinute(86):   ";
+  t2.setMinute(86); // 86 % 60 = 26 min, +1 hour
+  std::cout << t2 << '\n';
 
-     cout <<"operateur =" << endl;
-     cout <<"================================================================" <<endl;
-     cout << "t1: " << t1 << " t2: " << t2 << endl;
-     cout << "t1 =t2" << endl;
-     t1=t2;
-     cout << "t1: " << t1 << " t2: " << t2 << endl << endl;
+  // operator=
+  std::cout << "\nt1 = t2:  ";
+  t1 = t2;
+  std::cout << "t1=" << t1 << "  t2=" << t2 << '\n';
 
-     cout <<"operateur + (fonction non membre amie)" << endl;
-     cout <<"================================================================" <<endl;
-     t1.setMinute(0);
-     cout << "t1: " << t1 << " t3: " << t3 << endl;
-     cout << "t1 = t1 + t3" << endl;
-     t1 = t1 + t3;
-     cout << "t1: " << t1 << " t3: " << t3 << endl << endl;
+  // operator+ (non-member friend) — commutative
+  t1.setMinute(0);
+  std::cout << "\nt1=" << t1 << "  t3=" << t3 << '\n';
+  std::cout << "t1 = t1 + t3: ";
+  t1 = t1 + t3;
+  std::cout << t1 << '\n';
 
-     cout << "t3: " << t3  << endl;
-     cout << "t3 = t3 + 4" << endl;
-     t3 = t3 + 4;
-     cout << "t3: " << t3  << endl << endl;
+  std::cout << "t3 = t3 + 4:  ";
+  t3 = t3 + 4; // implicit conversion: 4 -> Time(4.0)
+  std::cout << t3 << '\n';
 
-     cout << "t3: " << t3  << endl;
-     cout << "t3 = 4 + t3" << endl;
-     t3 = 4 + t3;
-     cout << "t3: " << t3  << endl << endl;
+  std::cout << "t3 = 4 + t3:  ";
+  t3 = 4 + t3; // commutative: non-member friend
+  std::cout << t3 << '\n';
 
-     cout <<"operateur - (fonction membre)" <<endl;
-     cout <<"================================================================" <<endl;
+  // operator- (member) — not commutative
+  std::cout << "\nt1=" << t1 << "  t3=" << t3 << '\n';
+  std::cout << "t1 = t1 - t3: ";
+  t1 = t1 - t3;
+  std::cout << t1 << '\n';
 
-     cout << "t1: " << t1 << " t3: " << t3 << endl;
-     cout << "t1 = t1 - t3" << endl;
-     t1 = t1 - t3;
-     cout << "t1: " << t1 << " t3: " << t3 << endl << endl;
+  std::cout << "t3 = t3 - 1:  ";
+  t3 = t3 - 1;
+  std::cout << t3 << '\n';
 
-     cout << "t3: " << t3 << endl;
-     cout << "t3 = t3 - 1" << endl;
-     t3 = t3 - 1;
-     cout << "t3: " << t3 << endl<< endl;
+  // 1 - t3 would not compile: operator- is a member, no implicit left-hand conversion
 
-     cout << "t3: " << t3 << endl;
-     cout << "t3 = 1 - t3 " << endl;
-     t3 = 1 - t3; not allowed
-     cout << "t3: " << t3 << endl << endl;
+  // Comparison operators
+  std::cout << '\n';
+  std::cout << t1 << " == " << t1 << std::boolalpha << " : " << (t1 == t1) << '\n';
+  std::cout << t1 << " == " << t2 << std::boolalpha << " : " << (t1 == t2) << '\n';
+  std::cout << t1 << " <  " << t1 << std::boolalpha << " : " << (t1 < t1) << '\n';
+  std::cout << t1 << " <  " << t2 << std::boolalpha << " : " << (t1 < t2) << '\n';
+  std::cout << t1 << " >= " << t1 << std::boolalpha << " : " << (t1 >= t1) << '\n';
+  std::cout << t1 << " >= " << t2 << std::boolalpha << " : " << (t1 >= t2) << '\n';
+  std::cout << t1 << " != " << t1 << std::boolalpha << " : " << (t1 != t1) << '\n';
+  std::cout << t1 << " != " << t2 << std::boolalpha << " : " << (t1 != t2) << '\n';
 
-    cout <<" == operator overloading" << endl;
-    cout <<"================================================================" <<endl;
-    std::cout << t1 << " == " << t1 << boolalpha << " : " << (t1==t1) << std::endl;
-    std::cout << t1 << " == " << t2 << boolalpha << " : " << (t1==t2) << std::endl;
-    // < operator overloading
-    std::cout << t1 << " <  " << t1 << boolalpha << " : " << (t1<t1)  << std::endl;
-    std::cout << t1 << " <  " << t2 << boolalpha << " : " << (t1<t2)  << std::endl;
-    // >= operator overloading
-    std::cout << t1 << " >= " << t1 << boolalpha << " : " << (t1>=t1)  << std::endl;
-    std::cout << t1 << " >= " << t2 << boolalpha << " : " << (t1>=t2)  << std::endl;
-    // != operator overloading
-    std::cout << t1 << " != " << t1 << boolalpha << " : " << (t1!=t1)  << std::endl;
-    std::cout << t1 << " != " << t2 << boolalpha << " : " << (t1!=t2)  << std::endl << std::endl;
+  // Increment operators
+  std::cout << "\nt2=" << t2 << "  t3=" << t3 << '\n';
+  std::cout << "t2 = t3++: ";
+  t2 = t3++;
+  std::cout << "t2=" << t2 << "  t3=" << t3 << '\n';
 
+  std::cout << "t2 = ++t3: ";
+  t2 = ++t3;
+  std::cout << "t2=" << t2 << "  t3=" << t3 << '\n';
 
-    std::cout << "\n ++ Increment operator \n";
-    cout <<"================================================================" <<endl;
+  // operator>>
+  std::cout << "\nEnter a time (hh:mm): ";
+  std::cin >> t2;
+  std::cout << "t2: " << t2 << '\n';
 
-    std::cout << "t2: " << t2 << " t3: " << t3 << std::endl;
-    std::cout << "t2 = t3++;" << std::endl;
-    t2 = t3++;
-    std::cout << "t2: " << t2 << " t3: " << t3 << std::endl;
-    std::cout << "t2 =  ++t3;" << std::endl;
-    t2 =  ++t3;
-    std::cout << "t2: " << t2 << " t3: " << t3 << std::endl;
-
-
-    cout << "Entrez un temps au format hh:mm :";
-    cin >> t2;
-    std::cout << "t2: " << t2 << std::endl;
-
-     cout << "\n\nPlease hit ENTER to continue... ";
-     cin.get();
-
-     return 0;
+  return 0;
 }
 ```
+<!-- SNIPPET:END -->
 
-#### Cours de C++, 1ère année, HE-Arc
-## Serie 3.2: Surcharge des opérateurs
-
-
-### Exercice 1: Classe Vecteur. Surcharge de << = et []
-Implémentez une classe de vecteurs dynamique, dans le sens où les constructeurs doivent allouer dynamiquement la mémoire nécessaire. Les éléments sont de type `double`.
-1. Implémentez les constructeurs 
-   1. par défaut (pas d'allocation),
-   2. standard (le premier argument définit la taille et le second le contenu; par défaut le contenu est nul),
-   3. par recopie. 
-2. Surchargez les opérateurs suivants:
-   1. insertion de flux  `operator << ()`,
-   2. affectation  `operator = ()`. Il faut faire une copie en profondeur,
-   3. addition `operator + ()`. A déclarer comme fonction amie
-   4. accès  `operator [] ()`. Il doit permettre:
-      * de lire un élément du vecteur `x=v[4];`
-      * de modifier un élément. `v[4]=4;`
-  
-      Si l'indice est hors du vecteur, l'operateur utilise la première case du vecteur `v[0]`.
-
-
-``` C++
-int main()
-{
-    Vector v1;
-    Vector v2(3);
-    Vector v3= Vector(3,10);
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl << endl;
-    
-    cout << "v1: " << v1 << " v3: " << v3 << endl;
-    cout << "v1=v3;" << endl;
-    v1=v3;
-    cout << "v1: " << v1 << " v3: " << v3 << endl<< endl;
-
-    cout << "v1: " << v1 << endl;
-    cout << "v1[2]=100;" << endl;
-    v1[2]=100;
-    cout << "v1: " << v1 << endl<< endl;
-
-    cout << "v1[2] " << v1[2] << endl;
-    cout << "v3[2] " << v3[2] << endl << endl;
- 
-    cout << "v1: " << v1 << endl;
-    cout << "v1[1000]=200; " << endl;
-    v1[1000]=200;
-    cout << "v1: " << v1 << endl << endl;
-
-    Vector v4(5,5);
-    cout << "v1: " << v1 << " v3: " << v3 << " v4: " << v4 << endl;
-    cout << "v1=v3+v4; " << endl;
-    v1=v3+v4;
-    cout << "v1: " << v1 << " v3: " << v3 << " v4: " << v4 << endl << endl;
-
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl;
-    cout << "v1=v3+v3; " << endl;
-    v1=v3+v3;
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl << endl;
-
-    return 0;
-}
-```
-
-## Serie 3.2: surcharge des opérateurs
+## Serie 3.2 : surcharge des opérateurs
 
 ### Exercice 1 : classe Vecteur, surcharge de <<, =, et []
 Implémenter une classe de vecteurs dynamique, dans le sens où les constructeurs doivent allouer dynamiquement la mémoire nécessaire.
@@ -280,47 +812,63 @@ Les éléments sont de type **`double`**. En particulier, il faut :
 
 **Exemple de `main()`**
 
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.02_OverloadingVector_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
 ```cpp
+#include "Vector.h"
+
+#include <iostream>
+
 int main()
 {
     Vector v1;
     Vector v2(3);
-    Vector v3= Vector(3,10);
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl << endl;
-    
-    cout << "v1: " << v1 << " v3: " << v3 << endl;
-    cout << "v1=v3;" << endl;
-    v1=v3;
-    cout << "v1: " << v1 << " v3: " << v3 << endl<< endl;
+    Vector v3 = Vector(3, 10);
+    std::cout << "v1: " << v1 << "  v2: " << v2 << "  v3: " << v3 << "\n\n";
 
-    cout << "v1: " << v1 << endl;
-    cout << "v1[2]=100;" << endl;
-    v1[2]=100;
-    cout << "v1: " << v1 << endl<< endl;
+    // operator=
+    std::cout << "v1: " << v1 << "  v3: " << v3 << '\n';
+    std::cout << "v1 = v3;\n";
+    v1 = v3;
+    std::cout << "v1: " << v1 << "  v3: " << v3 << "\n\n";
 
-    cout << "v1[2] " << v1[2] << endl;
-    cout << "v3[2] " << v3[2] << endl << endl;
- 
-    cout << "v1: " << v1 << endl;
-    cout << "v1[1000]=200; " << endl;
-    v1[1000]=200;
-    cout << "v1: " << v1 << endl << endl;
+    // operator[] — write
+    std::cout << "v1: " << v1 << '\n';
+    std::cout << "v1[2] = 100;\n";
+    v1[2] = 100;
+    std::cout << "v1: " << v1 << "\n\n";
 
-    Vector v4(5,5);
-    cout << "v1: " << v1 << " v3: " << v3 << " v4: " << v4 << endl;
-    cout << "v1=v3+v4; " << endl;
-    v1=v3+v4;
-    cout << "v1: " << v1 << " v3: " << v3 << " v4: " << v4 << endl << endl;
+    // operator[] — read
+    std::cout << "v1[2] = " << v1[2] << '\n';
+    std::cout << "v3[2] = " << v3[2] << "\n\n";
 
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl;
-    cout << "v1=v3+v3; " << endl;
-    v1=v3+v3;
-    cout << "v1: " << v1 << " v2: " << v2 << " v3: " << v3 << endl << endl;
+    // operator[] — out of bounds falls back to v[0]
+    std::cout << "v1: " << v1 << '\n';
+    std::cout << "v1[1000] = 200;\n";
+    v1[1000] = 200;
+    std::cout << "v1: " << v1 << "\n\n";
+
+    // operator+ (non-member friend)
+    Vector v4(5, 5);
+    std::cout << "v1: " << v1 << "  v3: " << v3 << "  v4: " << v4 << '\n';
+    std::cout << "v1 = v3 + v4;\n";
+    v1 = v3 + v4;
+    std::cout << "v1: " << v1 << "  v3: " << v3 << "  v4: " << v4 << "\n\n";
+
+    std::cout << "v1: " << v1 << "  v2: " << v2 << "  v3: " << v3 << '\n';
+    std::cout << "v1 = v3 + v3;\n";
+    v1 = v3 + v3;
+    std::cout << "v1: " << v1 << "  v2: " << v2 << "  v3: " << v3 << '\n';
 
     return 0;
 }
-``` 
+```
+<!-- SNIPPET:END -->
 
 ## Solutions
+
 <!-- [Serie3_1_SOLUTIONS](/zips/Serie3_1_SOLUTIONS.zip) -->
 
