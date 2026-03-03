@@ -1,7 +1,7 @@
 ---
 title: "Surcharge et conversions implicites"
-type: docs
-weight: 10
+author: "Benoit Le Callennec"
+date: 2026-02-19
 tags: ["C++", "Avancé"]
 draft: false
 ---
