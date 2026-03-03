@@ -740,8 +740,8 @@ skin rose
 skinparam classAttributeIconSize 0
 
 class Time {
-    - hour : short
-    - minute : short
+    - hour : int
+    - minute : int
 
 + Time()
 + Time(Int, Int)
@@ -752,7 +752,7 @@ class Time {
 <<friend>> operator + (const Time&, const Time&) : Time
 + operator + (const Time&): Time
 
-- evaluate() : Short
+- evaluate() : int
 
 + operator == ( const Time& ) : Boolean {query}
 + operator <  ( const Time& ) : Boolean {query}
