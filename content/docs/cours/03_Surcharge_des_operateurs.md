@@ -214,9 +214,9 @@ int main()
 {
     NamedPoint pt1(1, 4, "Pt1");
 
-    NamedPoint copyPt = pt1;   // copy constructor
+    NamedPoint copyPt = pt1;
     NamedPoint copyPt2;
-    copyPt2 = pt1;             // assignment operator (custom overload required)
+    copyPt2 = pt1;
 
     copyPt.setName("copyPt");
     copyPt2.setName("copyPt2");
@@ -627,6 +627,88 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+
+### 1242.2_03.07_OperatorsOverloadMisc : `Point.h`
+
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.07_Point.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#pragma once
+
+class Point
+{
+public:
+  Point() = default;
+  virtual ~Point() = default;
+  Point &operator=(const Point &) = default;
+
+  Point operator+(const Point &p) const
+  {
+    Point temp;
+    temp.m_x = m_x + p.m_x;
+    temp.m_y = m_y + p.m_y;
+    return temp;
+  }
+
+  friend Point operator+(const Point& self, const Point& other);
+
+private:
+  int m_x{0};
+  int m_y{0};
+};
+
+Point operator+(const Point &self, const Point &other);
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.07_OperatorsOverloadMisc : `Point.cpp`
+
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.07_Point.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+Point operator+(const Point &self, const Point &other)
+{
+  Point temp(self);
+  temp.m_x += other.m_x;
+  temp.m_y += other.m_y;
+  return temp;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_03.07_OperatorsOverloadMisc : `main.cpp`
+
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.07_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include "Point.h"
+
+#include <print>
+
+int main()
+{
+  Point p1;
+  Point p2;
+
+  // GCC - error: ambiguous overload for 'operator+' (operand types are 'Point' and 'Point')
+  // auto p4 = p1 + p2;
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 
 ## Série 3.1
 
