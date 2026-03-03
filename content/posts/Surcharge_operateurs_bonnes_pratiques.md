@@ -1,7 +1,7 @@
 ---
 title: "Surcharge des opérateurs : bonnes pratiques"
 author: "Benoit Le Callennec"
-date: 2025-03-14
+date: 2026-03-03
 tags : ["C++", "Opérateurs", "Bonnes pratiques"]
 draft: false
 ---
