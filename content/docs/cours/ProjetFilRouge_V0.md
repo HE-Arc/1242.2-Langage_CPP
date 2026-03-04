@@ -30,8 +30,7 @@ Chaque semaine, une correction sera founie.
 Vous pouvez l'utiliser pour améliorer/valider votre code (mais vous n'avez pas l'obligation de le suivre à la lettre).
 {{< /hint >}}
 
-Le projet final est un projet individuel, mais tout au long du semestre vous êtes encouragés à travailler en binôme en modalité [eXtrem Programming (XP)](https://fr.wikipedia.org/wiki/Extreme_programming).
-
+Le projet final est un projet individuel, mais vous êtes encouragés à collaborer avec les autres.
 {{< hint warning >}}
 **⚠️ ATTENTION**
 
@@ -78,12 +77,12 @@ Le projet devra être avancé chaque semaine dans les périodes du cours et comp
 
 ### Remarques générales
 - Le projet doit être fonctionnel, codé selon les meilleures pratiques et les conventions établies.
-- Poussez votre solution sur le gitlab, ajoutez des commits (avec des messages significatifs) *chaque semaine*
+- Poussez votre solution sur GitLab, ajoutez des commits (avec des messages pertinents) **chaque semaine**
 - L'exécution du fichier main.cpp doit fournir un bon aperçu des fonctionnalités implémentées dans votre projet (avec ou sans interaction avec l'utilisateur)
 
 ### Livrables du projet
-- Code du projet (.hpp, .cpp et fichiers de log)
-- Un document texte (.md, .docx ou .pdf) décrivant le code réalisé (1-2 pages)
+- Code du projet (.h, .cpp et fichiers de log)
+- Un document texte (.md, .docx ou .pdf) décrivant le code réalisé (1-2 pages). Le README de votre projet GitLab peut aussi servir de document de description du projet.
 
 Le tout doit être dans le GitLab du projet, sur la branch `main`.
 
@@ -107,70 +106,73 @@ Dans ce cas, votre projet devra contenir au moins les éléments suivants.
 ### Scénario 1 - Trading System
 
 #### Objectifs généraux
-Ajouter la possibilité d'acheter et de vendre des objets et obtenir ou consommer de l'```Or``` :
+Ajouter la possibilité d'acheter et de vendre des objets et obtenir ou consommer des **`Gold`** :
 - de / vers d'autres héros
-- de / vers des PNJs (classe ```Merchant```)
+- de / vers des PNJs (classe **`Merchant`**)
 
 #### Minimum requis
-Vous devrez :
-- Ajouter 2 classes (types de marchants : ex. _potion vendors_ ou _weapon vendors_)
-- Développer une solution de trading
-- Utiliser au moins une _exception_ pour gérer une erreur
-- Ajouter un fichier de log pour garder trace de toutes les transactions
-- Améliorer la classe "Backpack"
-- Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
-- Utiliser du code C++ moderne (C++11 ou suivants)
+Vous devez :
+- ajouter 2 classes (types de marchants : ex. _potion vendors_ ou _weapon vendors_)
+- développer une solution de trading
+- ajouter un fichier de log pour garder trace de toutes les transactions
+- utiliser au moins une _exception_ pour gérer une erreur. Par exemple, une exception pour gérer l'impossibilité d'ouvrir le fichier de log.
+- améliorer la classe **`Backpack`**
+- utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
+- utiliser du code C++ moderne (C++11 ou suivants)
 
 ### Scénario 2 - Interaction/Fighting System
 
 #### Objectifs généraux
 Créer le système de combat pour le jeu de rôle.
 Pour cela il sera nécessaire de :
-- Ajouter des monstres
-- Développer un système de combat (avec un peu d'aléatoire)
-- Quand un hitpoints est <= 0 un personnage/monstre est vaincu
-- La victoire donne : de l'expérience et un peu d'argent
+- ajouter des monstres
+- développer un système de combat (avec un peu d'aléatoire)
+- quand un hitpoints est <= 0 un personnage/monstre est vaincu
+- la victoire donne de l'expérience et un peu d'argent
 
 Obligatoire :
-- Hero Vs Monster
+- **`Hero`** Vs **`Monster`**
 
 Optionnel :
-- PVP (Hero Vs Hero)
-- Un ou plusieurs ```Hero``` Vs un ou plusieurs ```Monsters```
+- PVP (**`Hero`** Vs **`Hero`**)
+- un ou plusieurs **`Hero`** Vs un ou plusieurs **`Monsters`**
 
 #### Minimum requis
 Vous devrez :
-- Ajouter 2 classes (types de monstres : ex. ```Orc``` ou ```Dragon```)
-- Utiliser des _Exceptions_ pour gérer les erreurs
-- Ajouter un fichier de log pour garder trace de tous les combats
-- Ajouter différents types de armes ou différents types d’attaque 
-- Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
-- Utiliser du code C++ modern (C++11 ou suivants)
+- ajouter 2 classes (types de monstres : ex. **`Orc`** ou **`Dragon`**)
+- utiliser des _Exceptions_ pour gérer les erreurs
+- ajouter un fichier de log pour garder trace de tous les combats
+- ajouter différents types de armes ou différents types d’attaque 
+- utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
+- utiliser du code C++ modern (C++11 ou suivants)
 
 ### Scénario 3 - Système d'exploration
 
 ### Objectifs généraux
 Créer la possibilité d'explorer une carte avec des villages ou de donjons.
 
-- Ajouter un système de coordonnées
-- Ajouter l'objet ```World``` ou ```Map```
-- Ajouter l'interaction avec des objets dans le monde (ex. villages, trésors, PNJ, etc.)
+- ajouter un système de coordonnées
+- ajouter l'objet **`World`** ou **`Map`**
+- ajouter l'interaction avec des objets dans le monde (ex. villages, trésors, PNJ, etc.)
 
 ### Minimum requis
 
 Vous devrez : 
-- Ajouter la classe ```World``` (ou ```Map```)
-- Ajouter un système de coordonnées et la possibilité de se déplacer dans le monde.
-- Ajouter la possibilité pour les héros d'interagir avec des 3 types entités (ex. villages, trésors, PNJ, etc.)
-- Ajouter des contraintes pour le déplacement (vitesse maximale ou notion du temps ou…)
-- Utiliser des _Exceptions_ pour gérer les erreurs
-- Ajouter un fichier de log pour garder trace de tous les déplacements
-- Utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
-- Utiliser du code C++ modern (C++11 ou suivants)
+- ajouter la classe **`World`** (ou **`Map`**)
+- ajouter un système de coordonnées et la possibilité de se déplacer dans le monde
+- ajouter la possibilité pour les héros d'interagir avec des 3 types entités (ex. villages, trésors, PNJ, etc.)
+- ajouter des contraintes pour le déplacement (vitesse maximale, notion du temps, etc.)
+- ajouter un fichier de log pour garder trace de tous les déplacements
+- utiliser des _Exceptions_ pour gérer les erreurs
+- utiliser le polymorphisme, la redéfinition et la surcharge des méthodes (y.c. des opérateurs)
+- utiliser du code C++ modern (C++11 ou suivants)
 
 ## Formulaire d'évaluation
 Le projet sera évalué selon les critères détaillés dans le fichier suivant :
 
+{{<a_noter>}}
+Le formulaire d'évaluation est en cours de modifications. Il vous sera donné dés que possible.
+{{</a_noter>}}
 [EvaluationFilRouge_2025.xlsx](/EvaluationFilRouge_2025.xlsx)
 
 ## Remarque finale
