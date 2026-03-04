@@ -715,13 +715,13 @@ int main()
 ### Exercice 1 : classe **`Time`** surcharge 
 Reprendre la classe **`Time`** de l'exercice 2 de la série 2.1, et :
 
-1. surcharger l'opérateur d'insertion de flux **`operator<<()`** afin de pouvoir afficher un temps  **`cout << t << endl;`**
+1. surcharger l'opérateur d'insertion de flux **`operator<<()`** afin de pouvoir afficher un temps  **`std::cout << t << std::  endl;`**
 2. surcharger l'opérateur d'affectation **`operator=()`**
 3. surcharger les opérateurs arithmétiques :
    1. l’opérateur **`+`** doit être implémenté par une fonction non membre de la classe et amie
-   2. l’opérateur **`-`** doit être implémenté par une fonction membre de la classe
+   2. l’opérateur **`-`** doit être implémenté par une fonction membre de la classe.
    Est-ce que toutes les utilisations proposées dans le `main()` sont possibles ? 
-   Laquelle de ces deux opération est commutative ?
+   Laquelle de ces deux opérations est commutative ?
 4. surcharger les opérateurs relationnels
    1. de manière explicite, implémenter :
       1.  l' **`operator==()`** avec des opérateurs logiques
@@ -815,7 +815,7 @@ int main()
   t1 = t2;
   std::cout << "t1=" << t1 << "  t2=" << t2 << '\n';
 
-  // operator+ (non-member friend) — commutative
+  // operator+ (non-member friend)
   t1.setMinute(0);
   std::cout << "\nt1=" << t1 << "  t3=" << t3 << '\n';
   std::cout << "t1 = t1 + t3: ";
@@ -827,10 +827,10 @@ int main()
   std::cout << t3 << '\n';
 
   std::cout << "t3 = 4 + t3:  ";
-  t3 = 4 + t3; // commutative: non-member friend
+  t3 = 4 + t3;
   std::cout << t3 << '\n';
 
-  // operator- (member) — not commutative
+  // operator- (member)
   std::cout << "\nt1=" << t1 << "  t3=" << t3 << '\n';
   std::cout << "t1 = t1 - t3: ";
   t1 = t1 - t3;
@@ -840,7 +840,7 @@ int main()
   t3 = t3 - 1;
   std::cout << t3 << '\n';
 
-  // 1 - t3 would not compile: operator- is a member, no implicit left-hand conversion
+  // t3 = 1 - t3 // ???
 
   // Comparison operators
   std::cout << '\n';
