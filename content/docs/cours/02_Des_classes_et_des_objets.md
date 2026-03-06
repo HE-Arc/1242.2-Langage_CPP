@@ -728,7 +728,7 @@ Quand l'objet est détruit, les éléments qui le composent doivent aussi être 
 
 En s’appuyant sur la classe **`Point`**, réaliser la classe **`Rectangle`**.
 
-Un **rectangle** sera composé de 2 **points** : son coin supérieur gauche **`cornerUL`** et son coin inférieur droit **`cornerBR`**.
+Un **rectangle** sera composé de 2 **points** : son coin inférieur gauche **`cornerLL`** et son coin supérieur droit **`cornerUR`**.
 
 La classe possèdera les méthodes : 
 - **`contains(const Point& p)`** : renvoie **`true`** si le point **`p`** est à l’intérieur du rectangle
@@ -737,8 +737,8 @@ La classe possèdera les méthodes :
 - **`translate(double dx, double dy)`** : translate les deux points du rectangle
 
 ainsi que 2 constructeurs :
-- **`Rectangle(int xUL, int yUL, int xBR, int yBR)`**
-- **`Rectangle(const Point& cornerUL, const Point& cornerBR)`**
+- **`Rectangle(double xLL, double yLL, double xUR, double yUR)`**
+- **`Rectangle(const Point& cornerLL, const Point& cornerUR)`**
 
 **À faire** :
 
@@ -766,50 +766,35 @@ std::println("Périmètre : {}", R.getPerimeter()); // ??
 // construire un rectangle R2 à partir de R et l'afficher
 ```
 
-### Exercice 3 : classe RectangleAssoc (association de points)
-Une **association** est une relation moins forte qu'une **composition**.
+### Exercice 3 : classe RectangleAgreg (agrégation de points)
+Une **agrégation** est une relation moins forte qu'une **composition**.
 Quand l'objet est détruit, les éléments qui y étaient associés continuent à exister (si une entreprise disparait, on ne liquide pas ses employés !).
 
-En s’appuyant sur la classe **`Point`**, réaliser la classe **`RectangleAssoc`**.
+En s’appuyant sur la classe **`Point`**, réaliser la classe **`RectangleAgreg`**.
 
-Un **`RectangleAssoc`** sera associé à 2 points par les pointeurs : **`ptrULCorner`** et **`ptrBRCorner`**.
+Un **`RectangleAgreg`** sera associé à 2 points par les pointeurs : **`ptrLLCorner`** et **`ptrURCorner`**.
 
 La classe possèdera les méthodes : **`show()`** , **`getPerimeter()`**, et **`translate(double dx, double dy)`**
 
-La classe **`RectangleAssoc`** offrira un constructeur :
-- **`RectangleAssoc(Point* cornerUL, Point* cornerBR)`**
+La classe **`RectangleAgreg`** offrira un constructeur :
+- **`RectangleAgreg(Point* cornerLL, Point* cornerUR)`**
 
 **À faire :**
-- implémenter la classe **`RectangleAssoc`** en s'appuyant sur la classe **`Point`**
+- implémenter la classe **`RectangleAgreg`** en s'appuyant sur la classe **`Point`**
 - écrire un programme qui :
   - crée deux points
-  - associe les deux points pour construire le rectangle **`R`** de classe **`RectangleAssoc`**
+  - agrège les deux points pour construire le rectangle **`R`** de classe **`RectangleAgreg`**
   - utilise **`translate(dx, dy)`** sur un des points 
   - affiche le rectangle et les points avec **`show()`**; qu'observez-vous ?
-  - crée un second **`RectangleAssoc`** copie du rectangle original avec la déclaration **`RectangleAssoc copyR(Ra1);`**
+  - crée un second **`RectangleAgreg`** copie du rectangle original avec la déclaration **`RectangleAgreg copyR(Ra1);`**
   - utilise **`translate`** sur un des deux rectangles puis affiche les deux rectangles; qu'observez-vous ?
+
+### Exercice 4 : classe RectangleComp (composition de points avec copie en profondeur)
+En vous basant sur la classe **`RectangleAgreg`**, réaliser la classe **`RectangleComp`** qui est une composition de points avec copie en profondeur.
   
-**Puis :**
-- supprimer la dépendance (le lien observé entre les deux rectangles) : implémenter le constructeur par copie **`RectangleAssoc(const RectangleAssoc&)`** et le **destructeur** **`~RectangleAssoc()`** qui utilisent l'allocation dynamique pour faire une **copie en profondeur** des éléments associés au rectangle original (ses points).
+**En particulier, il faut :**
+- supprimer la dépendance (le lien observé entre les deux rectangles) : implémenter le constructeur par copie **`RectangleComp(const RectangleComp&)`** et le **destructeur** **`~RectangleComp()`** qui utilisent l'allocation dynamique pour faire une **copie en profondeur** des éléments associés au rectangle original (ses points).
 Enfin, exécuter à nouveau le programme et vérifier que le problème soit résolu (les rectangles peuvent être translatés **indépendamment**).
-
-**Exemple :**
-
-```cpp
-Point pt1('A', 5, 5), pt2('B', 10, 12);
-
-// partie 1
-RectangleAssoc R( &pt1, &pt2);
-R.show();   // OK
-pt1.translate(3,5);
-R.show();   // ?!? grmph
-
-// partie 2
-RectangleAssoc copyR(R);
-R.translate(-5,-5);
-R.show();       // OK
-copyR.show();   // ?!? grmph    --> :) après complétion de l'exercice
-```
 
 ## Solutions
 <!-- [Serie2_1_1_SOLUTIONS](/zips/Serie2_1_1_SOLUTIONS.zip)
