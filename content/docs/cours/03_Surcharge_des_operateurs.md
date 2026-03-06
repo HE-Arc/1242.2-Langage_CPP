@@ -447,7 +447,6 @@ std::ostream& operator<<(std::ostream& o, const Counter& c)
 #include "Counter.h"
 
 #include <iostream>
-#include <print>
 
 int main()
 {
@@ -471,7 +470,7 @@ int main()
   // Valid but bad practice: the increment is immediately overwritten by the assignment.
   // Avoid this in real code — it is confusing and serves no practical purpose.
   ++x = 5;
-  std::println("\n++x = 5  (unusual but valid for pre-increment)");
+  std::cout << "\n++x = 5  (unusual but valid for pre-increment)" << '\n';
   std::cout << "x = " << x << '\n';
 
   return 0;
@@ -750,7 +749,7 @@ class Time {
 + operator = ( const Time& ) : Time& 
 
 <<friend>> operator + (const Time&, const Time&) : Time
-+ operator + (const Time&): Time
++ operator - (const Time&): Time
 
 - evaluate() : int
 
