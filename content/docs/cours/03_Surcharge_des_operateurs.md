@@ -737,6 +737,7 @@ Reprendre la classe **`Time`** de l'exercice 2 de la série 2.1, et :
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
+hide circle
 
 class Time {
     - hour : int
