@@ -617,6 +617,7 @@ Cette classe est résumé dans le diagramme UML suivant :
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
+hide circle
 
 class Point
 {
@@ -672,6 +673,8 @@ Son diagramme de classe UML sera donc :
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
+hide circle
+
   class Point
   {
     - x : double
