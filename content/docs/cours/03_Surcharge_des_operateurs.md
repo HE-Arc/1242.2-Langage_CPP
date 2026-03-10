@@ -10,7 +10,6 @@ weight: 10
 
 {{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html">}}
 
-
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/03_Surcharge_des_operateurs.html?print-pdf)
 
 ## Exemples
