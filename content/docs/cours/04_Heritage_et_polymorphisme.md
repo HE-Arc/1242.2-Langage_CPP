@@ -658,18 +658,52 @@ int main()
 {
     // GCC - error: invalid new-expression of abstract class type 'Figure'
     // Figure* image[] = { new Figure(), new Triangle(), new Ellipse() };
-
     Figure *image[] = { new Ellipse(), new Triangle(), new Ellipse() };
     std::println("draw() via Figure* (virtual — polymorphism):");
     for (auto p : image)
     {
-        std::println("  {}", p->draw()); // Figure, Triangle, Ellipse
+        std::println("  {}", p->draw());
     }
     for (auto p : image)
     {
         delete p;
         p = nullptr;
     }
+
+    return 0;
+}
+```
+<!-- SNIPPET:END -->
+
+### 1242.2_04.09_FigureProtectedCTor : `main.cpp`
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.09_FigureProtectedCTor_Main -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <print>
+#include <string>
+
+// Figure is now an abstract class
+class Figure
+{
+    protected:
+    Figure() = default;
+};
+
+class Triangle : public Figure
+{
+};
+
+class Ellipse : public Figure
+{
+};
+
+int main()
+{
+    // GCC - error: 'constexpr Figure::Figure()' is protected within this context
+    // Figure fig;
 
     return 0;
 }
