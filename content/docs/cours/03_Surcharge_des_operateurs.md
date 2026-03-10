@@ -16,7 +16,7 @@ weight: 10
 
 ### 1242.2_03.01_AdditionOverload : `Complex.h`
 
-<!-- SNIPPET:BEGIN source_file=Complex.h id=1242.2_03.01_AdditionOverload.h -->
+<!-- SNIPPET:BEGIN source_file=Complex.h id=1242.2_Examples_03.01_AdditionOverload_Complex.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -49,7 +49,7 @@ private:
 
 ### 1242.2_03.01_AdditionOverload : `Complex.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Complex.cpp id=1242.2_03.01_AdditionOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=Complex.cpp id=1242.2_Examples_03.01_AdditionOverload_Complex.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -66,7 +66,7 @@ Complex operator+(const Complex &c1, const Complex &c2)
 
 ### 1242.2_03.01_AdditionOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.01_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.01_AdditionOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -106,7 +106,7 @@ int main()
 
 ### 1242.2_03.02_AssignmentOverload : `NamedPoint.h`
 
-<!-- SNIPPET:BEGIN source_file=NamedPoint.h id=1242.2_03.02_AssignmentOverload.h -->
+<!-- SNIPPET:BEGIN source_file=NamedPoint.h id=1242.2_Examples_03.02_AssignmentOverload_NamedPoint.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -134,7 +134,7 @@ private:
 
 ### 1242.2_03.02_AssignmentOverload : `NamedPoint.cpp`
 
-<!-- SNIPPET:BEGIN source_file=NamedPoint.cpp id=1242.2_03.02_AssignmentOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=NamedPoint.cpp id=1242.2_Examples_03.02_AssignmentOverload_NamedPoint.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -201,7 +201,7 @@ void NamedPoint::setName(const char *newName)
 
 ### 1242.2_03.02_AssignmentOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.02_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.02_AssignmentOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -231,7 +231,7 @@ int main()
 
 ### 1242.2_03.03_StreamOperatorsOverload : `Point.h`
 
-<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.03_StreamOperatorsOverload.h -->
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.03_StreamOperatorsOverload_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -262,7 +262,7 @@ private:
 
 ### 1242.2_03.03_StreamOperatorsOverload : `Point.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.03_StreamOperatorsOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.03_StreamOperatorsOverload_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -330,7 +330,7 @@ std::istream &operator>>(std::istream &in, Point &p)
 
 ### 1242.2_03.03_StreamOperatorsOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.03_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.03_StreamOperatorsOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -374,7 +374,7 @@ int main()
 
 ### 1242.2_03.04_IncrementOverload : `Counter.h`
 
-<!-- SNIPPET:BEGIN source_file=Counter.h id=1242.2_03.04_IncrementOverload.h -->
+<!-- SNIPPET:BEGIN source_file=Counter.h id=1242.2_Examples_03.04_IncrementOverload_Counter.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -400,7 +400,7 @@ private:
 
 ### 1242.2_03.04_IncrementOverload : `Counter.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Counter.cpp id=1242.2_03.04_IncrementOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=Counter.cpp id=1242.2_Examples_03.04_IncrementOverload_Counter.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -437,7 +437,7 @@ std::ostream& operator<<(std::ostream& o, const Counter& c)
 
 ### 1242.2_03.04_IncrementOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.04_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.04_IncrementOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -479,7 +479,7 @@ int main()
 
 ### 1242.2_03.05_ConversionOverload : `Point.h`
 
-<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.05_ConversionOverload.h -->
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.05_ConversionOverload_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -504,7 +504,7 @@ private:
 
 ### 1242.2_03.05_ConversionOverload : `Point.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.05_ConversionOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.05_ConversionOverload_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -532,7 +532,7 @@ Point::operator double() const { return std::abs(m_x) + std::abs(m_y) + 0.01; }
 
 ### 1242.2_03.05_ConversionOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.05_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.05_ConversionOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -561,7 +561,7 @@ int main()
 
 ### 1242.2_03.06_FunctorOverload : `Linear.h`
 
-<!-- SNIPPET:BEGIN source_file=Linear.h id=1242.2_03.06_FunctorOverload.h -->
+<!-- SNIPPET:BEGIN source_file=Linear.h id=1242.2_Examples_03.06_FunctorOverload_Linear.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -583,7 +583,7 @@ private:
 
 ### 1242.2_03.06_FunctorOverload : `Linear.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Linear.cpp id=1242.2_03.06_FunctorOverload.cpp -->
+<!-- SNIPPET:BEGIN source_file=Linear.cpp id=1242.2_Examples_03.06_FunctorOverload_Linear.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -602,7 +602,7 @@ double Linear::operator()(double x) const
 
 ### 1242.2_03.06_FunctorOverload : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.06_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.06_FunctorOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -628,7 +628,7 @@ int main()
 
 ### 1242.2_03.07_OperatorsOverloadMisc : `Point.h`
 
-<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_03.07_Point.h -->
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.07_OperatorsOverloadMisc_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -664,7 +664,7 @@ Point operator+(const Point &self, const Point &other);
 
 ### 1242.2_03.07_OperatorsOverloadMisc : `Point.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_03.07_Point.cpp -->
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.07_OperatorsOverloadMisc_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -684,7 +684,7 @@ Point operator+(const Point &self, const Point &other)
 
 ### 1242.2_03.07_OperatorsOverloadMisc : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.07_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.07_OperatorsOverloadMisc_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -771,7 +771,7 @@ class Time {
 
 **Exemple de `main()`**
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.01_OverloadingTime_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_03.01_OverloadingTime_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -893,7 +893,7 @@ Les éléments sont de type **`double`**. En particulier, il faut :
 
 **Exemple de `main()`**
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_03.02_OverloadingVector_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_03.02_OverloadingVector_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.

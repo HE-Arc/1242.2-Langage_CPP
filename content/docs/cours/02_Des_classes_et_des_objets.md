@@ -15,7 +15,7 @@ weight: 10
 
 ### 1242.2_02.01_PointClass : `Point.h`
 
-<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_02.01_PointClass.h -->
+<!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_02.01_PointClass_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -117,7 +117,7 @@ double distance(const Point &p1, const Point &p2);
 
 ### 1242.2_02.01_PointClass : `Point.cpp`
 
-<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_02.01_PointClass.cpp -->
+<!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_02.01_PointClass_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -211,7 +211,7 @@ double distance(const Point &p1, const Point &p2)
 
 ### 1242.2_02.01_PointClass : `main.cpp`
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_02.01_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_02.01_PointClass_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -438,7 +438,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_02.02_CTorsMisc : `A.h`
-<!-- SNIPPET:BEGIN source_file=A.h id=1242.2_02.02_A.h -->
+<!-- SNIPPET:BEGIN source_file=A.h id=1242.2_Examples_02.02_CTorsMisc_A.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -476,7 +476,7 @@ private:
 <!-- SNIPPET:END -->
 
 ### 1242.2_02.02_CTorsMisc : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_02.02_main.cpp -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_02.02_CTorsMisc_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.

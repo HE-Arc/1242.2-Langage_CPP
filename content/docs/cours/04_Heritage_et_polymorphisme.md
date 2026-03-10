@@ -15,7 +15,7 @@ weight: 10
 ## Exemples
 
 ### 1242.2_04.01_InheritanceCircleCylinder : `Circle.h`
-<!-- SNIPPET:BEGIN source_file=Circle.h id=1242.2_04.01_Circle.h -->
+<!-- SNIPPET:BEGIN source_file=Circle.h id=1242.2_Examples_04.01_InheritanceCircleCylinder_Circle.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -40,7 +40,7 @@ private:
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.01_InheritanceCircleCylinder : `Circle.cpp`
-<!-- SNIPPET:BEGIN source_file=Circle.cpp id=1242.2_04.01_Circle.cpp -->
+<!-- SNIPPET:BEGIN source_file=Circle.cpp id=1242.2_Examples_04.01_InheritanceCircleCylinder_Circle.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -76,7 +76,7 @@ double Circle::surface() const
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.01_InheritanceCircleCylinder : `Cylinder.h`
-<!-- SNIPPET:BEGIN source_file=Cylinder.h id=1242.2_04.01_Cylinder.h -->
+<!-- SNIPPET:BEGIN source_file=Cylinder.h id=1242.2_Examples_04.01_InheritanceCircleCylinder_Cylinder.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -100,7 +100,7 @@ private:
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.01_InheritanceCircleCylinder : `Cylinder.cpp`
-<!-- SNIPPET:BEGIN source_file=Cylinder.cpp id=1242.2_04.01_Cylinder.cpp -->
+<!-- SNIPPET:BEGIN source_file=Cylinder.cpp id=1242.2_Examples_04.01_InheritanceCircleCylinder_Cylinder.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -134,7 +134,7 @@ double Cylinder::volume() const
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.01_InheritanceCircleCylinder : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.01_Main.cpp -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.01_InheritanceCircleCylinder_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -181,7 +181,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.02_AnimalsNonVirtual : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.02_AnimalsNonVirtual -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.02_AnimalsNonVirtual_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -255,7 +255,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.03_AnimalsVirtual : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.03_AnimalsVirtual -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.03_AnimalsVirtual_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -321,7 +321,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.04_BaseAndDerivedPointers : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.04_BaseAndDerivedPointers -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.04_BaseAndDerivedPointers_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -398,7 +398,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.05_FigureNonVirtual : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.05_FigureNonVirtual -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.05_FigureNonVirtual_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -448,7 +448,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.06_FigureVirtual : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.06_FigureVirtual -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.06_FigureVirtual_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -498,7 +498,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.07_VTableMemoryLayout : `Circle.h`
-<!-- SNIPPET:BEGIN source_file=Circle.h id=1242.2_04.07_Circle.h -->
+<!-- SNIPPET:BEGIN source_file=Circle.h id=1242.2_Examples_04.07_VTableMemoryLayout_Circle.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -522,7 +522,7 @@ private:
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.07_VTableMemoryLayout : `Circle.cpp`
-<!-- SNIPPET:BEGIN source_file=Circle.cpp id=1242.2_04.07_Circle.cpp -->
+<!-- SNIPPET:BEGIN source_file=Circle.cpp id=1242.2_Examples_04.07_VTableMemoryLayout_Circle.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -551,7 +551,7 @@ double Circle::area() const
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.07_VTableMemoryLayout : `Cylinder.h`
-<!-- SNIPPET:BEGIN source_file=Cylinder.h id=1242.2_04.07_Cylinder.h -->
+<!-- SNIPPET:BEGIN source_file=Cylinder.h id=1242.2_Examples_04.07_VTableMemoryLayout_Cylinder.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -572,7 +572,7 @@ private:
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.07_VTableMemoryLayout : `Cylinder.cpp`
-<!-- SNIPPET:BEGIN source_file=Cylinder.cpp id=1242.2_04.07_Cylinder.cpp -->
+<!-- SNIPPET:BEGIN source_file=Cylinder.cpp id=1242.2_Examples_04.07_VTableMemoryLayout_Cylinder.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -598,7 +598,7 @@ double Cylinder::area() const
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.07_VTableMemoryLayout : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.07_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.07_VTableMemoryLayout_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -625,7 +625,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.08_FigurePureVirtual : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.08_FigurePureVirtual_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.08_FigurePureVirtual_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -676,7 +676,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_04.09_FigureProtectedCTor : `main.cpp`
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_04.09_FigureProtectedCTor_Main -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_04.09_FigureProtectedCTor_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -685,7 +685,6 @@ int main()
 #include <print>
 #include <string>
 
-// Figure is now an abstract class
 class Figure
 {
     protected:

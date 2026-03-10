@@ -16,7 +16,7 @@ draft: false
 
 ### 1242.2_01.01_HelloWorld
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.01_HelloWorld -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.01_HelloWorld_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -39,7 +39,7 @@ int main()
 
 ### 1242.2_01.02_VariablesDeclarations
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.02_VariablesDeclarations -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.02_VariablesDeclarations_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -62,7 +62,7 @@ int main()
 
 ### 1242.2_01.03_Namespaces
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.03_Namespaces -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.03_Namespaces_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -131,7 +131,7 @@ int main()
 Les modificateurs de formatage sont persistants.
 {{</attention>}}
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.04_CinCout -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.04_CinCout_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -214,7 +214,7 @@ La fonction **`std::print()`** affiche du texte formaté de manière plus simple
 En particulier, les modificateurs de formatage sont locaux à l'appel de la fonction **`std::print()`** et ne sont pas persistants.
 {{</a_noter>}}
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.05_Print -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.05_Print_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -247,7 +247,7 @@ int main()
 
 ### 1242.2_01.06_References
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.06_References -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.06_References_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -342,7 +342,7 @@ int main()
 
 ### 1242.2_01.07_MemoryAllocation
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.07_MemoryAllocation -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.07_MemoryAllocation_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -381,7 +381,7 @@ int main()
 
 ### 1242.2_01.08_Strings
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.08_Strings -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.08_Strings_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -414,7 +414,7 @@ int main()
 
 ### 1242.2_01.09_Vectors
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.09_Vectors -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.09_Vectors_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -466,7 +466,7 @@ int main()
 
 ### 1242.2_01.10_Double2String
 
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.10_Double2String -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.10_Double2String_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -500,7 +500,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_01.11_DefaultParameters
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.11_DefaultParameters -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.11_DefaultParameters_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
@@ -540,7 +540,7 @@ int main()
 <!-- SNIPPET:END -->
 
 ### 1242.2_01.12_FunctionsOverloading
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_01.12_FunctionsOverloading -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.12_FunctionsOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
