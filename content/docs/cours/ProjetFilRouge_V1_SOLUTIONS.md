@@ -9,8 +9,8 @@ draft: false
 
 ## Classe Hero (étapes 1–4, 6)
 
-### Hero.h
-
+{{<details "1242.2_Project_V1_FilRouge_Hero" >}}
+**`Hero.h`**
 <!-- SNIPPET:BEGIN source_file=Hero.h id=1242.2_Project_V1_FilRouge_Hero.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -48,8 +48,7 @@ namespace He_Arc::RPG
 ```
 <!-- SNIPPET:END -->
 
-### Hero.cpp
-
+**`Hero.cpp`**
 <!-- SNIPPET:BEGIN source_file=Hero.cpp id=1242.2_Project_V1_FilRouge_Hero.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -79,11 +78,12 @@ namespace He_Arc::RPG
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ## Classe Sword (étape 5)
 
-### Sword.h
-
+{{<details "1242.2_Project_V1_FilRouge_Sword" >}}
+**`Sword.h`**
 <!-- SNIPPET:BEGIN source_file=Sword.h id=1242.2_Project_V1_FilRouge_Sword.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -111,8 +111,7 @@ namespace He_Arc::RPG
 ```
 <!-- SNIPPET:END -->
 
-### Sword.cpp
-
+**`Sword.cpp`**
 <!-- SNIPPET:BEGIN source_file=Sword.cpp id=1242.2_Project_V1_FilRouge_Sword.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -133,11 +132,12 @@ namespace He_Arc::RPG
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ## Programme principal (étape 4)
 
-### main.cpp
-
+{{<details "1242.2_Project_V1_FilRouge_main" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Project_V1_FilRouge_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -167,3 +167,4 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}

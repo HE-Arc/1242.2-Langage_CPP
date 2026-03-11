@@ -11,6 +11,8 @@ draft: false
 
 ### Exercice 1 : affichage
 
+{{<details "1242.2_01.01_Formatting" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.01_Formatting_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -77,9 +79,12 @@ void exercise1_cpp23()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 2 : surcharge de fonctions
 
+{{<details "1242.2_01.02_FunctionOverloading" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.02_FunctionOverloading_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -114,9 +119,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 3 : passage de paramètres
 
+{{<details "1242.2_01.03_ParameterPassing" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.03_ParameterPassing_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -230,9 +238,12 @@ bool divide(int dividend, int divisor, int &remainder, int &quotient)
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 4 : string
 
+{{<details "1242.2_01.04_DynamicStrings" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.04_DynamicStrings_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -273,9 +284,12 @@ char *askForAString()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 5 : range-based for loop
 
+{{<details "1242.2_01.05_RangeBasedFor" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.05_RangeBasedFor_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -319,9 +333,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 6 : structure
 
+{{<details "1242.2_01.06_StructMethods" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_01.06_StructMethods_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -377,3 +394,4 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}

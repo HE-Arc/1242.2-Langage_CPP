@@ -14,8 +14,8 @@ draft: false
 
 ## Exemples
 
-### 1242.2_01.01_HelloWorld
-
+{{<details "1242.2_01.01_HelloWorld" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.01_HelloWorld_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -36,9 +36,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.02_VariablesDeclarations
-
+{{<details "1242.2_01.02_VariablesDeclarations" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.02_VariablesDeclarations_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -59,9 +60,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.03_Namespaces
-
+{{<details "1242.2_01.03_Namespaces" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.03_Namespaces_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -124,13 +126,14 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.04_CinCout
-
+{{<details "1242.2_01.04_CinCout" >}}
 {{<attention>}}
 Les modificateurs de formatage sont persistants.
 {{</attention>}}
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.04_CinCout_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -205,8 +208,9 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.05_Print
+{{<details "1242.2_01.05_Print" >}}
 {{<a_noter>}}
 **C++23**
 
@@ -214,6 +218,7 @@ La fonction **`std::print()`** affiche du texte formaté de manière plus simple
 En particulier, les modificateurs de formatage sont locaux à l'appel de la fonction **`std::print()`** et ne sont pas persistants.
 {{</a_noter>}}
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.05_Print_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -244,9 +249,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.06_References
-
+{{<details "1242.2_01.06_References" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.06_References_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -339,9 +345,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.07_MemoryAllocation
-
+{{<details "1242.2_01.07_MemoryAllocation" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.07_MemoryAllocation_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -378,9 +385,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.08_Strings
-
+{{<details "1242.2_01.08_Strings" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.08_Strings_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -411,9 +419,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.09_Vectors
-
+{{<details "1242.2_01.09_Vectors" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.09_Vectors_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -463,9 +472,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.10_Double2String
-
+{{<details "1242.2_01.10_Double2String" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.10_Double2String_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -498,8 +508,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.11_DefaultParameters
+{{<details "1242.2_01.11_DefaultParameters" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.11_DefaultParameters_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -538,8 +550,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_01.12_FunctionsOverloading
+{{<details "1242.2_01.12_FunctionsOverloading" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_01.12_FunctionsOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -578,6 +592,7 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Les types de containers dans la bibliothèque standard
 

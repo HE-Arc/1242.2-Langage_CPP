@@ -11,6 +11,8 @@ draft: false
 
 ### Exercice 1 : classe compte bancaire
 
+{{<details "1242.2_02.01_BankAccount" >}}
+**`BankAccount.h`**
 <!-- SNIPPET:BEGIN source_file=BankAccount.h id=1242.2_Exercises_02.01_BankAccount_BankAccount.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -34,6 +36,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`BankAccount.cpp`**
 <!-- SNIPPET:BEGIN source_file=BankAccount.cpp id=1242.2_Exercises_02.01_BankAccount_BankAccount.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -63,6 +66,7 @@ void BankAccount::show() const
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.01_BankAccount_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -96,9 +100,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 2 : classe Time
 
+{{<details "1242.2_02.02_Time" >}}
+**`Time.h`**
 <!-- SNIPPET:BEGIN source_file=Time.h id=1242.2_Exercises_02.02_Time_Time.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -132,6 +139,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Time.cpp`**
 <!-- SNIPPET:BEGIN source_file=Time.cpp id=1242.2_Exercises_02.02_Time_Time.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -180,6 +188,7 @@ void Time::show() const
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.02_Time_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -222,9 +231,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 3 : classe Point
 
+{{<details "1242.2_02.03_Point" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Exercises_02.03_Point_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -249,6 +261,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Exercises_02.03_Point_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -278,6 +291,7 @@ void Point::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.03_Point_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -355,11 +369,14 @@ Point **generatePolygon(int n)
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ## Série 2.2
 
 ### Exercice 1 : classe Point améliorée
 
+{{<details "1242.2_02.04_PointStatic" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Exercises_02.04_PointStatic_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -391,6 +408,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Exercises_02.04_PointStatic_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -430,6 +448,7 @@ void Point::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.04_PointStatic_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -460,9 +479,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 2 : classe Rectangle (composition de points)
 
+{{<details "1242.2_02.05_Rectangle" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Exercises_02.05_Rectangle_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -494,6 +516,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Exercises_02.05_Rectangle_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -527,6 +550,7 @@ void Point::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`Rectangle.h`**
 <!-- SNIPPET:BEGIN source_file=Rectangle.h id=1242.2_Exercises_02.05_Rectangle_Rectangle.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -556,6 +580,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Rectangle.cpp`**
 <!-- SNIPPET:BEGIN source_file=Rectangle.cpp id=1242.2_Exercises_02.05_Rectangle_Rectangle.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -605,6 +630,7 @@ void Rectangle::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.05_Rectangle_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -647,9 +673,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 3 : classe RectangleAgreg (agrégation de points)
 
+{{<details "1242.2_02.06_RectangleAgreg" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Exercises_02.06_RectangleAgreg_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -681,6 +710,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Exercises_02.06_RectangleAgreg_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -714,6 +744,7 @@ void Point::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`RectangleAgreg.h`**
 <!-- SNIPPET:BEGIN source_file=RectangleAgreg.h id=1242.2_Exercises_02.06_RectangleAgreg_RectangleAgreg.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -741,6 +772,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`RectangleAgreg.cpp`**
 <!-- SNIPPET:BEGIN source_file=RectangleAgreg.cpp id=1242.2_Exercises_02.06_RectangleAgreg_RectangleAgreg.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -790,6 +822,7 @@ void RectangleAgreg::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.06_RectangleAgreg_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -823,9 +856,12 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ### Exercice 4 : classe RectangleComp (composition de points avec copie en profondeur)
 
+{{<details "1242.2_02.07_RectangleComp" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Exercises_02.07_RectangleComp_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -857,6 +893,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Exercises_02.07_RectangleComp_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -890,6 +927,7 @@ void Point::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`RectangleComp.h`**
 <!-- SNIPPET:BEGIN source_file=RectangleComp.h id=1242.2_Exercises_02.07_RectangleComp_RectangleComp.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -917,6 +955,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
+**`RectangleComp.cpp`**
 <!-- SNIPPET:BEGIN source_file=RectangleComp.cpp id=1242.2_Exercises_02.07_RectangleComp_RectangleComp.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -968,6 +1007,7 @@ void RectangleComp::translate(double dx, double dy)
 ```
 <!-- SNIPPET:END -->
 
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_02.07_RectangleComp_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -1001,3 +1041,4 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}

@@ -14,8 +14,8 @@ weight: 10
 
 ## Exemples
 
-### 1242.2_03.01_AdditionOverload : `Complex.h`
-
+{{<details "1242.2_03.01_AdditionOverload" >}}
+**`Complex.h`**
 <!-- SNIPPET:BEGIN source_file=Complex.h id=1242.2_Examples_03.01_AdditionOverload_Complex.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -47,8 +47,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.01_AdditionOverload : `Complex.cpp`
-
+**`Complex.cpp`**
 <!-- SNIPPET:BEGIN source_file=Complex.cpp id=1242.2_Examples_03.01_AdditionOverload_Complex.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -64,8 +63,7 @@ Complex operator+(const Complex &c1, const Complex &c2)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.01_AdditionOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.01_AdditionOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -103,9 +101,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.02_AssignmentOverload : `NamedPoint.h`
-
+{{<details "1242.2_03.02_AssignmentOverload" >}}
+**`NamedPoint.h`**
 <!-- SNIPPET:BEGIN source_file=NamedPoint.h id=1242.2_Examples_03.02_AssignmentOverload_NamedPoint.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -132,8 +131,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.02_AssignmentOverload : `NamedPoint.cpp`
-
+**`NamedPoint.cpp`**
 <!-- SNIPPET:BEGIN source_file=NamedPoint.cpp id=1242.2_Examples_03.02_AssignmentOverload_NamedPoint.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -199,8 +197,7 @@ void NamedPoint::setName(const char *newName)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.02_AssignmentOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.02_AssignmentOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -228,9 +225,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.03_StreamOperatorsOverload : `Point.h`
-
+{{<details "1242.2_03.03_StreamOperatorsOverload" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.03_StreamOperatorsOverload_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -260,8 +258,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.03_StreamOperatorsOverload : `Point.cpp`
-
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.03_StreamOperatorsOverload_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -328,8 +325,7 @@ std::istream &operator>>(std::istream &in, Point &p)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.03_StreamOperatorsOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.03_StreamOperatorsOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -371,9 +367,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.04_IncrementOverload : `Counter.h`
-
+{{<details "1242.2_03.04_IncrementOverload" >}}
+**`Counter.h`**
 <!-- SNIPPET:BEGIN source_file=Counter.h id=1242.2_Examples_03.04_IncrementOverload_Counter.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -398,8 +395,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.04_IncrementOverload : `Counter.cpp`
-
+**`Counter.cpp`**
 <!-- SNIPPET:BEGIN source_file=Counter.cpp id=1242.2_Examples_03.04_IncrementOverload_Counter.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -435,8 +431,7 @@ std::ostream& operator<<(std::ostream& o, const Counter& c)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.04_IncrementOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.04_IncrementOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -476,9 +471,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.05_ConversionOverload : `Point.h`
-
+{{<details "1242.2_03.05_ConversionOverload" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.05_ConversionOverload_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -502,8 +498,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.05_ConversionOverload : `Point.cpp`
-
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.05_ConversionOverload_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -530,8 +525,7 @@ Point::operator double() const { return std::abs(m_x) + std::abs(m_y) + 0.01; }
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.05_ConversionOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.05_ConversionOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -558,9 +552,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.06_FunctorOverload : `Linear.h`
-
+{{<details "1242.2_03.06_FunctorOverload" >}}
+**`Linear.h`**
 <!-- SNIPPET:BEGIN source_file=Linear.h id=1242.2_Examples_03.06_FunctorOverload_Linear.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -581,8 +576,7 @@ private:
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.06_FunctorOverload : `Linear.cpp`
-
+**`Linear.cpp`**
 <!-- SNIPPET:BEGIN source_file=Linear.cpp id=1242.2_Examples_03.06_FunctorOverload_Linear.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -600,8 +594,7 @@ double Linear::operator()(double x) const
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.06_FunctorOverload : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.06_FunctorOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -625,9 +618,10 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
-### 1242.2_03.07_OperatorsOverloadMisc : `Point.h`
-
+{{<details "1242.2_03.07_OperatorsOverloadMisc" >}}
+**`Point.h`**
 <!-- SNIPPET:BEGIN source_file=Point.h id=1242.2_Examples_03.07_OperatorsOverloadMisc_Point.h -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -662,8 +656,7 @@ Point operator+(const Point &self, const Point &other);
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.07_OperatorsOverloadMisc : `Point.cpp`
-
+**`Point.cpp`**
 <!-- SNIPPET:BEGIN source_file=Point.cpp id=1242.2_Examples_03.07_OperatorsOverloadMisc_Point.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -682,8 +675,7 @@ Point operator+(const Point &self, const Point &other)
 ```
 <!-- SNIPPET:END -->
 
-### 1242.2_03.07_OperatorsOverloadMisc : `main.cpp`
-
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_03.07_OperatorsOverloadMisc_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -706,7 +698,7 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
-
+{{</details>}}
 
 ## Série 3.1
 
@@ -771,6 +763,8 @@ class Time {
 
 **Exemple de `main()`**
 
+{{<details "1242.2_03.01_OverloadingTime" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_03.01_OverloadingTime_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -871,6 +865,7 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ## Serie 3.2 : surcharge des opérateurs
 
@@ -893,6 +888,8 @@ Les éléments sont de type **`double`**. En particulier, il faut :
 
 **Exemple de `main()`**
 
+{{<details "1242.2_03.02_OverloadingVector" >}}
+**`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_03.02_OverloadingVector_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
@@ -948,6 +945,7 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
+{{</details>}}
 
 ## Solutions
 
