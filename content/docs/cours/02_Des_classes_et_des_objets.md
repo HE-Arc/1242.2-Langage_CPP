@@ -799,15 +799,3 @@ En vous basant sur la classe **`RectangleAgreg`**, réaliser la classe **`Rectan
 - supprimer la dépendance (le lien observé entre les deux rectangles) : implémenter le constructeur par copie **`RectangleComp(const RectangleComp&)`** et le **destructeur** **`~RectangleComp()`** qui utilisent l'allocation dynamique pour faire une **copie en profondeur** des éléments associés au rectangle original (ses points).
 Enfin, exécuter à nouveau le programme et vérifier que le problème soit résolu (les rectangles peuvent être translatés **indépendamment**).
 
-## Solutions
-<!-- [Serie2_1_1_SOLUTIONS](/zips/Serie2_1_1_SOLUTIONS.zip)
-
-[Serie2_1_2_SOLUTIONS](/zips/Serie2_1_2_SOLUTIONS.zip)
-
-[Serie2_1_3_SOLUTIONS](/zips/Serie2_1_3_SOLUTIONS.zip)
-
-[Serie2_2_1_SOLUTIONS](/zips/Serie2_2_1_SOLUTIONS.zip)
-
-[Serie2_2_2_SOLUTIONS](/zips/Serie2_2_2_SOLUTIONS.zip)
-
-[Serie2_2_3_SOLUTIONS](/zips/Serie2_2_3_SOLUTIONS.zip) -->
