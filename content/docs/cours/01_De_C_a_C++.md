@@ -763,7 +763,3 @@ int main()
    - **`volume()`** : calcule et renvoie le volume de la pièce
 
 2) Écrire un programme utilisant ce nouveau type, qui lui affecte des valeurs et utilise ses fonctions (méthodes)
-
-## Solutions
-<!-- [Serie1_SOLUTIONS](/zips/Serie1_SOLUTIONS.zip) -->
-
