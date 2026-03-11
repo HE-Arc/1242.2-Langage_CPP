@@ -148,6 +148,3 @@ class Sword {
 - Est-ce qu'un constructeur par copie est nécessaire ?
    - Si votre réponse est "Oui", allez regarder le cours :P
    - Si "Non", mettez en commentaire la ligne de code que vous venez de créer (ou utilisez _=default_ comme vu en cours)
-   
-## Solutions
-[Projet Fil Rouge V1](/zips/FilRouge_V1_SOLUTIONS.zip)
