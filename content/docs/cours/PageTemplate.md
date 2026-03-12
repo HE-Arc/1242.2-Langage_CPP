@@ -197,11 +197,11 @@ Il ne faut surtout pas faire ceci !!!
 ### Avec une image dans le répertoire local ***static/images***
 **Code**
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" */>}}
+{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légenge" */>}}
 ```
 
 **Affichage**
-{{< figure src="images/AE_Fork.png#center" width="100%">}}
+{{< figure src="images/AE_Fork.png#center" width="100%" caption="Un screenshot">}}
 
 ### Avec une image sur le web
 {{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="100%">}}
@@ -210,7 +210,7 @@ Il ne faut surtout pas faire ceci !!!
 ## Images
 ### Avec une image
 
-{{< figure src="images/AE_Fork.png#center" width="40%">}}
+{{< figure src="images/AE_Fork.png#center" width="40%" caption="Un screenshot">}}
 
 {{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="30%">}}
 

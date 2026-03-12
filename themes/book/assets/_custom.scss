@@ -105,3 +105,11 @@ a.active {
 
 .hint-body > :first-child { margin-top: 0; }
 .hint-body > :last-child  { margin-bottom: 0; }
+
+figure {
+  figcaption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+}
