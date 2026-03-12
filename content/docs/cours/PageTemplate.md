@@ -497,15 +497,17 @@ Il faut prendre l'id uniquement. En particulier, il ne faut pas mettre les guill
 {{</*video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4"*/>}}
 ```
 
-{{<video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4" isLocalSrc="false" width="100%">}}
+{{<video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
+
+_Détecte le "https://" ou "http://" pour savoir si la vidéo est hébergée localement ou pas._
 
 ### Vidéo MP4 hébergée localement
 
 ```
-{{</*video src="/videos/demo_motionlab.mp4" isSrcLocal="true" width="30%"*/>}}
+{{</*video src="/videos/demo_motionlab.mp4" width="30%"*/>}}
 ```
 
-{{<video src="/videos/demo_motionlab.mp4" isLocalSrc="true" width="30%">}}
+{{<video src="/videos/demo_motionlab.mp4" width="30%">}}
 
 
 ## PDFs
