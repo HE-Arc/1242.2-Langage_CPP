@@ -492,7 +492,12 @@ Il faut prendre l'id uniquement. En particulier, il ne faut pas mettre les guill
 {{</attention>}}
 
 ### Vidéo MP4 hébergée ailleurs
-{{<video "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
+
+```
+{{</*video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4"*/>}}
+```
+
+{{<video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4" isLocalSrc="false" width="100%">}}
 
 
 ## PDFs
