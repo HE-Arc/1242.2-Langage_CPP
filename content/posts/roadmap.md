@@ -6,27 +6,6 @@ tags : ["C++", "Roadmap"]
 draft: true
 ---
 
-{{< details 1242.2-Langage_CPP-roadmap >}}
-**`main.cpp`**
-
-```cpp
-class BankAccount
-{
-public:
-  BankAccount() = default;
-  BankAccount(const BankAccount &other) = default;
-  virtual ~BankAccount() = default;
-
-  void deposit(double amount);
-  void withdraw(double amount);
-  void show() const;
-
-private:
-  double m_balance{0.0};
-};
-```
-{{</details>}}
-
 {{< plantuml id="roadmap">}}
 @startmindmap
 
