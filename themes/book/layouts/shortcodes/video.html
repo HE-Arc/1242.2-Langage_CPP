@@ -1,6 +1,6 @@
 <!-- prettier-ignore -->
 {{- $src := .Get "src" -}}
-{{- $local := not (or (eq (substr $src 0 7) "http://") (eq (substr $src 0 8) "https://")) -}}
+{{- $local := not (or (hasPrefix $src "http://") (hasPrefix $src "https://")) -}}
 {{- $width := .Get "width" | default "100%" -}}
 <video style="width: {{ $width }}" controls>
   {{- if $local -}}
