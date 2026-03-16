@@ -4,7 +4,7 @@
 {{- $width := .Get "width" | default "100%" -}}
 <video style="width: {{ $width }}" controls>
   {{- if $local -}}
-  <source src="{{ .Site.BaseURL }}{{ $src }}" type="video/mp4" />
+  <source src="{{ $src | absURL }}" type="video/mp4" />
   {{- else -}}
   <source src="{{ $src }}" type="video/mp4" />
   {{- end -}}

@@ -504,10 +504,10 @@ _Détecte le "https://" ou "http://" pour savoir si la vidéo est hébergée loc
 ### Vidéo MP4 hébergée localement
 
 ```
-{{</*video src="/videos/demo_motionlab.mp4" width="30%"*/>}}
+{{</*video src="videos/demo_motionlab.mp4" width="30%"*/>}}
 ```
 
-{{<video src="/videos/demo_motionlab.mp4" width="30%">}}
+{{<video src="videos/demo_motionlab.mp4" width="30%">}}
 
 
 ## PDFs
