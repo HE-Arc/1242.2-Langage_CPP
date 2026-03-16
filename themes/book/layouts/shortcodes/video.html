@@ -2,7 +2,7 @@
 {{- $src := .Get "src" -}}
 {{- $local := not (or (eq (substr $src 0 7) "http://") (eq (substr $src 0 8) "https://")) -}}
 {{- $width := .Get "width" | default "100%" -}}
-<video width="{{ $width }}" controls>
+<video style="width: {{ $width }}" controls>
   {{- if $local -}}
   <source src="{{ .Site.BaseURL }}{{ $src }}" type="video/mp4" />
   {{- else -}}
