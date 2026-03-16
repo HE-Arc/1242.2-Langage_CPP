@@ -197,7 +197,7 @@ Il ne faut surtout pas faire ceci !!!
 ### Avec une image dans le répertoire local ***static/images***
 **Code**
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légenge" */>}}
+{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" */>}}
 ```
 
 **Affichage**
