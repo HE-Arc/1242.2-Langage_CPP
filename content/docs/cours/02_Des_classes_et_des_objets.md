@@ -748,7 +748,7 @@ ainsi que 2 constructeurs :
 
 - Donner le diagramme UML de la classe **`Rectangle`**
 - Implémenter la classe **`Rectangle`** en s'appuyant sur la classe **`Point`**
-- Ne pas oublier le mot clé **`const`** pour les méthodes constantes (ex. **`void show() const`**).
+- Ne pas oublier le mot-clef **`const`** pour les méthodes constantes (ex. **`void show() const`**).
 - Écrire un programme pour tester la classe **`Rectangle`**.
 Le programme construira un objet rectangle avec chacun des constructeurs, les affichera avec **`show()`**, utilisera ses méthodes, puis modifiera les arguments de constructions donnés en paramètre aux constructeurs et les affichera à nouveau.
 

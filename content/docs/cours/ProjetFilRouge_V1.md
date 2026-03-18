@@ -62,7 +62,7 @@ Les deux noms sont affichés.
 - Dans le **`main`**, créer un **`Hero`**
 
 {{<attention>}}
-Il ne faut pas oublier d'utiliser le mot-clé **`const`** quand nécessaire.
+Il ne faut pas oublier d'utiliser le mot-clef **`const`** quand nécessaire.
 {{</attention>}}
 
 La classe **`Hero`** devrait au final ressembler à ceci :
@@ -126,7 +126,7 @@ Pour cela, il faudra l'équiper d'une arme, comme une épée par exemple.
 - Créer une épée (classe **`Sword`**).
 - Une épée est caractérisée par l'attribut **`int damage`**.
 - Sa valeur est fixée par le constructeur et lue grâce à un getteur.
-Utiliser les bonnes conventions de codage et ne pas oublier d'utiliser le mot clé **`const`** quand nécessaire (hint: getter).
+Utiliser les bonnes conventions de codage et ne pas oublier d'utiliser le mot-clef **`const`** quand nécessaire (hint: getter).
 - Enfin, ajouter l'épée comme attribut à la classe **`Hero`** (pour le moment pas besoin de modifier le constructeur de **`Hero`**)
 
 La classe **`Sword`** devrait ressembler à ceci :

@@ -13,7 +13,7 @@ Créez une liste à l'aide de la bibliothèque standard et la classe ```std::lis
 Dans le ```main```, utilisez ```std::list<Hero*>``` pour créer votre équipe.
 On veut utiliser le polymorphisme ici.
 Votre équipe sera donc composée par des **pointeurs** vers des héros.
-Utilisez donc le mot clé ```new``` (sans oublier le ```delete```), pour créer les membres de votre équipe (4-5 héros : au moins un ```Wizard```, deux ```Warrior```et un ```Necromancer```).
+Utilisez donc le mot-clef ```new``` (sans oublier le ```delete```), pour créer les membres de votre équipe (4-5 héros : au moins un ```Wizard```, deux ```Warrior```et un ```Necromancer```).
 Utilisez la méthode ```push_back``` pour ajouter les héros à l'équipe, par exemple ```myParty.push_back(pHero1);```.
 
 Pour résumer, il faut :

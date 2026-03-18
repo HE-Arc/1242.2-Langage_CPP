@@ -16,7 +16,7 @@ Cependant, pour être utilisées, le héros doit avoir assez de point magie (**`
 
 - Donner des valeurs par défaut pour les différentes classes (ex. un guerrier aura de la force, un magicien de l'intelligence, etc.)
 {{<attention>}}
-Il ne faut pas oublier les mots clés ```virtual``` et ```override``` !
+Il ne faut pas oublier les mots-clefs **`virtual`** et **`override`** !
 {{</attention>}}
 
 ## Etape 9 (classe abstraite)
