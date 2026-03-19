@@ -1,3 +1,11 @@
-<video width="100%" controls>
-  <source  src={{.Get 0}} type="video/mp4">
+<!-- prettier-ignore -->
+{{- $src := .Get "src" -}}
+{{- $local := not (or (hasPrefix $src "http://") (hasPrefix $src "https://")) -}}
+{{- $width := .Get "width" | default "100%" -}}
+<video style="width: {{ $width }}" controls>
+  {{- if $local -}}
+  <source src="{{ $src | absURL }}" type="video/mp4" />
+  {{- else -}}
+  <source src="{{ $src }}" type="video/mp4" />
+  {{- end -}}
 </video>

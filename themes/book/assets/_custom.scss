@@ -17,7 +17,9 @@ a.active {
   }
 
   .book-menu a.active {
-    color: #ff0000;
+    color: #ffffff;
+    background-color: #ff0000;
+    padding: 0.5rem;
     font-weight: 600;
   }
 
@@ -105,3 +107,11 @@ a.active {
 
 .hint-body > :first-child { margin-top: 0; }
 .hint-body > :last-child  { margin-bottom: 0; }
+
+figure {
+  figcaption {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+}

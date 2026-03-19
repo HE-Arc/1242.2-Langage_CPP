@@ -197,11 +197,11 @@ Il ne faut surtout pas faire ceci !!!
 ### Avec une image dans le répertoire local ***static/images***
 **Code**
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" */>}}
+{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" */>}}
 ```
 
 **Affichage**
-{{< figure src="images/AE_Fork.png#center" width="100%">}}
+{{< figure src="images/AE_Fork.png#center" width="100%" caption="Un screenshot">}}
 
 ### Avec une image sur le web
 {{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="100%">}}
@@ -210,7 +210,7 @@ Il ne faut surtout pas faire ceci !!!
 ## Images
 ### Avec une image
 
-{{< figure src="images/AE_Fork.png#center" width="40%">}}
+{{< figure src="images/AE_Fork.png#center" width="40%" caption="Un screenshot">}}
 
 {{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="30%">}}
 
@@ -492,7 +492,22 @@ Il faut prendre l'id uniquement. En particulier, il ne faut pas mettre les guill
 {{</attention>}}
 
 ### Vidéo MP4 hébergée ailleurs
-{{<video "https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
+
+```
+{{</*video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4"*/>}}
+```
+
+{{<video src="https://benoitlecallennec-hes.github.io/template_website_course/videos/Chapter6_final.mp4">}}
+
+_Détecte le "https://" ou "http://" pour savoir si la vidéo est hébergée localement ou pas._
+
+### Vidéo MP4 hébergée localement
+
+```
+{{</*video src="videos/demo_motionlab.mp4" width="30%"*/>}}
+```
+
+{{<video src="videos/demo_motionlab.mp4" width="30%">}}
 
 
 ## PDFs
