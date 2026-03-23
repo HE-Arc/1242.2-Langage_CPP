@@ -28,26 +28,26 @@ weight: 10
 class Pet
 {
 public:
-  virtual void show() { std::println("Pet"); }
+  virtual void show() const { std::println("Pet"); }
   virtual ~Pet() = default;
 };
 
 class Dog : public Pet
 {
 public:
-  void show() override { std::println("Dog"); }
+  void show() const override { std::println("Dog"); }
 };
 
 class Cat : public Pet
 {
 public:
-  void show() override { std::println("Cat"); }
+  void show() const override { std::println("Cat"); }
 };
 
 class Siamese : public Cat
 {
 public:
-  void show() override { std::println("Siamese cat"); }
+  void show() const override { std::println("Siamese cat"); }
   void siamFunction() {}
 };
 
@@ -196,22 +196,22 @@ int main()
 class A
 {
 public:
-  virtual void display() { std::println("Class A"); }
-  void functionA() { std::println("functionA"); }
+  virtual void display() const { std::println("Class A"); }
+  void functionA() const { std::println("functionA"); }
   virtual ~A() = default;
 };
 
 class B : public A
 {
 public:
-  void display() override { std::println("Class B"); }
-  void functionB() { std::println("functionB"); }
+  void display() const override { std::println("Class B"); }
+  void functionB() const { std::println("functionB"); }
 };
 
 class C : public B
 {
 public:
-  void display() override { std::println("Class C"); }
+  void display() const override { std::println("Class C"); }
   int c[100];
   virtual void functionC()
   {
@@ -319,6 +319,83 @@ int main()
 <!-- SNIPPET:END -->
 {{</details>}}
 
+{{<details "1242.2_05.06_BasicCasts" >}}
+**`main.cpp`**
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_05.06_BasicCasts_main.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <print>
+
+int main()
+{
+  // static_cast
+  {
+    int i = 100;
+    [[maybe_unused]]
+    auto c = static_cast<char>(i); // int -> char
+
+    auto f = 100.0f;
+    i = static_cast<int>(f); // float -> int
+
+    class Base
+    {
+    };
+    class Deri : public Base
+    {
+    };
+    [[maybe_unused]]
+    auto d = new Deri;
+    [[maybe_unused]]
+    auto b = static_cast<Base *>(d); // Deri* -> Base*
+  }
+
+  // reinterpret_cast
+  {
+    auto f = 99.0f;
+    auto pf = &f;
+    auto d = 99.0;
+    auto pd = &d;
+    // Wont compile
+    // pd = static_cast<double>(pf);
+    pd = reinterpret_cast<double *>(pf);
+
+    int i = 99;
+    // UB but compiles
+    [[maybe_unused]]
+    auto ptr = reinterpret_cast<char *>(i); // int -> char*
+    [[maybe_unused]]
+    auto ref = reinterpret_cast<char &>(i); // int -> char&
+    [[maybe_unused]]
+    auto pf2 = reinterpret_cast<float *>(pd); // double* -> float*
+  }
+
+  // const_cast
+  {
+    class A
+    {
+    };
+
+    [[maybe_unused]]
+    const A *cptr = new A;
+    [[maybe_unused]]
+    auto ptr = const_cast<A *>(cptr); // const A* -> A*
+
+    A a;
+    [[maybe_unused]]
+    const A &cref = a;
+    [[maybe_unused]]
+    auto ref = const_cast<A &>(cref); // const A& -> A&
+  }
+
+  return 0;
+}
+```
+<!-- SNIPPET:END -->
+{{</details>}}
+
 ## Serie 5.1
 ### Exercice 1 : RTTI
 
@@ -381,6 +458,7 @@ On aimerait pouvoir accéder à une méthode spécifique à une des classe déri
 
 ```cpp
 int main()
+{
     Figure *myShapes[3];
 
     myShapes[0] = new Circle(Point(1.1, 5.3), 5.0);
