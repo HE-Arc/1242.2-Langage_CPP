@@ -927,8 +927,3 @@ Press any key to continue...
 {{<attention>}}
 Il ne faut pas modifier la fonction **`main()`**.
 {{</attention>}}
-
-## Solutions
-[Serie4_1_SOLUTIONS](/zips/Serie4_1_SOLUTIONS.zip)
-
-[Serie4_2_SOLUTIONS](/zips/Serie4_2_SOLUTIONS.zip)
