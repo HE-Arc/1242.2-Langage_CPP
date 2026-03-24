@@ -396,6 +396,47 @@ int main()
 <!-- SNIPPET:END -->
 {{</details>}}
 
+## Récapitulatif
+| Opérateur | Vérification | Risque | Cas d'usage typique |
+|---|---|---|---|
+| **`static_cast<T>`** | 🔵 Le compilateur valide la compatibilité des types | ⚠️ Downcast incorrect (UB) | Conversions numériques, upcast/downcast **certain**, **`void*`** ↔ **`T*`** |
+| **`reinterpret_cast<T>`** | 🔴 Réinterprétation brute des bits | ❌ Très élevé (UB dans la plupart des cas) | Inspection mémoire brute (**`T`** → **`char*`**), interfaçage bas niveau. Préférer **`std::bit_cast`** (C++20). |
+| **`const_cast<T>`** | 🔵 Seul cast qui modifie les qualificateurs | ⚠️ Modifier un objet réellement **`const`** → UB | Voir [ci-dessous](#const_cast) |
+|**`dynamic_cast<T>`** | 🟢 RTTI via la **`vtable`** | ✅ Retourne **`nullptr`** ou lève **`bad_cast`** | Downcast ***incertain*** dans une hiérarchie polymorphique. Nécessite au moins une méthode virtuelle. |
+
+### Vérifications :
+🔵 Compilation
+🟢 Exécution
+🟡 Modéré
+🔴 Aucune
+
+### Risque :
+✅ : sûr
+⚠️ : modéré
+❌ : élevé
+
+### Exemple utile avec **`const_cast`** {#const_cast}
+
+Factoriser le code entre la version **`const`** et non-**`const`** d'une méthode :
+
+1. Ajouter **`const`** à **`*this`** pour sélectionner la surcharge **`const`**
+2. Appeler la méthode **`const`** qui contient la vraie logique
+3. Retirer le **`const`** du résultat retourné
+```cpp
+const int& MyVec::operator[](int i) const { return data[i]; }
+
+int& MyVec::operator[](int i)
+{
+  const MyVec &self = *this;
+  const int &result = self[i];
+  return const_cast<int&>(result);
+}
+```
+
+{{<attention>}}
+Ceci n'est valide que si l'objet n'est pas réellement **`const`**.
+{{</attention>}}
+
 ## Serie 5.1
 ### Exercice 1 : RTTI
 
@@ -442,11 +483,6 @@ int main()
   for (auto shapePtr : myShapes)
   {
     shapePtr->show();
-    // dynamic_cast gives access to Circle-specific methods through a Figure*
-    if (auto c = dynamic_cast<Circle *>(shapePtr))
-    {
-      std::println(">>>> radius: {}", c->getRadius());
-    }
   }
 
   // Use auto & to modify the pointers in the array
