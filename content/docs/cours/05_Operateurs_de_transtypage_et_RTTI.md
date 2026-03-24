@@ -359,7 +359,7 @@ int main()
     auto d = 99.0;
     auto pd = &d;
     // Wont compile
-    // pd = static_cast<double>(pf);
+    // pd = static_cast<double *>(pf);
     pd = reinterpret_cast<double *>(pf);
 
     int i = 99;
@@ -407,50 +407,96 @@ On aimerait pouvoir comparer des objets afin de savoir s'ils sont de la même cl
        * le point **`pos`** définit dans **`Figure`** est le même pour les 2 objets.
 3. Le **`main()`** a l'aspect suivant :
 
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_05.01_RTTIAndDynamicCast_main.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
 ```cpp
 int main()
 {
-    Rectangle r1(Point( 1,  2),  4.0, 10.0);
-    Rectangle r2(Point( 1,  2),  4.0, 10.0);
-    Rectangle r3(Point(10, 20), 10.0, 20.0);
-    Circle    c1(Point(1.1, 5.3), 5.0);
+  std::println("========== Exercise 1 : typeid ==========");
 
-    cout << endl << "Comparison of r1 and r2" << endl;
-    areTheSame = compareShapes(&r1, &r2);
-    cout << endl << "r1 and r2 are the same : " << boolalpha << areTheSame <<endl;
+  Rectangle r1(Point(1, 2), 4.0, 10.0);
+  Rectangle r2(Point(1, 2), 4.0, 10.0);
+  Rectangle r3(Point(10, 20), 10.0, 20.0);
+  Circle c1(Point(1.1, 5.3), 5.0);
 
-    cout << endl << "Comparison of r1 and r3" << endl;
-    areTheSame = compareShapes(&r1, &r3);
-    cout << endl << "r1 and r3 are the same : "<< boolalpha << areTheSame <<endl;
+  std::println("\n### r1 and r2");
+  std::println("same: {}", compareShapes(&r1, &r2));
 
-    cout << endl << "Comparison of r1 and c1" << endl;
-    areTheSame = compareShapes(&r1, &c1);
-    cout << endl << "r1 and c1 are the same : "<< boolalpha << areTheSame <<endl;
+  std::println("\n### r1 and r3");
+  std::println("same: {}", compareShapes(&r1, &r3));
+
+  std::println("\n### r1 and c1");
+  std::println("same: {}", compareShapes(&r1, &c1));
+
+  std::println("\n========== Exercise 2 : dynamic_cast ==========");
+
+  Figure *myShapes[3];
+  myShapes[0] = new Circle(Point(1.1, 5.3), 5.0);
+  myShapes[1] = new Triangle(Point(2, 2), Point(10, 3), Point(-1, -1));
+  myShapes[2] = new Rectangle(Point(4, 2), 4.0, 10.0);
+
+  std::println("\n-- Shapes with radius when applicable --");
+  for (auto shapePtr : myShapes)
+  {
+    shapePtr->show();
+    // dynamic_cast gives access to Circle-specific methods through a Figure*
+    if (auto c = dynamic_cast<Circle *>(shapePtr))
+    {
+      std::println(">>>> radius: {}", c->getRadius());
+    }
+  }
+
+  // Use auto & to modify the pointers in the array
+  for (auto &shape : myShapes)
+  {
+    delete shape;
+    shape = nullptr;
+  }
+
+  return 0;
 }
 ```
+<!-- SNIPPET:END -->
+
 Le résultat :
 ```
-Comparison of r1 and r2
-     Comparison of an objet 9Rectangle with an objet 9Rectangle
-     -  typeid are the same
-     -  positions are the same
-r1 and r2 are the same: true
+========== Exercise 1 : typeid ==========
 
-Comparison of r1 and r3
-     Comparison of an objet 9Rectangle with an objet 9Rectangle    
-     - typeid are the same
-     - positions are different
-r1 and r3 are the same: false
+### r1 and r2
 
-Comparison of r1 and c1
-     Comparison of an objet 9Rectangle with an objet 6Circle
-     - typeid are different
-r1 and c1 are the same: false
+-- Comparing 9Rectangle with 9Rectangle
+   typeid match
+   position: same
+same: true
+
+### r1 and r3
+
+-- Comparing 9Rectangle with 9Rectangle
+   typeid match
+   position: different
+same: false
+
+### r1 and c1
+
+-- Comparing 9Rectangle with 6Circle
+   typeid differ
+same: false
+
+========== Exercise 2 : dynamic_cast ==========
+
+-- Shapes with radius when applicable --
+Circle: Point : (1.1, 5.3), radius=5
+>>>> radius: 5
+Triangle: Point : (2, 2), Point : (10, 3), Point : (-1, -1)
+Rectangle: Point : (4, 2), w=10, h=4
 ```
 
 ### Exercice 2 : transtypage dynamique
 
-On aimerait pouvoir accéder à une méthode spécifique à une des classe dérivée, sans connaitre le pointeur sur cette classe, mais uniquement le pointeur sur la classe mère.
+On aimerait pouvoir accéder à une méthode spécifique à une des classes dérivées, sans connaitre le pointeur sur cette classe, mais uniquement le pointeur sur la classe mère.
 
 1.  reprendre le projet de la série 4.2 concernant les figures.
 2.  ajouter la méthode **`getRadius()`** à la classe **`Circle`** 
