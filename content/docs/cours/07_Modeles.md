@@ -11,8 +11,6 @@ weight: 10
 
 [Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/07_Modeles.html?print-pdf)
 
-[Version imprimable (faire CTRL+P)](https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/07_Modeles.html?print-pdf)
-
 ## Exemples
 
 {{<details "1242.2_07.01_FunctionTemplateMaxi" >}}
