@@ -64,6 +64,9 @@ inline std::ostream& operator<<(std::ostream& os, const Time& t)
   This block is automatically regenerated.
 -->
 ```cpp
+#include <iostream>
+#include "Time.h"
+
 template <typename T>
 T maxi(const T& a, const T& b)
 {
@@ -95,57 +98,60 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include <iostream>
+
 class Rectangle
 {
 public:
-    Rectangle(double w = 0, double h = 0) : m_width(w), m_height(h) {}
+  Rectangle(double w = 0, double h = 0) : m_width(w), m_height(h) {}
 
-    bool operator>=(const Rectangle& other) const
-    {
-        return (m_width * m_height) >= (other.m_width * other.m_height);
-    }
+  bool operator>=(const Rectangle &other) const
+  {
+    return (m_width * m_height) >= (other.m_width * other.m_height);
+  }
 
-    friend std::ostream& operator<<(std::ostream& os, const Rectangle& r);
+  friend std::ostream &operator<<(std::ostream &os, const Rectangle &r);
 
 private:
-    double m_width{0};
-    double m_height{0};
+  double m_width{0};
+  double m_height{0};
 };
 
-std::ostream& operator<<(std::ostream& os, const Rectangle& r)
+std::ostream &operator<<(std::ostream &os, const Rectangle &r)
 {
-    return os << "[" << r.m_width << ", " << r.m_height << "]";
+  return os << "[" << r.m_width << ", " << r.m_height << "]";
 }
 
 template <typename T>
-T maxi(const T& a, const T& b)
+T maxi(const T &a, const T &b)
 {
-    return (a >= b) ? a : b;
+  return (a >= b) ? a : b;
 }
 
 int main()
 {
-    auto i1 = 3;
-    auto i2 = 4;
-    auto d1 = 2.34;
-    auto d2 = 2.35;
-    Rectangle r1(10, 20);
-    Rectangle r2(20, 30);
+  auto i1 = 3;
+  auto i2 = 4;
+  auto d1 = 2.34;
+  auto d2 = 2.35;
+  Rectangle r1(10, 20);
+  Rectangle r2(20, 30);
 
-    auto maxInt = maxi(i1, i2);              // Automatic type deduction
-    auto maxDouble1 = maxi(d1, d2);          // Automatic type deduction
-    auto maxDouble2 = maxi<double>(i1, d1);  // Explicit: compiler can't deduce mixed types
-    // maxi(i1, d1);                         // Would not compile: ambiguous types
-    auto maxRectangle = maxi(r1, r2);        // Rectangle must overload operator>=
+  auto maxInt = maxi(i1, i2);             // Automatic type deduction
+  auto maxDouble1 = maxi(d1, d2);         // Automatic type deduction
+  auto maxDouble2 = maxi<double>(i1, d1); // Explicit: compiler can't deduce mixed types
+  // maxi(i1, d1);                        // Would not compile: ambiguous types
+  auto maxRectangle = maxi(r1, r2); // Rectangle must overload operator>=
 
-    std::println("maxi(int, int)           : ({}, {}) --> {}", i1, i2, maxInt);
-    std::println("maxi(double, double)     : ({}, {}) --> {}", d1, d2, maxDouble1);
-    std::println("maxi<double>(int, double): ({}, {}) --> {}", i1, d2, maxDouble2);
+  std::println("maxi(int, int)           : ({}, {}) --> {}", i1, i2, maxInt);
+  std::println("maxi(double, double)     : ({}, {}) --> {}", d1, d2, maxDouble1);
+  std::println("maxi<double>(int, double): ({}, {}) --> {}", i1, d1, maxDouble2);
 
-    // Rectangle has operator<< but no std::formatter
-    std::cout << "maxi(Rectangle, Rectangle): (" << r1 << ", " << r2 << ") --> " << maxRectangle << '\n';
+  // Rectangle has operator<< but no std::formatter
+  std::cout << "maxi(Rectangle, Rectangle): (" << r1 << ", " << r2 << ") --> " << maxRectangle << '\n';
 
-    return 0;
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
@@ -166,25 +172,25 @@ template <typename T>
 class Wrapper
 {
 public:
-    Wrapper(const T& val = T()) : m_value(val) {}
+  Wrapper(const T &val = T()) : m_value(val) {}
 
-    // Cross-type converting constructor (not a copy constructor)
-    template <typename U>
-    Wrapper(const Wrapper<U>& other) : m_value(static_cast<T>(other.getValue())) {}
+  // Cross-type converting constructor (not a copy constructor)
+  template <typename U>
+  Wrapper(const Wrapper<U> &other) : m_value(static_cast<T>(other.getValue())) {}
 
-    T getValue() const { return m_value; }
+  T getValue() const { return m_value; }
 
-    template <typename T2>
-    friend std::ostream& operator<<(std::ostream& os, const Wrapper<T2>& w);
+  template <typename T2>
+  friend std::ostream &operator<<(std::ostream &os, const Wrapper<T2> &w);
 
 private:
-    T m_value;
+  T m_value;
 };
 
 template <typename T2>
-std::ostream& operator<<(std::ostream& os, const Wrapper<T2>& w)
+std::ostream &operator<<(std::ostream &os, const Wrapper<T2> &w)
 {
-    return os << w.m_value << " (type: " << typeid(w.m_value).name() << ")";
+  return os << w.m_value << " (type: " << typeid(w.m_value).name() << ")";
 }
 ```
 <!-- SNIPPET:END -->
@@ -196,6 +202,9 @@ std::ostream& operator<<(std::ostream& os, const Wrapper<T2>& w)
   This block is automatically regenerated.
 -->
 ```cpp
+#include <iostream>
+#include "Wrapper.h"
+
 int main()
 {
     Wrapper<float> a(3.1f);   // Value is float
@@ -236,6 +245,7 @@ public:
     {
       return m_data[pos];
     }
+    // Invalid position: could throw an exception instead
     return T{-1};
   }
 
@@ -262,6 +272,9 @@ private:
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include "Array.h"
+
 int main()
 {
   Array<double, 5> t1;
@@ -302,6 +315,8 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+
 template <typename T>
 class Point
 {
@@ -344,52 +359,61 @@ int main()
 <!-- SNIPPET:END -->
 {{</details>}}
 
-{{<details "1242.2_07.06_TemplateFunctionSpecialization" >}}
+{{<details "1242.2_07.06_FunctionTemplateOverload" >}}
 **`main.cpp`**
-<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_07.06_TemplateFunctionSpecialization_main.cpp -->
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_07.06_FunctionTemplateOverload_main.cpp -->
 <!--
   GENERATED FILE — DO NOT EDIT.
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include <cstring>
+
 // Generic template function
 template <typename T>
 T minVal(T tab[], int n)
 {
-    std::println("minVal() template");
-    auto result = tab[0];
-    for (int i = 1; i < n; i++) {
-        if (tab[i] < result) {
-            result = tab[i];
-        }
+  std::println("minVal() template");
+  auto min = tab[0];
+  for (int i = 1; i < n; i++)
+  {
+    auto current = tab[i];
+    if (current < min)
+    {
+      min = tab[i];
     }
-    return result;
+  }
+  return min;
 }
 
-// Non-template specialization for char* arrays (C-strings compared lexicographically)
-const char* minVal(const char* tab[], int n)
+// Non-template overload (not a specialization) — preferred over template<>
+// for char* because it participates correctly in overload resolution
+const char *minVal(const char *tab[], int n)
 {
-    std::println("minVal() specialized for char*");
-    auto result = tab[0];
-    for (int i = 1; i < n; i++) {
-        if (std::strcmp(tab[i], result) < 0) {
-            result = tab[i];
-        }
+  std::println("minVal() overload for char*");
+  auto result = tab[0];
+  for (int i = 1; i < n; i++)
+  {
+    if (std::strcmp(tab[i], result) < 0)
+    {
+      result = tab[i];
     }
-    return result;
+  }
+  return result;
 }
 
 int main()
 {
-    int tabInt[5] = {5, 7, 2, 6, 9};
-    char tabChar[5] = {'v', 'x', 'a', 'm', 'u'};
-    const char *tabStr[] = {"Hello", "Bonjour", "Gruezi", "Buenos dias", "Konichiwa"};
+  int tabInt[5] = {5, 7, 2, 6, 9};
+  char tabChar[10] = {'H', 'e', 'l', 'l', 'o', 'W', 'o', 'r', 'l', 'd'};
+  const char *tabStr[] = {"Hello", "Bonjour", "Gruezi", "Buenos dias", "Konichiwa"};
 
-    std::println("minVal<int>({{5,7,2,6,9}}, 5): {}", minVal<int>(tabInt, 5));
-    std::println("minVal<char>(\"HelloWorld\", 10): {}", minVal<char>(tabChar, 10));
-    std::println("minVal({{\"Hello\",\"Bonjour\",...}}, 5): {}", minVal(tabStr, 5));
+  std::println("minVal<int>({{5,7,2,6,9}}, 5): {}", minVal<int>(tabInt, 5));
+  std::println("minVal<char>(\"HelloWorld\", 10): {}", minVal<char>(tabChar, 10));
+  std::println("minVal({{\"Hello\",\"Bonjour\",...}}, 5): {}", minVal(tabStr, 5));
 
-    return 0;
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
@@ -403,6 +427,8 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+
 // Non-template function
 void f(int)
 {
@@ -466,10 +492,10 @@ int main ()
     char  charTable[]  = { 'A', '0', 'i', 'o', 'u' };
     Time timeTable[] = { {5, 10},  {3, 22} };
 
-    println("sum(intTable, 4): {}", sum (intTable, 4)); // type deduction
-    println("sum(floatTable, 3): {}", sum (floatTable, 3)); // type deduction
-    println("sum(charTable, 5): {}", sum (charTable, 5)); // type deduction
-    println("sum(timeTable, 2): {}", sum (timeTable, 2)); // type deduction
+    std::println("sum(intTable, 4): {}", sum (intTable, 4)); // type deduction
+    std::println("sum(floatTable, 3): {}", sum (floatTable, 3)); // type deduction
+    std::println("sum(charTable, 5): {}", sum (charTable, 5)); // type deduction
+    std::println("sum(timeTable, 2): {}", sum (timeTable, 2)); // type deduction
 
     return 0;
 }
@@ -520,7 +546,8 @@ Le programme ci-dessous montre un exemple d’utilisation :
 ```cpp
 int main()
 {
-    Vector <int, 4> vi = {0};  
+    Vector <int, 4> vi;
+    vi = 0; // All elements initialized to 0
     vi[3] = 5;
     vi[2] = 2;
     cout << vi;
@@ -529,24 +556,23 @@ int main()
     vd[0] = 0.0;
     vd[1] = 0.1;
     vd[2] = 0.2;
-    cout << vd;
-    cout << "\nvd[-8]-->out of range: " << vd[-8] << endl; //vd[0] changed
-    cout << "\nvd[12]-->out of range: " << vd[12] << endl; //vd[2] changed
-    cout << "vd[12] = 99.99" << endl;
+    std::println("{}}", vd);
+    std::println("vd[-8]-->out of range: {}", vd[-8]); 
+    std::println("vd[12]-->out of range: {}", vd[12]);
+    std::println("vd[12] = 99.99");
     vd[12] = 99.99 ;// vd[12] doesn't exist, --> last element is modified
-    cout << "vd[2]: " << vd[2] << endl;
+    std::println("vd[2]: {}", vd[2]);
     Vector<double> vd3;
-    cout << vd;
     vd3 = vd;
-    cout << vd3;
+    std::println("{}", vd3);
 
     Vector<Point,2> vpt = {Point (0.0, 0.0, "default")};
     Vector<Point,2> vpt2 = {Point (1.0, 2.0, "other")};
-    cout << vpt;
+    std::println("vpt: {}", vpt);
     vpt = vpt2;
-    cout << vpt;
+    std::println("{}}", vpt);
     Vector<Point,2> vpt3 (vpt2);
-    cout << vpt3;
+    std::println("{}}", vpt3);
 
     return 0;
 }

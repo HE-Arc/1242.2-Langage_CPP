@@ -552,68 +552,72 @@ template <typename T, int dim = 3>
 class Vector
 {
 public:
-    Vector() = default;
-    Vector(const T& initElem);
-    Vector(const Vector& src);
-    virtual ~Vector() = default;
+  Vector() = default;
+  Vector(const T &initElem);
+  Vector(const Vector &src);
+  virtual ~Vector() = default;
 
-    T& operator[](int index);
-    Vector& operator=(const Vector& src);
-    Vector& operator=(const T& src);
+  T &operator[](int index);
+  Vector &operator=(const Vector &src);
+  Vector &operator=(const T &src);
 
-    // Inline friend to avoid template friendship complexity
-    friend std::ostream& operator<<(std::ostream& os, const Vector& v)
+  // Inline friend to avoid template friendship complexity
+  friend std::ostream &operator<<(std::ostream &os, const Vector &v)
+  {
+    os << "(";
+    for (const auto &comp : v.m_data)
     {
-        os << "(";
-        for (const auto& comp : v.m_data) {
-            os << " " << comp;
-        }
-        os << " )";
-        return os;
+      os << " " << comp;
     }
+    os << " )";
+    return os;
+  }
 
 private:
-    T m_data[dim];
+  T m_data[dim];
 };
 
 template <typename T, int dim>
-Vector<T, dim>::Vector(const T& initElem)
+Vector<T, dim>::Vector(const T &initElem)
 {
-    for (auto& comp : m_data) {
-        comp = initElem;
-    }
+  for (auto &comp : m_data)
+  {
+    comp = initElem;
+  }
 }
 
 template <typename T, int dim>
-Vector<T, dim>::Vector(const Vector& src)
+Vector<T, dim>::Vector(const Vector &src)
 {
-    std::copy(std::begin(src.m_data), std::end(src.m_data), std::begin(m_data));
+  std::copy(std::begin(src.m_data), std::end(src.m_data), std::begin(m_data));
 }
 
 // Clamps index to valid range [0, dim-1]
 template <typename T, int dim>
-T& Vector<T, dim>::operator[](int index)
+T &Vector<T, dim>::operator[](int index)
 {
-    return m_data[std::clamp(index, 0, dim - 1)];
+  return m_data[std::clamp(index, 0, dim - 1)];
 }
 
 template <typename T, int dim>
-Vector<T, dim>& Vector<T, dim>::operator=(const Vector& src)
+Vector<T, dim> &Vector<T, dim>::operator=(const Vector &src)
 {
-    if (this != &src) {
-        std::copy(std::begin(src.m_data), std::end(src.m_data), std::begin(m_data));
-    }
-    return *this;
+  if (this != &src)
+  {
+    std::copy(std::begin(src.m_data), std::end(src.m_data), std::begin(m_data));
+  }
+  return *this;
 }
 
 // Fills all components with a single value
 template <typename T, int dim>
-Vector<T, dim>& Vector<T, dim>::operator=(const T& src)
+Vector<T, dim> &Vector<T, dim>::operator=(const T &src)
 {
-    for (auto& comp : m_data) {
-        comp = src;
-    }
-    return *this;
+  for (auto &comp : m_data)
+  {
+    comp = src;
+  }
+  return *this;
 }
 ```
 <!-- SNIPPET:END -->
