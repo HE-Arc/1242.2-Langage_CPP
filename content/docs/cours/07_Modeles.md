@@ -589,38 +589,3 @@ int main()
 }
 ```
 <!-- SNIPPET:END -->
-
-```cpp
-int main()
-{
-    Vector <int, 4> vi;
-    vi = 0; // All elements initialized to 0
-    vi[3] = 5;
-    vi[2] = 2;
-    cout << vi;
-
-    Vector<double> vd; // 3 elements by default
-    vd[0] = 0.0;
-    vd[1] = 0.1;
-    vd[2] = 0.2;
-    std::println("{}}", vd);
-    std::println("vd[-8]-->out of range: {}", vd[-8]); 
-    std::println("vd[12]-->out of range: {}", vd[12]);
-    std::println("vd[12] = 99.99");
-    vd[12] = 99.99 ;// vd[12] doesn't exist, --> last element is modified
-    std::println("vd[2]: {}", vd[2]);
-    Vector<double> vd3;
-    vd3 = vd;
-    std::println("{}", vd3);
-
-    Vector<Point,2> vpt = {Point (0.0, 0.0, "default")};
-    Vector<Point,2> vpt2 = {Point (1.0, 2.0, "other")};
-    std::println("vpt: {}", vpt);
-    vpt = vpt2;
-    std::println("{}}", vpt);
-    Vector<Point,2> vpt3 (vpt2);
-    std::println("{}}", vpt3);
-
-    return 0;
-}
-```
