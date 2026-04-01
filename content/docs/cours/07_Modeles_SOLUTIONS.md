@@ -658,7 +658,8 @@ int main()
     vpt = vpt2;
     std::cout << vpt;
 
-    // C++17 CTAD: no need to specify template arguments if deducible
+    // Class Template Argument Deduction (C++17)
+    // No need to specify template arguments if deducible
     Vector vpt3(vpt2);
     std::cout << vpt3;
 

@@ -543,6 +543,53 @@ Que faut-il modifier ?
 
 Le programme ci-dessous montre un exemple d’utilisation :
 
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Exercises_07.03_ClassTemplateVector_main.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+int main()
+{
+    Vector<int, 4> vi = {37};
+    vi[3] = 5;
+    vi[2] = 2;
+    std::cout << vi;
+
+    Vector<double> vd; // 3 elements by default
+    vd[0] = 0.0;
+    vd[1] = 0.1;
+    vd[2] = 0.2;
+    std::cout << vd;
+    std::println("\nvd[-8] --> out of range: {}", vd[-8]); // clamped to first element
+    std::println("\nvd[12] --> out of range: {}", vd[12]); // clamped to last element
+    std::println("vd[12] = 99.99");
+    vd[12] = 99.99; // clamped to last element
+    std::println("vd[2]: {}", vd[2]);
+
+    Vector<double> vd3;
+    std::cout << vd;
+    vd3 = vd;
+    std::cout << vd3;
+
+    Vector<Point, 2> vpt = {Point(0.0, 0.0, "default")};
+    Vector<Point, 2> vpt2 = {Point(1.0, 2.0, "other")};
+    std::cout << vpt;
+    vpt = vpt2;
+    std::cout << vpt;
+
+    // Class Template Argument Deduction (C++17)
+    // No need to specify template arguments if deducible
+    Vector vpt3(vpt2);
+    std::cout << vpt3;
+
+    std::println("");
+
+    return 0;
+}
+```
+<!-- SNIPPET:END -->
+
 ```cpp
 int main()
 {
