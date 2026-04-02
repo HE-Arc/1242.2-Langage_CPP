@@ -283,13 +283,12 @@ class Hero {
 **Code**
 
 ```
-{{</* plantuml src="diagrams/example.puml" */>}}
+{{</* plantuml src="diagrams/example.puml" id="eg2" */>}}
 ```
 
 **Affichage**
 
-{{< plantuml src="diagrams/example.puml" >}}
-{{< /plantuml >}}
+{{< plantuml src="diagrams/example.puml" id="eg2" />}}
 
 {{<slide >}}
 ## PlantUML Diagrams
