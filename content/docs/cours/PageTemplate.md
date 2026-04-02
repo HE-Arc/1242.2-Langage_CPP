@@ -231,9 +231,9 @@ Il ne faut surtout pas faire ceci !!!
 {{< /tabs >}}
 
 ## UML Diagrams (avec PlantUML)
-Le code PlantUML doit être placé entre les balises ***{{</* plantuml */>}}*** et ***{{</* /plantuml */>}}***.
+Le code PlantUML doit être placé entre les balises ***{{</* plantuml */>}}*** et ***{{</* /plantuml */>}}*** ou provenir d'un fichier ".puml" référencé dans la balise ***{{</* plantuml src="diagrams/my-diagram.puml" */>}}***.
 
-### Exemple de diagrammes PlantUML
+### Exemple inline
 {{<attention>}}
 Les id des graphes PlantUML doivent être différents.
 {{</attention>}}
@@ -276,6 +276,19 @@ class Hero {
    + getAgility(): int
 }
 @enduml
+{{< /plantuml >}}
+
+### Exemple avec un fichier ".puml"
+
+**Code**
+
+```
+{{</* plantuml src="diagrams/example.puml" */>}}
+```
+
+**Affichage**
+
+{{< plantuml src="diagrams/example.puml" >}}
 {{< /plantuml >}}
 
 {{<slide >}}

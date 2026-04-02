@@ -1,5 +1,14 @@
 <img id="plantuml-{{ .Get "id" }}"/>
 
+  {{ $content := .Inner }}
+  {{ $src := .Get "src" }}
+  {{ if $src }}
+    {{ if not (hasPrefix $src "static/") }}
+      {{ $src = printf "static/%s" $src }}
+    {{ end }}
+    {{ $content = readFile $src | safeHTML }}
+  {{ end }}
+
 <script>
   // Based on https://plantuml.com/code-javascript-asynchronous
 
@@ -89,5 +98,5 @@
     }
   }
 
-  compress("{{ .Inner }}")
+  compress("{{ $content }}")
 </script>
