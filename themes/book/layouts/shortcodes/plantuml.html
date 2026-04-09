@@ -10,16 +10,16 @@
   />
 </div>
 
-  {{ $content := .Inner }}
-  {{ $src := .Get "src" }}
-  {{ if $src }} 
-    {{ if or (in $src "..") (hasPrefix $src "/") }}
-      {{ errorf "Invalid PlantUML src path %q; must be relative to static/diagrams/ and must not contain '..' or start with '/'." $src }}
-    {{ else if not (hasPrefix $src "static/") }}
-      {{ $src = printf "static/%s" $src }}
-    {{ end }}
-    {{ $content = readFile $src | safeHTML }}
+{{ $content := .Inner }}
+{{ $src := .Get "src" }}
+{{ if $src }}
+  {{ if or (in $src "..") (hasPrefix $src "/") }}
+    {{ errorf "Invalid PlantUML src path %q; must be relative to static/diagrams/ and must not contain '..' or start with '/'." $src }}
+  {{ else if not (hasPrefix $src "static/") }}
+    {{ $src = printf "static/%s" $src }}
   {{ end }}
+  {{ $content = readFile $src | safeHTML }}
+{{ end }}
 
 <script>
   {{- if $id -}}
