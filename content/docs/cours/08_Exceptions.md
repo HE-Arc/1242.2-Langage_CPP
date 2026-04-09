@@ -26,46 +26,48 @@ weight: 10
 // The return value of the function is used both for the result AND for error signaling,
 // which makes the code harder to read and maintain.
 
-static int oneOverN(int n, double& result)
+#define ERROR_CODE -1
+
+static int oneOverN(int n, double &result)
 {
-    if (n == 0)
-    {
-        return -1;
-    }
-    else
-    {
-        result = 1.0 / n;
-        return 0;
-    }
+  if (n == 0)
+  {
+    return ERROR_CODE;
+  }
+  else
+  {
+    result = 1.0 / n;
+    return 0;
+  }
 }
 
 static double compute(int k)
 {
-    double result;
-    if (oneOverN(k, result) == -1)
-    {
-        return -1;
-    }
-    else
-    {
-        return result * result;
-    }
+  double result;
+  if (oneOverN(k, result) == ERROR_CODE)
+  {
+    return ERROR_CODE;
+  }
+  else
+  {
+    return result * result;
+  }
 }
 
 int main()
 {
-    // Problem: -1 could be a valid result — ambiguous error signaling
-    auto result = compute(0);
-    if (result == -1)
-    {
-        std::println("ERROR");
-    }
-    else
-    {
-        std::println("{}", result);
-    }
+  // Problem: ERROR_CODE could be a valid result — ambiguous error signaling
+  auto result = compute(0);
+  if (result == ERROR_CODE)
+  {
+    std::println("ERROR");
+  }
+  else
+  {
+    std::println("{}", result);
+  }
 
-    return 0;
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
@@ -293,6 +295,9 @@ int main()
 <!-- SNIPPET:END -->
 {{</details>}}
 
+{{<a_noter>}}
+À regarder uniquement après avoir fait l'exercice 1 de la série 8.2 (ExceptionVector).
+{{</a_noter>}}
 {{<details "1242.2_08.06_VectorBoundsException" >}}
 **`main.cpp`**
 <!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_08.06_VectorBoundsException_main.cpp -->
@@ -307,69 +312,69 @@ int main()
 class Vector
 {
 public:
-    explicit Vector(int size) : m_size(size)
-    {
-        m_data = new double[m_size]; // may throw std::bad_alloc
-    }
+  explicit Vector(int size) : m_size(size)
+  {
+    m_data = new double[m_size]; // may throw std::bad_alloc
+  }
 
-    ~Vector()
-    {
-        delete[] m_data;
-        m_data = nullptr;
-    }
+  ~Vector()
+  {
+    delete[] m_data;
+    m_data = nullptr;
+  }
 
-    double& operator[](int i)
-    {
-        validateIndex(i);
-        return m_data[i];
-    }
+  double &operator[](int i)
+  {
+    validateIndex(i);
+    return m_data[i];
+  }
 
 private:
-    void validateIndex(int i) const
+  void validateIndex(int i) const
+  {
+    if (i < 0 || i >= m_size)
     {
-        if (i < 0 || i >= m_size)
-        {
-            throw "Index out of bounds!";
-        }
+      throw "Index out of bounds!";
     }
+  }
 
-    double* m_data{nullptr};
-    int m_size{0};
+  double *m_data{nullptr};
+  int m_size{0};
 };
 
 int main()
 {
-    int n = 0;
-    int i = 0;
-    double x = 0.0;
+  int n = 0;
+  int i = 0;
+  double x = 0.0;
 
-    std::print("Number of vector components: n = ");
-    std::cin >> n;
+  std::print("Number of vector components: n = ");
+  std::cin >> n;
 
-    try
-    {
-        Vector v(n); // if n is too large → bad_alloc
-        std::print("Index and value of a component: i, v[i] ? ");
-        std::cin >> i >> x;
-        v[i] = x; // if i is out of [0..n-1] → throws const char*
-        std::println("v[{}] = {}", i, x);
-    }
-    catch (const char* message)
-    {
-        std::println("{}", message);
-    }
-    catch (const std::bad_alloc&)
-    {
-        std::println("Memory allocation failed");
-    }
-    catch (...)
-    {
-        std::println("Unknown error");
-    }
+  try
+  {
+    Vector v(n); // if n is too large → bad_alloc
+    std::print("Index and value of a component: i, v[i] ? ");
+    std::cin >> i >> x;
+    v[i] = x; // if i is out of [0..n-1] → throws const char*
+    std::println("v[{}] = {}", i, x);
+  }
+  catch (const char *message)
+  {
+    std::println("{}", message);
+  }
+  catch (const std::bad_alloc &)
+  {
+    std::println("Memory allocation failed");
+  }
+  catch (...)
+  {
+    std::println("Unknown error");
+  }
 
-    std::println("Done");
+  std::println("Done");
 
-    return 0;
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
@@ -579,29 +584,29 @@ int main()
   tabV[i] = v1;
     ...
     
-    // C) Afficher la taille des vecteurs du tableau
-    ...
-    
-    // D) Test de l'allocation dans le constructeur  Vector(int, int)
-    Vector v2(SIZE);
+  // C) Afficher la taille des vecteurs du tableau
+  ...
+  
+  // D) Test de l'allocation dans le constructeur  Vector(int, int)
+  Vector v2(SIZE);
 
-    // E) Test de l'allocation dans le constructeur  par recopie Vector(int, int)
-    Vector v3 = v1; 
+  // E) Test de l'allocation dans le constructeur  par recopie Vector(int, int)
+  Vector v3 = v1; 
 
-    // F) Test de l'allocation dans l'opérateur d'affectation
-    Vector v5;
-    v5 = v1;
- 
-    // G) Test du constructeur Vector(int, int) avec une taille incorrecte
-    Vector v6(-1);
+  // F) Test de l'allocation dans l'opérateur d'affectation
+  Vector v5;
+  v5 = v1;
 
-    // H) Test de l'accès  hors limites à un vecteur
-    v1[-1] = 5;
+  // G) Test du constructeur Vector(int, int) avec une taille incorrecte
+  Vector v6(-1);
 
-    // I) Test de l'accès  hors limites à un std::vector
-    cout << tabV.at(-1).getSize() << endl;
+  // H) Test de l'accès hors limites à un vecteur
+  v1[-1] = 5;
 
-    return 0;
+  // I) Test de l'accès hors limites à un std::vector
+  std::println("{}", tabV.at(-1).getSizeInBytes());
+
+  return 0;
 }
 ```
 

@@ -168,7 +168,7 @@ void isGreaterThan(int value, int minValue)
 ```cpp
 #pragma once
 
-#include <iostream>
+#include <iosfwd>
 
 class Vector
 {
@@ -343,7 +343,7 @@ int main()
     Vector v1(SIZE);
 
     // B) Allocation test in assignment operator
-    auto nbOfTry = 7;
+    auto nbOfTry = 10;
     std::vector<Vector> tabV(nbOfTry);
     for (int i = 0; i < nbOfTry; i++)
     {
@@ -353,7 +353,7 @@ int main()
 
     // C) Size of allocated memory
     long long sumInBytes = 0;
-    for (auto& v : tabV)
+    for (auto &v : tabV)
     {
         sumInBytes += v.getSizeInBytes();
     }

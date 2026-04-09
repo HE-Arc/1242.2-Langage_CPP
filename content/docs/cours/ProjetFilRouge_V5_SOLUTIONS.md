@@ -453,12 +453,12 @@ namespace He_Arc::RPG
     std::println("Mana: {}", m_mana);
   }
 
-  void Wizard::interact(const Hero& other)
+  void Wizard::interact([[maybe_unused]] const Hero& other)
   {
     std::println("Hello fellow traveler! I'm a bit lost, do you know where the Shire is?");
   }
 
-  void Wizard::castSpell(Hero& other)
+  void Wizard::castSpell([[maybe_unused]] Hero& other)
   {
     if (m_mana > 2)
     {
