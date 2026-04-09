@@ -2,17 +2,16 @@
   {{- $src := .Get "src" -}}
   {{- $alt := .Get "alt" | default "" -}}
   {{- $width := .Get "width" -}}
-  <div title="Click to view full screen" data-figure-id="figure-{{ .Get "id" }}">
+  {{- $id := .Get "id" -}}
+  <div{{ if $id }} title="Click to view full screen" data-figure-id="figure-{{ $id }}"{{ end }}>
     {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
       <img
-        id ="figure-{{ .Get "id" }}"
-        src="{{ $src }}"
+        {{ if $id }}id="figure-{{ $id }}" {{ end }}src="{{ $src }}"
         alt="{{ $alt }}"
         {{ with $width }}style="width:{{ . }};"{{ end }}>
     {{- else -}}
       <img
-        id ="figure-{{ .Get "id" }}"
-        src="{{ $src | relURL }}"
+        {{ if $id }}id="figure-{{ $id }}" {{ end }}src="{{ $src | relURL }}"
         alt="{{ $alt }}"
         {{ with $width }}style="width:{{ . }};"{{ end }}>
     {{- end -}}
@@ -23,7 +22,8 @@
   {{- end -}}
 </figure>
 
-<script>  
+{{- if $id -}}
+<script>
   // Loading only once the shared media viewer logic (modal + zoom + pan).
   (function () {
     var scriptId = 'mv-script';
@@ -37,8 +37,8 @@
     function registerMediaViewer() {
       if (!window.MediaViewer) return;
       window.MediaViewer.register({
-        triggerSelector: '[figure-id="figure-{{ .Get "id" }}"]',
-        sourceId: 'figure-{{ .Get "id" }}'
+        triggerSelector: '[data-figure-id="figure-{{ $id }}"]',
+        sourceId: 'figure-{{ $id }}'
       });
     }
 
@@ -49,3 +49,4 @@
     }
   })();
 </script>
+{{- end -}}

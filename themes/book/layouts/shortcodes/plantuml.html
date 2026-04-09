@@ -1,8 +1,10 @@
-<div class="plantuml-wrapper" data-plantuml-id="plantuml-{{ .Get "id" }}" title="Click to view full screen" style="display:block;text-align:center;">
-  <img id="plantuml-{{ .Get "id" }}" alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+{{- $id := .Get "id" -}}
+<div class="plantuml-wrapper"{{ if $id }} data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen"{{ end }} style="display:block;text-align:center;">
+  <img {{ if $id }}id="plantuml-{{ $id }}" {{ end }}alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
 </div>
 
 <script>
+  {{- if $id -}}
   // Loading only once the shared media viewer logic (modal + zoom + pan).
   (function () {
     var scriptId = 'mv-script';
@@ -16,8 +18,8 @@
     function registerMediaViewer() {
       if (!window.MediaViewer) return;
       window.MediaViewer.register({
-        triggerSelector: '[data-plantuml-id="plantuml-{{ .Get "id" }}"]',
-        sourceId: 'plantuml-{{ .Get "id" }}'
+        triggerSelector: '[data-plantuml-id="plantuml-{{ $id }}"]',
+        sourceId: 'plantuml-{{ $id }}'
       });
     }
 
@@ -27,6 +29,7 @@
       document.getElementById(scriptId).addEventListener('load', registerMediaViewer, { once: true });
     }
   })();
+  {{- end -}}
 
   // Based on https://plantuml.com/code-javascript-asynchronous
 
