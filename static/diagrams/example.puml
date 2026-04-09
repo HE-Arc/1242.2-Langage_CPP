@@ -1,0 +1,19 @@
+@startuml
+title plantuml.html - Content extraction logic
+
+start
+:$content = .Inner;
+:$src = .Get("src");
+
+if ($src provided?) then (yes)
+	if ($src starts with "static/"?) then (no)
+		:$src = "static/" + $src;
+	endif
+	:$content = readFile($src) | safeHTML;
+else (no)
+	:keep inline $content;
+endif
+
+:compress("$content");
+stop
+@enduml

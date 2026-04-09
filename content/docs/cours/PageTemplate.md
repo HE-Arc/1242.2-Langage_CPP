@@ -232,9 +232,9 @@ Un id est requis pour le "media viewer" (permettant d'ouvrir en plein écran).
 {{< /tabs >}}
 
 ## UML Diagrams (avec PlantUML)
-Le code PlantUML doit être placé entre les balises ***{{</* plantuml */>}}*** et ***{{</* /plantuml */>}}***.
+Le code PlantUML doit être placé entre les balises ***{{</* plantuml */>}}*** et ***{{</* /plantuml */>}}*** ou provenir d'un fichier ".puml" référencé dans la balise ***{{</* plantuml src="diagrams/my-diagram.puml" */>}}***.
 
-### Exemple de diagrammes PlantUML
+### Exemple inline
 {{<attention>}}
 Les id des graphes PlantUML doivent être différents.
 {{</attention>}}
@@ -278,6 +278,18 @@ class Hero {
 }
 @enduml
 {{< /plantuml >}}
+
+### Exemple avec un fichier ".puml"
+
+**Code**
+
+```
+{{</* plantuml src="diagrams/example.puml" id="eg2" */>}}
+```
+
+**Affichage**
+
+{{< plantuml src="diagrams/example.puml" id="eg2" />}}
 
 {{<slide >}}
 ## PlantUML Diagrams
