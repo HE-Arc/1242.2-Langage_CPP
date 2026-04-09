@@ -281,7 +281,7 @@ class Hero {
 
 {{<slide >}}
 ## PlantUML Diagrams
-{{< plantuml id="eg1">}}
+{{< plantuml id="eg2">}}
 @startuml
 skin rose
 skinparam classAttributeIconSize 0
