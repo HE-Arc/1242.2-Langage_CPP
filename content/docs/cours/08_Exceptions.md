@@ -6,6 +6,42 @@ weight: 10
 
 # Chapitre 8 : exceptions
 
+{{<a_noter>}}
+#### Absence de RAII / exception safety
+Ce chapitre se concentre sur le mécanisme des exceptions en C++.
+Pour être complètement sûr, il faut le coupler à **RAII** (Resource Acquisition Is Initialization) qui sera vu dans un autre chapitre.
+
+#### std::exception_ptr, std::current_exception, std::rethrow_exception, std::nested_exception
+Utiles pour du multithreading, stocker des exceptions, wrapper des exceptions, etc.
+Ils sont hors scope pour ce cours.
+{{</a_noter>}}
+
+
+#### Diagramme de classes
+Dans le namespace `std`, la classe de base pour les exceptions est `exception` :
+
+{{< plantuml id="Exceptions_Classes">}}
+@startuml
+
+exception <|-- bad_alloc
+exception <|-- bad_cast
+exception <|-- bad_typeid
+exception <|-- bad_exception
+exception <|-- logic_error
+exception <|-- runtime_error
+
+logic_error <|-- domain_error
+logic_error <|-- invalid_argument
+logic_error <|-- length_error
+logic_error <|-- out_of_range
+
+runtime_error <|-- overflow_error
+runtime_error <|-- range_error
+runtime_error <|-- underflow_error
+
+@enduml
+{{</plantuml>}}
+
 ## Slides
 
 {{<slides "https://he-arc.github.io/1242.2-Langage_CPP-SLIDES/08_Exceptions.html">}}
@@ -47,6 +83,7 @@ static double compute(int k)
   double result;
   if (oneOverN(k, result) == ERROR_CODE)
   {
+    // Ambiguous error signaling: ERROR_CODE could be a valid result
     return ERROR_CODE;
   }
   else
@@ -231,71 +268,74 @@ int main()
 // The only remaining specification is `noexcept`, which guarantees that a function
 // will not throw. If a noexcept function does throw, std::terminate is called.
 
+// std::vector and other standard library containers rely heavily on noexcept for performance optimizations.
+// if a move constructor is noexcept, std::vector will use it instead of the copy constructor during resizing
+
 // This function promises not to throw
 void safeFunction() noexcept
 {
-    std::println("safeFunction: I promise not to throw");
+  std::println("safeFunction: I promise not to throw");
 }
 
 // This function may throw (default behavior, same as noexcept(false))
 void riskyFunction()
 {
-    throw std::runtime_error("something went wrong");
+  throw std::runtime_error("something went wrong");
 }
 
 // noexcept can also be conditional
 template <typename T>
 void process(T value) noexcept(std::is_integral_v<T>)
 {
-    if constexpr (std::is_integral_v<T>)
-    {
-        std::println("Processing integral value: {} (noexcept)", value);
-    }
-    else
-    {
-        std::println("Processing non-integral value: {} (may throw)", value);
-        throw std::runtime_error("non-integral error");
-    }
+  if constexpr (std::is_integral_v<T>)
+  {
+    std::println("Processing integral value: {} (noexcept)", value);
+  }
+  else
+  {
+    std::println("Processing non-integral value: {} (may throw)", value);
+    throw std::runtime_error("non-integral error");
+  }
 }
 
 int main()
 {
-    // noexcept can be queried at compile time
-    std::println("safeFunction is noexcept: {}", noexcept(safeFunction()));
-    std::println("riskyFunction is noexcept: {}", noexcept(riskyFunction()));
-    std::println("process<int> is noexcept: {}", noexcept(process(42)));
-    std::println("process<double> is noexcept: {}", noexcept(process(3.14)));
+  // noexcept can be queried at compile time
+  std::println("safeFunction is noexcept: {}", noexcept(safeFunction()));
+  std::println("riskyFunction is noexcept: {}", noexcept(riskyFunction()));
+  std::println("process<int> is noexcept: {}", noexcept(process(42)));
+  std::println("process<double> is noexcept: {}", noexcept(process(3.14)));
 
-    safeFunction();
+  safeFunction();
 
-    try
-    {
-        riskyFunction();
-    }
-    catch (const std::exception& e)
-    {
-        std::println("Caught: {}", e.what());
-    }
+  try
+  {
+    riskyFunction();
+  }
+  catch (const std::exception &e)
+  {
+    std::println("Caught: {}", e.what());
+  }
 
-    // Safe: int is integral → noexcept(true)
-    process(42);
+  // Safe: int is integral → noexcept(true)
+  process(42);
 
-    // This would throw → catch it
-    try
-    {
-        process(3.14);
-    }
-    catch (const std::exception& e)
-    {
-        std::println("Caught from process<double>: {}", e.what());
-    }
+  // This would throw → catch it
+  try
+  {
+    process(3.14);
+  }
+  catch (const std::exception &e)
+  {
+    std::println("Caught from process<double>: {}", e.what());
+  }
 
-    // WARNING: calling safeFunction with a throw inside would call std::terminate!
-    // Uncomment to test (program will abort):
-    // auto dangerous = []() noexcept { throw std::runtime_error("oops"); };
-    // dangerous(); // → std::terminate()
+  // WARNING: calling safeFunction with a throw inside would call std::terminate!
+  // Uncomment to test (program will abort):
+  // auto dangerous = []() noexcept { throw std::runtime_error("oops"); };
+  // dangerous(); // → std::terminate()
 
-    return 0;
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
@@ -332,6 +372,9 @@ public:
     m_data = nullptr;
   }
 
+  Vector(const Vector&) = delete;
+  Vector& operator=(const Vector&) = delete;
+
   double &operator[](int i)
   {
     validateIndex(i);
@@ -343,6 +386,7 @@ private:
   {
     if (i < 0 || i >= m_size)
     {
+      // In real code, prefer throwing std::out_of_range
       throw "Index out of bounds!";
     }
   }
@@ -544,9 +588,9 @@ int main()
 - sinon, lever une exception et envoyer la chaine de caractères: "The value is even".
   
 **`void isLessThan(int value, int maxValue)`**
-- si la valeur est plus petite que `maxValue`, afficher "- OK: It's a value less than 100"
-- sinon, lever une exception qui envoye une instance de la classe `MyException` qui hérite de la classe C++ `exception` (`#include <exception>`)
-  - écrire un constructeur de cette classe qui puisse reçevoir le message d'erreur : "The value is too big"
+- si la valeur est plus petite que `maxValue`, afficher "- OK: It's a value less than 100" si `maxValue` vaut 100 par exemple
+- sinon, lever une exception qui envoie une instance de la classe `MyException` qui hérite de la classe C++ `exception` (`#include <exception>`)
+  - écrire un constructeur de cette classe qui puisse recevoir le message d'erreur : "The value is too big"
   - redéfinir la méthode `what()` afin qu'elle affiche le message passé au constructeur
   
 **`void isGreaterThan(int value, int minValue)`**
@@ -602,23 +646,25 @@ int main()
   // C) Afficher la taille des vecteurs du tableau
   ...
   
-  // D) Test de l'allocation dans le constructeur  Vector(int, int)
+  // D) Test de l'allocation dans le constructeur
   Vector v2(SIZE);
 
-  // E) Test de l'allocation dans le constructeur  par recopie Vector(int, int)
+  // E) Test de l'allocation dans le constructeur par recopie
   Vector v3 = v1; 
 
   // F) Test de l'allocation dans l'opérateur d'affectation
   Vector v5;
   v5 = v1;
 
-  // G) Test du constructeur Vector(int, int) avec une taille incorrecte
-  Vector v6(-1);
+  // G) Test du constructeur Vector(int, double) avec une taille incorrecte
+  Vector v6(-1, 0.0);
 
   // H) Test de l'accès hors limites à un vecteur
   v1[-1] = 5;
 
   // I) Test de l'accès hors limites à un std::vector
+  // NOTE: std::vector::at() takes a size_t index
+  // --> Passing -1 causes an implicit conversion to a very large unsigned value
   std::println("{}", tabV.at(-1).getSizeInBytes());
 
   return 0;
@@ -627,14 +673,14 @@ int main()
 
 Des exceptions peuvent se produire dans les situations suivantes :
 
-A) Lors de la création d’un objet de type **`Vector(int, int)`**
+A) Lors de la création d’un objet de type **`Vector(int, double)`**
 
 B) Lors de l'affectation d'un vecteur à un autre vecteur :
    - construire un **`std::vector`** contenant 10 vecteurs de type **`Vector`**, puis copiez le vecteur **`v1`** dans ce tableau afin de voir apparaitre une exception.
 
 C) Afficher la taille des vecteurs du tableau
   
-D) Lors de la création d’un objet de type **`Vector(int, int)`**
+D) Lors de la création d’un objet de type **`Vector(int, double)`**
 
 E) Lors de la création d’un objet de type **`Vector(const Vector&)`**
 
@@ -644,6 +690,7 @@ H) Lors d'un accès hors limite à un vecteur
 
 I) Lors d'un accès hors limite à un **`std::vector`** avec l'opérateur **`at()`**
 
-Remarque :
-- il ne faut pas mettre l'ensemble du programme dans un **`try`**
-- en cas d'erreur d'allocation d'un Vecteur, il faut s'assurer celui-ci est remis en ordre et le programme **`main()`** doit continuer.
+{{<attention>}}
+- Il ne faut pas mettre l'ensemble du programme dans un **`try`**
+- En cas d'erreur d'allocation d'un Vecteur, il faut s'assurer celui-ci est remis en ordre et le programme **`main()`** doit continuer.
+{{</attention>}}
