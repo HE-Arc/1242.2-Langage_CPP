@@ -22,6 +22,7 @@ weight: 10
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
 // Error handling using return codes — the traditional approach before exceptions.
 // The return value of the function is used both for the result AND for error signaling,
 // which makes the code harder to read and maintain.
@@ -81,6 +82,7 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
 // Same logic as 08.01 but using exceptions instead of return codes.
 // The exception propagates automatically through the call stack — no need
 // for each intermediate function to check and forward error codes.
@@ -126,6 +128,7 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
 // Catch handlers with value parameters do NOT perform implicit type conversions.
 // A thrown double will NOT be caught by a catch(float) handler.
 
@@ -175,6 +178,7 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
 // An exception can be caught, partially handled, and re-thrown with a bare `throw`.
 // This allows multiple levels of the call stack to react to the same exception.
 
@@ -221,6 +225,8 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include <stdexcept>
 // In C++17, dynamic exception specifications (throw(int, float, ...)) were removed.
 // The only remaining specification is `noexcept`, which guarantees that a function
 // will not throw. If a noexcept function does throw, std::terminate is called.
@@ -306,6 +312,9 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <iostream>
+#include <print>
+#include <new>
 // A simple Vector class that demonstrates both implicit exceptions (bad_alloc
 // from new[]) and explicit exceptions (bounds checking with const char*).
 
@@ -388,6 +397,8 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include <exception>
 // Catching exceptions by reference preserves polymorphism.
 // Catching by value causes slicing — the derived part is lost.
 
@@ -447,6 +458,10 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <print>
+#include <format>
+#include <exception>
+#include <string>
 // A custom exception class that inherits from std::exception.
 // Uses __LINE__ to include the source line number in the error message.
 
