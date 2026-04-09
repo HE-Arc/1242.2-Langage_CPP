@@ -90,7 +90,7 @@
     ensureModal();
 
     img.src = src;
-    img.alt = altText == null ? "Image viewer" : altText;
+    img.alt = altText || "Image viewer";
     img.style.transform = "";
     img.style.marginRight = "0";
     img.style.marginBottom = "0";

@@ -1,12 +1,10 @@
 {{- $id := .Get "id" -}}
-{{- if not $id -}}
-  {{- errorf "The %q shortcode requires a non-empty id parameter" .Name -}}
-{{- end -}}
-<div class="plantuml-wrapper" data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen" style="display:block;text-align:center;">
-  <img id="plantuml-{{ $id }}" alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+<div class="plantuml-wrapper"{{ if $id }} data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen"{{ end }} style="display:block;text-align:center;">
+  <img {{ if $id }}id="plantuml-{{ $id }}" {{ end }}alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
 </div>
 
 <script>
+  {{- if $id -}}
   // Loading only once the shared media viewer logic (modal + zoom + pan).
   (function () {
     var scriptId = 'mv-script';
@@ -31,6 +29,7 @@
       document.getElementById(scriptId).addEventListener('load', registerMediaViewer, { once: true });
     }
   })();
+  {{- end -}}
 
   // Based on https://plantuml.com/code-javascript-asynchronous
 
@@ -99,7 +98,7 @@
   }
 
   function done_deflating(e) {
-    const img = document.getElementById("plantuml-{{ $id }}");
+    const img = document.getElementById("plantuml-{{ .Get "id" }}");
     img.src = "https://www.plantuml.com/plantuml/svg/"+encode64(e.data);
   }
 
