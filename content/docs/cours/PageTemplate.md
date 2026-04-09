@@ -199,7 +199,7 @@ Il ne faut surtout pas faire ceci !!!
 ```
 {{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" id="ae_fork" */>}}
 ```
-An id is needed for the media viewer feature.
+Un id est requis pour le "media viewer" (permettant d'ouvrir en plein écran).
 
 **Affichage**
 {{< figure src="images/AE_Fork.png#center" width="100%" caption="Un screenshot" id="ae_fork">}}

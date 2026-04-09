@@ -2,7 +2,7 @@
   {{- $src := .Get "src" -}}
   {{- $alt := .Get "alt" | default "" -}}
   {{- $width := .Get "width" -}}
-  <div title="Click to view full screen" figure-id="figure-{{ .Get "id" }}">
+  <div title="Click to view full screen" data-figure-id="figure-{{ .Get "id" }}">
     {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
       <img
         id ="figure-{{ .Get "id" }}"

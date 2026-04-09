@@ -7,7 +7,7 @@
  * - Click outside the media, click the close button, or press Escape to close.
  */
 (function () {
-  if (window.MotionLabViewer) return;
+  if (window.MediaViewer) return;
 
   var overlay;
   var box;
@@ -87,6 +87,8 @@
   function openModal(src, altText) {
     if (!src) return;
 
+    ensureModal();
+
     img.src = src;
     img.alt = altText || "Image viewer";
     img.style.transform = "";
@@ -109,6 +111,7 @@
   }
 
   function closeModal() {
+    ensureModal();
     overlay.classList.remove("open");
     document.body.style.overflow = "";
   }
