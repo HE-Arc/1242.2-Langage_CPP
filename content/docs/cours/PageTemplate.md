@@ -197,14 +197,15 @@ Il ne faut surtout pas faire ceci !!!
 ### Avec une image dans le répertoire local ***static/images***
 **Code**
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" */>}}
+{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" id="ae_fork" */>}}
 ```
+An id is needed for the media viewer feature.
 
 **Affichage**
-{{< figure src="images/AE_Fork.png#center" width="100%" caption="Un screenshot">}}
+{{< figure src="images/AE_Fork.png#center" width="100%" caption="Un screenshot" id="ae_fork">}}
 
 ### Avec une image sur le web
-{{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="100%">}}
+{{< figure src="https://www.he-arc.ch/wp-content/uploads/2021/09/ARCLogoLumineux.jpg" width="100%" id="arc_logo">}}
 
 {{< slide >}}
 ## Images

@@ -1,6 +1,33 @@
-<img id="plantuml-{{ .Get "id" }}"/>
+<div class="plantuml-wrapper" data-plantuml-id="plantuml-{{ .Get "id" }}" title="Click to view full screen" style="display:block;text-align:center;">
+  <img id="plantuml-{{ .Get "id" }}" alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+</div>
 
 <script>
+  // Loading only once the shared media viewer logic (modal + zoom + pan).
+  (function () {
+    var scriptId = 'mv-script';
+    if (!document.getElementById(scriptId)) {
+      var script = document.createElement('script');
+      script.id = scriptId;
+      script.src = '{{ "js/media-viewer.js" | relURL }}';
+      document.head.appendChild(script);
+    }
+
+    function registerMediaViewer() {
+      if (!window.MediaViewer) return;
+      window.MediaViewer.register({
+        triggerSelector: '[data-plantuml-id="plantuml-{{ .Get "id" }}"]',
+        sourceId: 'plantuml-{{ .Get "id" }}'
+      });
+    }
+
+    if (window.MediaViewer) {
+      registerMediaViewer();
+    } else {
+      document.getElementById(scriptId).addEventListener('load', registerMediaViewer, { once: true });
+    }
+  })();
+
   // Based on https://plantuml.com/code-javascript-asynchronous
 
   function encode64(data) {
