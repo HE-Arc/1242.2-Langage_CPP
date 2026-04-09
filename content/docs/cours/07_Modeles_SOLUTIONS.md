@@ -2,7 +2,7 @@
 title: "7. Modèles — Solutions"
 type: docs
 weight: 10
-draft: true
+draft: false
 ---
 
 # Chapitre 7 : modèles — Solutions

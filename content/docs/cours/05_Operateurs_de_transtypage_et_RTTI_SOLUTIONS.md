@@ -1,5 +1,5 @@
 ---
-title: "5. Opérateurs de transtypage et RTTI — Solutions"
+title: "5. Transtypage et RTTI — Solutions"
 type: docs
 weight: 10
 draft: false
