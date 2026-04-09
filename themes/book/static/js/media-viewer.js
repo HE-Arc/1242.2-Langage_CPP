@@ -1,3 +1,11 @@
+/**
+ * MediaViewer: A simple media viewer with zoom and pan.
+ * - Mouse wheel: Scroll vertically.
+ * - Shift + Mouse wheel: Scroll horizontally.
+ * - Ctrl + Mouse wheel: Zoom in/out.
+ * - Click and drag to pan.
+ * - Click outside the media, click the close button, or press Escape to close.
+ */
 (function () {
   if (window.MotionLabViewer) return;
 
