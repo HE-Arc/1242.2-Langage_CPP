@@ -3,17 +3,19 @@
   {{- $alt := .Get "alt" | default "" -}}
   {{- $width := .Get "width" -}}
   {{- $id := .Get "id" -}}
-  <div{{ if $id }} title="Click to view full screen" data-figure-id="figure-{{ $id }}"{{ end }}>
+  <div {{ if $id }}title="Click to view full screen" data-figure-id="figure-{{ $id }}"{{ end }}>
     {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
       <img
-        {{ if $id }}id="figure-{{ $id }}" {{ end }}src="{{ $src }}"
+        {{ if $id }}id="figure-{{ $id }}"{{ end }}src="{{ $src }}"
         alt="{{ $alt }}"
-        {{ with $width }}style="width:{{ . }};"{{ end }}>
+        {{ with $width }}style="width:{{ . }};"{{ end }}
+      />
     {{- else -}}
       <img
-        {{ if $id }}id="figure-{{ $id }}" {{ end }}src="{{ $src | relURL }}"
+        {{ if $id }}id="figure-{{ $id }}"{{ end }}src="{{ $src | relURL }}"
         alt="{{ $alt }}"
-        {{ with $width }}style="width:{{ . }};"{{ end }}>
+        {{ with $width }}style="width:{{ . }};"{{ end }}
+      />
     {{- end -}}
   </div>
 

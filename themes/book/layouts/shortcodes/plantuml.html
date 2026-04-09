@@ -1,6 +1,13 @@
 {{- $id := .Get "id" -}}
-<div class="plantuml-wrapper"{{ if $id }} data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen"{{ end }} style="display:block;text-align:center;">
-  <img {{ if $id }}id="plantuml-{{ $id }}" {{ end }}alt="PlantUML diagram" style="max-width:100%;height:auto;display:block;margin:0 auto;"/>
+<div
+  class="plantuml-wrapper"
+  {{ if $id }}data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen"{{ end }}
+  style="display:block;text-align:center;"
+>
+  <img
+    {{ if $id }}id="plantuml-{{ $id }}"{{ end }}alt="PlantUML diagram"
+    style="max-width:100%;height:auto;display:block;margin:0 auto;"
+  />
 </div>
 
 <script>
@@ -105,7 +112,7 @@
   function compress(s) {
     //UTF8
     s = unescape(encodeURIComponent(s));
-  
+
     if (deflater) {
       if (deflater.port && deflater.port.postMessage) {
         deflater.port.postMessage(s);
