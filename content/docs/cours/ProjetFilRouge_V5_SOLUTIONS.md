@@ -536,9 +536,25 @@ namespace He_Arc::RPG
 
 {{<details "1242.2_Project_V5_FilRouge_Utility" >}}
 **`Utility.h`**
+<!-- SNIPPET:BEGIN source_file=Utility.h id=1242.2_Project_V5_FilRouge_Utility.h -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#pragma once
 
-> Identique à V4 — template `deletePtr()` pour libérer et nullifier un pointeur.
-
+namespace He_Arc::RPG::Utility
+{
+  template <typename T>
+  inline void deletePtr(T*& rPtr)
+  {
+    delete rPtr;
+    rPtr = nullptr;
+  }
+}
+```
+<!-- SNIPPET:END -->
 {{</details>}}
 
 ## Programme principal (étape 12 — Backpack)
