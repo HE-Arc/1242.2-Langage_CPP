@@ -236,7 +236,7 @@ Il ne faut surtout pas faire ceci !!!
 **Code**
 
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" caption="Légende" id="ae_fork" */>}}
+{{</* figure src="images/AE_Fork.png#center" width="100%" caption="Légende" id="ae_fork" */>}}
 ```
 
 Un id est requis pour le "media viewer" (permettant d'ouvrir en plein écran).

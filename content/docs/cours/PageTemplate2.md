@@ -236,7 +236,7 @@ Il ne faut surtout pas faire ceci !!!
 **Code**
 
 ```
-{{</* figure src="/images/AE_Fork.png#center" width="100%" */>}}
+{{</* figure src="images/AE_Fork.png#center" width="100%" */>}}
 ```
 
 **Affichage**
