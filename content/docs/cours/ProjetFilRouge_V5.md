@@ -114,6 +114,3 @@ note left: mStack is the contenair of all the objects
 
 @enduml
 {{< /plantuml >}}
-
-## Solutions
-[Projet Fil Rouge V5](/zips/FilRouge_V5_SOLUTIONS.zip)
