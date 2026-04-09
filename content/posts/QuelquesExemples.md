@@ -2,9 +2,7 @@
 title: "Quelques Exemples"
 author: "Benoit Le Callennec"
 date: 2023-11-07
-tags : [
-    "General", "Exemples"
-    ]
+tags: ["General", "Exemples"]
 ---
 
 **Cet article liste quelques exemples de site de cours utilisant les fonctionnalités de ce template.**

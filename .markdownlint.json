@@ -1,0 +1,7 @@
+{
+    "default": true,
+    "extends": "markdownlint/style/relaxed.json",
+    "MD025": {
+        "front_matter_title": ""
+    }
+}
