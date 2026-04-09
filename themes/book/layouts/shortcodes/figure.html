@@ -2,20 +2,53 @@
   {{- $src := .Get "src" -}}
   {{- $alt := .Get "alt" | default "" -}}
   {{- $width := .Get "width" -}}
-
-  {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
-    <img
-      src="{{ $src }}"
-      alt="{{ $alt }}"
-      {{ with $width }}style="width:{{ . }};"{{ end }}>
-  {{- else -}}
-    <img
-      src="{{ $src | relURL }}"
-      alt="{{ $alt }}"
-      {{ with $width }}style="width:{{ . }};"{{ end }}>
-  {{- end -}}
+  {{- $id := .Get "id" -}}
+  <div {{ if $id }}title="Click to view full screen" data-figure-id="figure-{{ $id }}"{{ end }}>
+    {{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") -}}
+      <img
+        {{ if $id }}id="figure-{{ $id }}"{{ end }}src="{{ $src }}"
+        alt="{{ $alt }}"
+        {{ with $width }}style="width:{{ . }};"{{ end }}
+      />
+    {{- else -}}
+      <img
+        {{ if $id }}id="figure-{{ $id }}"{{ end }}src="{{ $src | relURL }}"
+        alt="{{ $alt }}"
+        {{ with $width }}style="width:{{ . }};"{{ end }}
+      />
+    {{- end -}}
+  </div>
 
   {{- with .Get "caption" -}}
     <figcaption>{{ . }}</figcaption>
   {{- end -}}
 </figure>
+
+{{- if $id -}}
+<script>
+  // Loading only once the shared media viewer logic (modal + zoom + pan).
+  (function () {
+    var scriptId = 'mv-script';
+    if (!document.getElementById(scriptId)) {
+      var script = document.createElement('script');
+      script.id = scriptId;
+      script.src = '{{ "js/media-viewer.js" | relURL }}';
+      document.head.appendChild(script);
+    }
+
+    function registerMediaViewer() {
+      if (!window.MediaViewer) return;
+      window.MediaViewer.register({
+        triggerSelector: '[data-figure-id="figure-{{ $id }}"]',
+        sourceId: 'figure-{{ $id }}'
+      });
+    }
+
+    if (window.MediaViewer) {
+      registerMediaViewer();
+    } else {
+      document.getElementById(scriptId).addEventListener('load', registerMediaViewer, { once: true });
+    }
+  })();
+</script>
+{{- end -}}

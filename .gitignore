@@ -17,3 +17,6 @@ hugo.linux
 # ADDED By BLC
 /bin/
 .hugo_build.lock
+
+# ADDED By NWE
+node_modules/

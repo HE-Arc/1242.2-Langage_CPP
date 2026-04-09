@@ -1,6 +1,43 @@
-<img id="plantuml-{{ .Get "id" }}"/>
+{{- $id := .Get "id" -}}
+<div
+  class="plantuml-wrapper"
+  {{ if $id }}data-plantuml-id="plantuml-{{ $id }}" title="Click to view full screen"{{ end }}
+  style="display:block;text-align:center;"
+>
+  <img
+    {{ if $id }}id="plantuml-{{ $id }}"{{ end }}alt="PlantUML diagram"
+    style="max-width:100%;height:auto;display:block;margin:0 auto;"
+  />
+</div>
 
 <script>
+  {{- if $id -}}
+  // Loading only once the shared media viewer logic (modal + zoom + pan).
+  (function () {
+    var scriptId = 'mv-script';
+    if (!document.getElementById(scriptId)) {
+      var script = document.createElement('script');
+      script.id = scriptId;
+      script.src = '{{ "js/media-viewer.js" | relURL }}';
+      document.head.appendChild(script);
+    }
+
+    function registerMediaViewer() {
+      if (!window.MediaViewer) return;
+      window.MediaViewer.register({
+        triggerSelector: '[data-plantuml-id="plantuml-{{ $id }}"]',
+        sourceId: 'plantuml-{{ $id }}'
+      });
+    }
+
+    if (window.MediaViewer) {
+      registerMediaViewer();
+    } else {
+      document.getElementById(scriptId).addEventListener('load', registerMediaViewer, { once: true });
+    }
+  })();
+  {{- end -}}
+
   // Based on https://plantuml.com/code-javascript-asynchronous
 
   function encode64(data) {
@@ -75,7 +112,7 @@
   function compress(s) {
     //UTF8
     s = unescape(encodeURIComponent(s));
-  
+
     if (deflater) {
       if (deflater.port && deflater.port.postMessage) {
         deflater.port.postMessage(s);
