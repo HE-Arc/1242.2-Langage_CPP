@@ -1104,14 +1104,14 @@ Dans un deuxième temps, on fera les tests suivants :
 - si le fichier existe déjà, on fera une demande de confirmation
 - dans la lecture des entiers, on veillera à surveiller que l’utilisateur n’entre que des entiers.
 
-## Exercice 2 : lecture binaire
+### Exercice 2 : lecture binaire
 Écrire un programme permettant de lister (sur la sortie standard) les entiers contenus dans le fichier tel que celui créé par l’exercice précédent.
 
-## Exercice 3 : rang
+### Exercice 3 : rang
 Écrire un programme permettant à un utilisateur de retrouver, dans un fichier tel que celui créé dans l'exercice 1, les entiers dont il fournit le « _rang_ » (sa valeur).
 On conviendra qu’un rang égal à 0 signifie que l'utilisateur souhaite mettre fin au programme.
 
-## Exercice 4 : lecture formatée
+### Exercice 4 : lecture formatée
 Écrire un programme qui ouvre un fichier texte dont le nom est donné par l’utilisateur et qui affiche le contenu sur la console en numérotant les lignes.
 
 {{<a_noter>}}
@@ -1167,7 +1167,7 @@ Faire un programme pour mettre en évidence le mécanisme utilisé par **`std::v
 #### F. Initialiser de manière simple un vecteur avec les 8 premiers termes de la suite de Fibonacci (1 1 2 3 5 8 13 21).
 Voir [Initialize Vector in C++](https://www.geeksforgeeks.org/initialize-a-vector-in-cpp-different-ways/)
 
-## Exercice 2 : comportement dynamique de `vector`
+### Exercice 2 : comportement dynamique de `vector`
 Quel est l'affichage du programme suivant ? Expliquer le résultat.
 
 ```cpp
@@ -1196,3 +1196,148 @@ int main()
 - Compléter le programme avec deux façons d’afficher le contenu du vecteur
   - Avec un itérateur
   - Avec un ***range based for loop***
+
+## Série 9.3
+
+### Exercice 1 : performance des opérations avec `std::vector` et `std::list`
+En utilisant les déclarations suivantes :
+
+```cpp
+using myArray = std::vector<int>;
+using myList = std::list<int>;
+```
+
+On demande d'écrire un programme capable de tester l'efficacité des tâches ci-dessous :
+
+1. Insertion de 100'000'000 éléments à la fin d'un `std::vector`
+2. Insertion de 100'000'000 éléments a la fin d'un `std::vector` (en utilisant `reserve`)
+3. Insertion de     500'000 éléments au début d'un `std::vector` (avec la méthode `insert`)
+4. Insertion de     500'000 éléments au début d'un `std::vector` (la méthode `reserve`)
+5. Insertion de     500'000 éléments à la fin d'une `std::list`
+6. Insertion de     500'000 éléments au début d'une `std::list`
+7. Insertion de     500'000 éléments au début d'une `std::forward_list`
+8. Insertion de      50'000 éléments à la FIN d'une `std::forward_list` (traverser la liste pour ajouter à la fin)
+
+Pour mesurer le temps, vous pouvez utiliser les fonctions de <chrono> :
+
+```cpp
+#include <chrono>
+...
+auto start = std::chrono::high_resolution_clock::now();
+
+// Function to profile here
+
+auto stop = std::chrono::high_resolution_clock::now();
+auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+std::println("Time taken: {} milliseconds", duration.count());
+```
+
+#### Quelles sont vos conclusions par rapport aux écarts de performances ? Pourquoi ?
+
+## Série 9.4
+
+### Exercice 1 : conteneurs associatifs et template
+Écrire un programme qui utilise un tableau associatif permettant de manipuler des paires (pays / ville).
+
+```console
+Suisse  Berne
+USA     New York
+USA     Washington
+USA     Boston
+
+USA===>  | New York | Washington | Boston
+```
+
+La clé est le pays et la valeur est la ville.
+On voit donc, ici qu'il y a trois entrées avec la clé USA.
+
+On écrira deux modèles de fonctions (templates) pour afficher les résultats.
+Si la variable représentant le tableau associatif se nomme *stateMap*, on pourra appeler les fonctions de ce code :
+
+```cpp
+showMultimap(stateMap);	        // Display all container content.
+std::string s = "USA";
+showMultimapRange(stateMap, s);	// Display all values which has a s key.
+```
+Les deux fonctions doivent être des modèles de fonctions, c'est-à-dire qu'elles doivent fonctionner avec des types de clé et de valeur quelconques.
+On demande d'utiliser le [structured binding](https://en.cppreference.com/w/cpp/language/structured_binding) dans l'implémentation de ces fonctions.
+
+<div style="page-break-after: always;"></div>
+
+## Exercice 2 : conteneurs associatifs et algorithmes
+
+Écrire un programme qui lit un fichier de texte donné en paramètre (qui contient des citations de Steve Jobs), complètement, mot par mot. 
+Le programme créera une table associative (dictionnaire clé-valeur) avec comme clés les mots, et comme valeur le nombre d’occurrences. 
+À la fin de l’exécution, le programme affichera le nombre total de mots contenu dans le texte, le nombre de mots différents, ainsi que le nombre d’occurrences de chaque mot triés du plus grand nombre d'occurences au plus petit, puis par ordre alphabétique en second tri.
+
+**Indication** : l'implémentation du tri multiple nécessite de passer d'un container associatif à un autre type. Utiliser la méthode **`sort()`** accompagnée d'une méthode de comparaison personnalisée.
+
+<table>
+<thead>
+    <tr>
+    <th style="text-align:left;"> Exemple:  </th>
+    <th style="text-align:right;"> jobs.txt </th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+    <td style="text-align:left;background-color: rgb(50, 50, 50);width:40%;color:white;"> 
+    <span style="color:blue">program </span> <span style="color:yellow">jobs.txt</span>
+    <br>The file contains 51 words
+    <br>Occurence count: 42       
+    <br>4x "the"
+    <br>3x "you"
+    <br>2x "Stay"
+    <bt>2x "things"
+    <br>2x "to"
+    <br>2x "your"
+    <br>1x "Dont"
+    <br>...
+    <td style="text-align:right;background-color: rgb(200, 200, 100);width:60%;color:black;">
+    Don’t let the noise of others’ opinions drown out your own inner voice.
+    Have the courage to follow your heart and intuition. 
+    They somehow already know what you truly want to become...
+    </td>
+    </tr>
+</tbody>
+</table>
+
+On demande d'utiliser le [structured binding](https://en.cppreference.com/w/cpp/language/structured_binding) dès que possible.
+
+Cours de C++, 1ère année, HE-Arc
+## Série 9.5 : smart pointers
+
+### Exercice 1 : "de natif à smart !"
+
+Reprendre le code source de l'exercice 3 de la série 2.1 qui propose de manipuler des points : 
+
+{{<plantuml id="ex9.5.1" >}}
+@startuml
+
+skin rose
+skinparam classAttributeIconSize 0
+hide circle
+
+class Point
+{
+  - x : double
+  - y : double
+  + label : char
+  + show() : void
+  + translate (double dx, double dy) : void
+  + Point (char name, double x, double y)
+}
+@enduml
+{{</plantuml>}}
+
+Réaliser les étapes suivantes : 
+
+- Ajouter un destructeur dans la classe *Point* et tracker les appels au moyen de std::println.
+- Modifier le fichier *main.cpp* en utilisant les notions suivantes : 
+  - Smart pointers
+  - std::make_
+  - Containeurs 
+  - 'auto' 
+  - Free function
+  - 'Using' pour la déclaration des types custom
+  - ...

@@ -737,13 +737,15 @@ Cette classe devra mettre en œuvre la notion d’héritage, en utilisant la cla
 
 On donne aussi le diagramme de classe des classes suivant :
 
-{{< plantuml id="chap4_exo1.1">}}
+{{<plantuml id="chap4_exo1.1">}}
 @startuml
+
 skin rose
 skinparam classAttributeIconSize 0
 hide circle
 
 class Pixel extends Point
+
 class Point
 {
   + {static} counter : int
