@@ -1,0 +1,34 @@
+{{- $recursive := eq (.Get "recursive") "true" -}}
+{{- $meta := eq (.Get "details") "true" -}}
+{{- $page := .Page -}}
+
+{{- define "subpages-list" -}}
+  {{- $pages := .pages -}}
+  {{- $recursive := .recursive -}}
+  {{- $meta := .meta -}}
+  <ul>
+    {{- range $pages.Pages.ByWeight -}}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }} </a>
+        {{- if $meta -}}
+          <span class="subpages-meta">
+            {{- if .GitInfo -}}
+              {{- if eq (dateFormat "2006-01-02" .Date) (dateFormat "2006-01-02" .Lastmod) -}}
+                — created by <strong>{{ .GitInfo.AuthorName }}</strong> on
+                {{ dateFormat "2 January, 2006" .GitInfo.AuthorDate }}
+              {{- else -}}
+                — last edited by <strong>{{ .GitInfo.AuthorName }}</strong> on
+                {{ dateFormat "2 January, 2006" .GitInfo.AuthorDate }}
+              {{- end -}}
+            {{- end -}}
+          </span>
+        {{- end -}}
+        {{- if and $recursive .Pages -}}
+          {{- template "subpages-list" (dict "pages" . "recursive" true "meta" $meta) -}}
+        {{- end -}}
+      </li>
+    {{- end -}}
+  </ul>
+{{- end -}}
+
+{{- template "subpages-list" (dict "pages" $page "recursive" $recursive "meta" $meta) -}}
