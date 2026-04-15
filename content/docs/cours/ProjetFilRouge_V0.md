@@ -170,10 +170,10 @@ Vous devrez :
 ## Formulaire d'évaluation
 Le projet sera évalué selon les critères détaillés dans le fichier suivant :
 
-{{<a_noter>}}
-Le formulaire d'évaluation est en cours de modifications. Il vous sera donné dés que possible.
-{{</a_noter>}}
-[EvaluationFilRouge_2025.xlsx](/EvaluationFilRouge_2025.xlsx)
+[EvaluationFilRouge_2025-2026.xlsx](/EvaluationFilRouge_2025-2026.xlsx)
+
+[EvaluationFilRouge_2025-2026.xlsx]({{< relref "/EvaluationFilRouge_2025-2026.xlsx" >}})
+
 
 ## Remarque finale
 Cherchez avant tout à prendre du plaisir dans le développement et la création de votre solution/monde/monstres !
