@@ -669,6 +669,9 @@ Lorem markdownum insigne...
 
 {{<progress_bar 250 250>}}
 
+## Liens vers fichiers static
+[Code source diagramme]({{< static "diagrams/example.puml" >}})
+
 ## Références
 
 [^hearc]: [HE-Arc](https://www.he-arc.ch/)
