@@ -600,7 +600,7 @@ Dans le **`main`**, il s'agit de disposer des **`try`** et **`catch`** aux bons 
 
 #### Exemples
 ```
-Enter a positive and odd value [10, 100] : 11
+Enter a positive and odd value [10, 100]: 11
 - OK: It's a positive value
 - OK: It's an odd value
 - OK: It's a value less than 100
@@ -609,13 +609,13 @@ Correct value !
 ```
 
 ``` 
-Enter a positive and odd value [10, 100] : 12
+Enter a positive and odd value [10, 100]: 12
 - OK: It's a positive value
 Incorrect value ! ->  The value is even  
 ```
 
 ```
-Enter a positive and odd value [10, 100] : 3
+Enter a positive and odd value [10, 100]: 3
 - OK: It's a positive value
 - OK: It's an odd value
 - OK: It's a value less than 100
