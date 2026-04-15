@@ -262,14 +262,15 @@ int main()
   This block is automatically regenerated.
 -->
 ```cpp
+#include <type_traits>
 #include <print>
 #include <stdexcept>
 // In C++17, dynamic exception specifications (throw(int, float, ...)) were removed.
 // The only remaining specification is `noexcept`, which guarantees that a function
 // will not throw. If a noexcept function does throw, std::terminate is called.
 
-// std::vector and other standard library containers rely heavily on noexcept for performance optimizations.
-// if a move constructor is noexcept, std::vector will use it instead of the copy constructor during resizing
+// Most standard library containers rely heavily on noexcept for performance optimizations.
+// If a move constructor is noexcept, std::vector will use it instead of the copy constructor during resizing
 
 // This function promises not to throw
 void safeFunction() noexcept
@@ -538,6 +539,72 @@ int main()
     }
 
     return 0;
+}
+```
+<!-- SNIPPET:END -->
+{{</details>}}
+
+{{<details "1242.2_08.09_IntegerExceptions" >}}
+**`main.cpp`**
+<!-- SNIPPET:BEGIN source_file=main.cpp id=1242.2_Examples_08.09_IntegerExceptions_main.cpp -->
+<!--
+  GENERATED FILE — DO NOT EDIT.
+  This block is automatically regenerated.
+-->
+```cpp
+#include <print>
+
+// WARNING: this is for pedagogical purposes only!
+//  --> Throwing integral types is a bad practice.
+//  --> Throw exceptions inheriting from std::exception
+int main(int argc, char *argv[])
+{
+  if (argc < 2)
+  {
+    std::println("Usage: 1242.2_08.09_IntegralExceptionsVsClassesExceptions.exe <exception_type>");
+    std::println("Exception types: char, short, int, long");
+
+    return 1;
+  }
+
+  try
+  {
+    auto exceptionTypeStr = std::string_view(argv[1]);
+    if (exceptionTypeStr == "char")
+    {
+      throw '0';
+    }
+    else if (exceptionTypeStr == "short")
+    {
+      throw static_cast<short>(1);
+    }
+    else if (exceptionTypeStr == "int")
+    {
+      throw 2;
+    }
+    else if (exceptionTypeStr == "long")
+    {
+      throw 3L;
+    }
+  }
+  catch (char c)
+  {
+    std::println("Caught char exception: '{}'", c);
+  }
+  catch (short s)
+  {
+    std::println("Caught short exception: {}", s);
+  }
+  catch (int i)
+  {
+    std::println("Caught int exception: {}", i);
+  }
+  catch (long l)
+  {
+    std::println("Caught long exception: {}", l);
+  }
+
+  return 0;
 }
 ```
 <!-- SNIPPET:END -->
