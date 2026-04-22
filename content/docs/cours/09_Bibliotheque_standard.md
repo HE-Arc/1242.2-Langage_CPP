@@ -1151,8 +1151,10 @@ for (auto i = 0; i < 10; ++i)
 ```cpp
 void foo(MyArray& tab1, MyArray& tab2)
 {
-  for (auto i = 0; i < tab1.size(); ++i)
-    tab2.push_back(tab1.front());
+    for (std::size_t i = 0; i < tab1.size(); i++)
+    {
+        tab2.push_back(tab1.front());
+    }
 }
 ```
 
@@ -1210,13 +1212,17 @@ using myList = std::list<int>;
 On demande d'écrire un programme capable de tester l'efficacité des tâches ci-dessous :
 
 1. Insertion de 100'000'000 éléments à la fin d'un `std::vector`
-2. Insertion de 100'000'000 éléments a la fin d'un `std::vector` (en utilisant `reserve`)
-3. Insertion de     500'000 éléments au début d'un `std::vector` (avec la méthode `insert`)
-4. Insertion de     500'000 éléments au début d'un `std::vector` (la méthode `reserve`)
+2. Insertion de 100'000'000 éléments à la fin d'un `std::vector` (en utilisant `reserve`)
+3. Insertion de     500'000 éléments au début d'un `std::vector` (en utilisant `insert`)
+4. Insertion de     500'000 éléments au début d'un `std::vector` (en utilisant `reserve`)
 5. Insertion de     500'000 éléments à la fin d'une `std::list`
 6. Insertion de     500'000 éléments au début d'une `std::list`
 7. Insertion de     500'000 éléments au début d'une `std::forward_list`
 8. Insertion de      50'000 éléments à la FIN d'une `std::forward_list` (traverser la liste pour ajouter à la fin)
+
+{{<a_noter>}}
+Les tailles utilisées sont différentes car certaines opérations peuvent prendre beaucoup plus de temps que d'autres.
+{{</a_noter>}}
 
 Pour mesurer le temps, vous pouvez utiliser les fonctions de <chrono> :
 
@@ -1264,7 +1270,7 @@ On demande d'utiliser le [structured binding](https://en.cppreference.com/w/cpp/
 
 <div style="page-break-after: always;"></div>
 
-## Exercice 2 : conteneurs associatifs et algorithmes
+### Exercice 2 : conteneurs associatifs et algorithmes
 
 Écrire un programme qui lit un fichier de texte donné en paramètre (qui contient des citations de Steve Jobs), complètement, mot par mot. 
 Le programme créera une table associative (dictionnaire clé-valeur) avec comme clés les mots, et comme valeur le nombre d’occurrences. 
