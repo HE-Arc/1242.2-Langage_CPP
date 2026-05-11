@@ -1108,7 +1108,7 @@ Dans un deuxième temps, on fera les tests suivants :
 Écrire un programme permettant de lister (sur la sortie standard) les entiers contenus dans le fichier tel que celui créé par l’exercice précédent.
 
 ### Exercice 3 : rang
-Écrire un programme permettant à un utilisateur de retrouver, dans un fichier tel que celui créé dans l'exercice 1, les entiers dont il fournit le « _rang_ » (sa valeur).
+Écrire un programme permettant à un utilisateur de retrouver, dans un fichier tel que celui créé dans l'exercice 1, les entiers dont il fournit le « _rang_ » (sa position).
 On conviendra qu’un rang égal à 0 signifie que l'utilisateur souhaite mettre fin au programme.
 
 ### Exercice 4 : lecture formatée
