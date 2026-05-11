@@ -2,7 +2,7 @@
 title: "8. Exceptions — Solutions"
 type: docs
 weight: 10
-draft: true
+draft: false
 ---
 
 # Chapitre 8 : exceptions — Solutions
@@ -157,6 +157,15 @@ void isGreaterThan(int value, int minValue)
 ## Serie 8.2
 
 ### Exercice 1 : classe Vector avec exceptions
+
+{{<a_noter>}}
+**Remarque – bonne pratique**
+
+Pour des raisons pédagogiques, cette solution attrape **`std::bad_alloc`** directement dans les constructeurs et l'**`operator=`**.
+**Ce n'est pas la pratique recommandée.**
+
+En production, un constructeur devrait laisser propager l'exception : l'objet ne sera alors jamais considéré comme construit, et c'est à l'appelant de décider quoi faire (abandonner, retenter avec une taille plus petite, logger, etc.).
+{{</a_noter>}}
 
 {{<details "1242.2_08.02_ExceptionVector" >}}
 **`Vector.h`**
