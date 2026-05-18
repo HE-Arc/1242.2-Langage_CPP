@@ -9,7 +9,7 @@ L'oral durera 30 minutes.
 
 ### Avant l'oral
 Avant de passer, il faut absolument :
-- Préparer VS Code : être capable de coder, compiler et exécuter du code rapidement.
+- Préparer votre éditeur : être capable de coder, compiler et exécuter du code rapidement.
 - Vérifier que l'ordinateur peut être branché au projecteur. Il faut prévoir un adaptateur USB-C → HDMI si nécessaire.
 - Ouvrir le code source de son projet dans l'éditeur.
 - Bien relire son code et être capable de l'expliquer.
@@ -19,7 +19,7 @@ Avant de passer, il faut absolument :
 {{< /hint >}}
 
 ### Pendant l'oral
-0) (Optionnel) Discussions sur le coded de votre projet.
+0) (Optionnel) Discussions sur le code de votre projet.
 1) **[Très simple]** Afficher un entier + compiler + exécuter ⇒ max. 1 minute.
 2) Exercice complet ressemblant à celui donné ci-dessous, à coder en direct ⇒ max. 20 minutes.
 
@@ -88,7 +88,7 @@ Elle doit contenir au moins 2 **`Rectangle`** et 2 **`Circle`**, avec des dimens
 - Connaître au moins une syntaxe de parcours qui fonctionne (range-for, itérateur ou index)
 
 #### Comportement à l'oral
-- **Préparer VS Code en amont** : tout le temps perdu au début pénalise la note
+- **Préparer votre éditeur en amont** : tout le temps perdu au début pénalise la note
 - Pouvoir **expliquer son code** clairement (notamment les concepts : héritage, polymorphisme, virtuelle pure)
 - Quand on bloque : essayer, montrer son raisonnement — l'enseignant peut aider, et savoir rebondir avec un indice est valorisé
 - Repérer ses propres erreurs (oubli de **`virtual`**, mauvais type de retour, etc.) est très valorisé
