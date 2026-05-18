@@ -11,15 +11,15 @@ L'oral durera 30 minutes.
 Avant de passer, il faut absolument :
 - Préparer VS Code : être capable de coder, compiler et exécuter du code rapidement.
 - Vérifier que l'ordinateur peut être branché au projecteur. Il faut prévoir un adaptateur USB-C → HDMI si nécessaire.
-- Ouvrir le code source de ses auto-évaluations dans VS Code.
-- Bien relire son code et être capable de l'expliquer (auto-évaluations et exercices).
+- Ouvrir le code source de son projet dans l'éditeur.
+- Bien relire son code et être capable de l'expliquer.
 
 {{< hint danger >}}
 **ATTENTION :** tout le temps perdu au début de l'oral pénalisera la note finale.
 {{< /hint >}}
 
 ### Pendant l'oral
-0) (Optionnel) Discussions sur le coded de votr projet.
+0) (Optionnel) Discussions sur le coded de votre projet.
 1) **[Très simple]** Afficher un entier + compiler + exécuter ⇒ max. 1 minute.
 2) Exercice complet ressemblant à celui donné ci-dessous, à coder en direct ⇒ max. 20 minutes.
 
